@@ -8,46 +8,41 @@
   <meta property="og:title" content="RECAMBIOS MK | Recambio de sifones de soda" />
   <meta property="og:description" content="Pedí tu recambio por WhatsApp. Envíos coordinados (CABA y GBA) y retiro en local. Pago por transferencia adelantado al confirmar." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://iili.io/qqujKtR.jpg" />
+  <meta property="og:image" content="https://iili.io/qqAZooQ.md.jpg" />
   <meta property="og:locale" content="es_AR" />
 
   <style>
     :root{
-      --bg:#0b0f14;
-      --bg-soft:#101722;
-      --card:rgba(17,24,39,.80);
-      --card-strong:rgba(15,23,42,.92);
-      --card-lite:rgba(255,255,255,.04);
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --line:#233044;
-      --line-strong:#314258;
-      --brand:#22c55e;
-      --brand-2:#86efac;
-      --accent:#60a5fa;
-      --accent-2:#93c5fd;
-      --warn:#f59e0b;
-      --shadow:0 18px 60px rgba(0,0,0,.35);
-      --shadow-soft:0 12px 32px rgba(0,0,0,.18);
-      --radius:18px;
-      --radius-lg:26px;
-
-      --overlay-url:url("https://iili.io/qqABRmQ.jpg");
-      --banner-url:url("https://iili.io/qqAZooQ.md.jpg");
-    }
-
-    html[data-theme="light"]{
       --bg:#f5f7fb;
       --bg-soft:#eef2f8;
-      --card:rgba(255,255,255,.86);
-      --card-strong:rgba(255,255,255,.94);
+      --card:rgba(255,255,255,.88);
+      --card-strong:rgba(255,255,255,.96);
       --card-lite:rgba(11,18,32,.03);
       --text:#0b1220;
       --muted:#5f6b7a;
       --line:#e4e9f1;
-      --line-strong:#d7deea;
+      --brand:#22c55e;
+      --accent:#60a5fa;
+      --warn:#f59e0b;
       --shadow:0 18px 60px rgba(10,18,32,.12);
       --shadow-soft:0 12px 32px rgba(10,18,32,.08);
+      --radius:18px;
+      --radius-lg:26px;
+      --overlay-url:url("https://iili.io/qqABRmQ.jpg");
+      --banner-url:url("https://iili.io/qqAZooQ.md.jpg");
+    }
+
+    html[data-theme="dark"]{
+      --bg:#0b0f14;
+      --bg-soft:#101722;
+      --card:rgba(17,24,39,.82);
+      --card-strong:rgba(15,23,42,.94);
+      --card-lite:rgba(255,255,255,.04);
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --line:#233044;
+      --shadow:0 18px 60px rgba(0,0,0,.35);
+      --shadow-soft:0 12px 32px rgba(0,0,0,.18);
     }
 
     *{box-sizing:border-box}
@@ -62,6 +57,7 @@
         var(--bg);
       color:var(--text);
       overflow-x:hidden;
+      transition:background .35s ease,color .35s ease;
     }
 
     .page{
@@ -87,13 +83,13 @@
       background-image:var(--overlay-url);
       background-size:520px auto;
       background-repeat:repeat;
-      opacity:.045;
+      opacity:.03;
       transform:rotate(-6deg);
-      filter:saturate(1.05) contrast(1.03);
+      filter:saturate(1.02) contrast(1.02);
     }
 
-    html[data-theme="light"] .bg-overlay::before{
-      opacity:.035;
+    html[data-theme="dark"] .bg-overlay::before{
+      opacity:.045;
     }
 
     .wrap{
@@ -104,9 +100,7 @@
       padding:18px 0 118px;
     }
 
-    .section{
-      margin-top:18px;
-    }
+    .section{margin-top:18px}
 
     .card{
       background:var(--card);
@@ -114,11 +108,10 @@
       border-radius:var(--radius-lg);
       box-shadow:var(--shadow);
       backdrop-filter:blur(12px);
+      transition:background .35s ease,border-color .35s ease;
     }
 
-    .card.pad{
-      padding:18px;
-    }
+    .card.pad{padding:18px}
 
     .eyebrow{
       display:inline-flex;
@@ -144,13 +137,6 @@
       flex:0 0 auto;
     }
 
-    .title{
-      margin:0;
-      font-size:clamp(24px,3vw,38px);
-      line-height:1.04;
-      letter-spacing:-.4px;
-    }
-
     .subtitle{
       margin:0;
       color:var(--muted);
@@ -173,7 +159,7 @@
       justify-content:center;
       gap:10px;
       text-decoration:none;
-      transition:transform .14s ease, border-color .14s ease, background .14s ease;
+      transition:transform .14s ease,border-color .14s ease,background .14s ease;
       user-select:none;
     }
 
@@ -192,26 +178,10 @@
       color:#072111;
     }
 
-    .btn.ghost{
-      background:transparent;
-    }
-
+    .btn.ghost{background:transparent}
     .btn.soft{
       background:color-mix(in srgb, var(--accent), transparent 92%);
       border-color:color-mix(in srgb, var(--accent), var(--line) 78%);
-    }
-
-    .toggle{
-      width:46px;
-      height:46px;
-      padding:0;
-      border-radius:15px;
-    }
-
-    .toggle svg{
-      width:18px;
-      height:18px;
-      opacity:.92;
     }
 
     .pillrow{
@@ -248,21 +218,12 @@
     }
 
     .hero-banner{
-      min-height:clamp(240px,34vw,360px);
-      background-image:
-        linear-gradient(to bottom, rgba(0,0,0,.16), rgba(0,0,0,.48)),
-        var(--banner-url);
+      min-height:clamp(230px,33vw,350px);
+      background-image:var(--banner-url);
       background-size:cover;
       background-position:center;
-      position:relative;
       display:flex;
       align-items:flex-end;
-    }
-
-    html[data-theme="light"] .hero-banner{
-      background-image:
-        linear-gradient(to bottom, rgba(255,255,255,.04), rgba(0,0,0,.28)),
-        var(--banner-url);
     }
 
     .hero-content{
@@ -300,7 +261,7 @@
       height:92px;
       border-radius:24px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.22);
+      border:1px solid rgba(255,255,255,.25);
       box-shadow:0 18px 48px rgba(0,0,0,.22);
       background:#000;
       flex:0 0 auto;
@@ -328,21 +289,22 @@
 
     .hero-copy h1{
       margin:8px 0 10px;
-      font-size:clamp(28px,4.8vw,48px);
+      font-size:clamp(28px,4.6vw,46px);
       line-height:1.02;
       letter-spacing:-.6px;
       color:#fff;
       text-wrap:balance;
-      text-shadow:0 10px 26px rgba(0,0,0,.22);
+      text-shadow:0 10px 26px rgba(0,0,0,.18);
     }
 
     .hero-copy p{
       margin:0;
       max-width:720px;
-      color:rgba(255,255,255,.92);
+      color:rgba(255,255,255,.96);
       font-size:15px;
-      line-height:1.58;
-      font-weight:500;
+      line-height:1.56;
+      font-weight:600;
+      text-shadow:0 6px 18px rgba(0,0,0,.16);
     }
 
     .hero-note{
@@ -351,24 +313,17 @@
       align-items:center;
       padding:10px 14px;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.22);
       background:rgba(255,255,255,.10);
       color:#fff;
       font-size:12.5px;
       font-weight:900;
       letter-spacing:.2px;
       line-height:1.45;
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(8px);
       text-transform:uppercase;
       max-width:760px;
-    }
-
-    html[data-theme="light"] .hero-copy h1{
-      color:#ffffff;
-    }
-
-    html[data-theme="light"] .hero-copy p{
-      color:rgba(255,255,255,.95);
+      text-shadow:0 4px 14px rgba(0,0,0,.18);
     }
 
     .hero-actions{
@@ -391,19 +346,6 @@
       }
     }
 
-    .hero-tools{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    @media (max-width:900px){
-      .hero-tools{
-        justify-content:flex-start;
-      }
-    }
-
     .hero-bottom{
       padding:0 20px 20px;
       display:flex;
@@ -418,9 +360,7 @@
       backdrop-filter:blur(10px);
     }
 
-    .hero-bottom .pill strong{
-      color:#fff;
-    }
+    .hero-bottom .pill strong{color:#fff}
 
     .grid{
       display:grid;
@@ -430,9 +370,7 @@
     }
 
     @media (max-width:980px){
-      .grid{
-        grid-template-columns:1fr;
-      }
+      .grid{grid-template-columns:1fr}
     }
 
     .order-card{
@@ -454,13 +392,8 @@
       letter-spacing:-.2px;
     }
 
-    .muted{
-      color:var(--muted);
-    }
-
-    .tiny{
-      font-size:12.5px;
-    }
+    .tiny{font-size:12.5px}
+    .muted{color:var(--muted)}
 
     .combo-grid{
       display:grid;
@@ -469,13 +402,10 @@
     }
 
     @media (max-width:640px){
-      .combo-grid{
-        grid-template-columns:1fr;
-      }
+      .combo-grid{grid-template-columns:1fr}
     }
 
     .combo{
-      position:relative;
       border:1px solid var(--line);
       background:var(--card-lite);
       border-radius:20px;
@@ -483,8 +413,8 @@
       display:flex;
       flex-direction:column;
       gap:10px;
-      min-height:180px;
-      transition:border-color .14s ease, transform .14s ease, background .14s ease, box-shadow .14s ease;
+      min-height:176px;
+      transition:border-color .14s ease,transform .14s ease,background .14s ease,box-shadow .14s ease;
       box-shadow:0 8px 24px rgba(0,0,0,.04);
     }
 
@@ -596,42 +526,6 @@
       transform:translateY(.5px);
     }
 
-    .spotlight{
-      border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
-      background:color-mix(in srgb, var(--accent), transparent 93%);
-      border-radius:20px;
-      padding:14px;
-      display:grid;
-      grid-template-columns:auto 1fr;
-      gap:12px;
-      align-items:start;
-    }
-
-    .spot-icon{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:color-mix(in srgb, var(--brand), transparent 84%);
-      border:1px solid color-mix(in srgb, var(--brand), var(--line) 65%);
-      color:var(--brand);
-      font-size:18px;
-      font-weight:900;
-    }
-
-    .spotlight h3{
-      margin:0 0 6px;
-      font-size:15px;
-    }
-
-    .spotlight p{
-      margin:0;
-      color:var(--muted);
-      font-size:13.4px;
-      line-height:1.45;
-    }
-
     .mini-steps{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
@@ -639,9 +533,7 @@
     }
 
     @media (max-width:640px){
-      .mini-steps{
-        grid-template-columns:1fr;
-      }
+      .mini-steps{grid-template-columns:1fr}
     }
 
     .step{
@@ -703,9 +595,7 @@
     }
 
     @media (max-width:740px){
-      .form{
-        grid-template-columns:1fr;
-      }
+      .form{grid-template-columns:1fr}
     }
 
     label{
@@ -726,7 +616,7 @@
       padding:12px 12px;
       outline:none;
       font-size:14px;
-      transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
+      transition:border-color .14s ease,box-shadow .14s ease,background .14s ease;
     }
 
     input:focus,select:focus,textarea:focus{
@@ -739,9 +629,7 @@
       resize:vertical;
     }
 
-    .full{
-      grid-column:1 / -1;
-    }
+    .full{grid-column:1 / -1}
 
     .cta-row{
       display:flex;
@@ -837,9 +725,7 @@
     }
 
     @media (max-width:560px){
-      .icons{
-        grid-template-columns:1fr;
-      }
+      .icons{grid-template-columns:1fr}
     }
 
     .iconbox{
@@ -873,241 +759,6 @@
       line-height:1.32;
     }
 
-    .service-grid{
-      display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:16px;
-      align-items:stretch;
-    }
-
-    @media (max-width:980px){
-      .service-grid{
-        grid-template-columns:1fr;
-      }
-    }
-
-    .service-copy{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      min-width:0;
-    }
-
-    .lead{
-      font-size:15px;
-      line-height:1.62;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .feature-points{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:10px;
-    }
-
-    @media (max-width:640px){
-      .feature-points{
-        grid-template-columns:1fr;
-      }
-    }
-
-    .feature{
-      border:1px solid var(--line);
-      background:var(--card-lite);
-      border-radius:18px;
-      padding:13px;
-    }
-
-    .feature strong{
-      display:block;
-      margin:0 0 5px;
-      font-size:14px;
-    }
-
-    .feature p{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.45;
-    }
-
-    .service-images{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-      align-self:start;
-    }
-
-    .imgcard{
-      border:1px solid var(--line);
-      background:var(--card-lite);
-      border-radius:22px;
-      overflow:hidden;
-      box-shadow:var(--shadow-soft);
-      display:flex;
-      flex-direction:column;
-    }
-
-    .imgcard img{
-      width:100%;
-      height:230px;
-      object-fit:cover;
-      display:block;
-    }
-
-    .imgcard .pad{
-      padding:14px;
-    }
-
-    .imgcard .t{
-      margin:0 0 6px;
-      font-weight:900;
-      font-size:15px;
-    }
-
-    .imgcard .d{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.46;
-    }
-
-    .zone-wrap{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-      align-items:start;
-    }
-
-    @media (max-width:980px){
-      .zone-wrap{
-        grid-template-columns:1fr;
-      }
-    }
-
-    .map-small .img-top{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-      display:block;
-      border-bottom:1px solid var(--line);
-    }
-
-    @media (max-width:560px){
-      .map-small .img-top{
-        height:180px;
-      }
-    }
-
-    .zone-search-card{
-      border:1px solid var(--line);
-      background:var(--card-lite);
-      border-radius:22px;
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      min-height:100%;
-    }
-
-    .zone-search-head{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-
-    .zone-search-head h3{
-      margin:0;
-      font-size:18px;
-    }
-
-    .zone-search-head p{
-      margin:0;
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.45;
-    }
-
-    .zone-search-input{
-      position:relative;
-    }
-
-    .zone-search-input input{
-      padding-right:44px;
-    }
-
-    .zone-search-input span{
-      position:absolute;
-      right:14px;
-      top:50%;
-      transform:translateY(-50%);
-      color:var(--muted);
-      font-size:15px;
-      pointer-events:none;
-    }
-
-    .zone-stats{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-
-    .zone-stat{
-      border:1px solid var(--line);
-      background:var(--card-strong);
-      border-radius:999px;
-      padding:8px 11px;
-      font-size:12px;
-      font-weight:800;
-    }
-
-    .zone-list{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:8px;
-      max-height:340px;
-      overflow:auto;
-      padding-right:4px;
-    }
-
-    @media (max-width:560px){
-      .zone-list{
-        grid-template-columns:1fr;
-        max-height:300px;
-      }
-    }
-
-    .zone-list::-webkit-scrollbar{
-      width:8px;
-    }
-
-    .zone-list::-webkit-scrollbar-thumb{
-      background:color-mix(in srgb, var(--line), var(--accent) 18%);
-      border-radius:999px;
-    }
-
-    .zone-item{
-      border:1px solid var(--line);
-      background:var(--card-strong);
-      border-radius:14px;
-      padding:10px 12px;
-      font-size:13px;
-      font-weight:800;
-      line-height:1.35;
-    }
-
-    .zone-empty{
-      display:none;
-      border:1px dashed color-mix(in srgb, var(--accent), var(--line) 62%);
-      background:color-mix(in srgb, var(--accent), transparent 94%);
-      border-radius:16px;
-      padding:14px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.45;
-    }
-
     .reviews{
       display:grid;
       grid-template-columns:repeat(5,minmax(0,1fr));
@@ -1115,15 +766,11 @@
     }
 
     @media (max-width:980px){
-      .reviews{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
+      .reviews{grid-template-columns:repeat(3,minmax(0,1fr))}
     }
 
     @media (max-width:560px){
-      .reviews{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
+      .reviews{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
 
     .review{
@@ -1136,7 +783,7 @@
       flex-direction:column;
       align-items:center;
       gap:8px;
-      min-height:188px;
+      min-height:178px;
     }
 
     .review img{
@@ -1167,9 +814,7 @@
       padding:12px;
     }
 
-    details + details{
-      margin-top:10px;
-    }
+    details + details{margin-top:10px}
 
     summary{
       cursor:pointer;
@@ -1181,9 +826,7 @@
       gap:12px;
     }
 
-    summary::-webkit-details-marker{
-      display:none;
-    }
+    summary::-webkit-details-marker{display:none}
 
     .chev{
       width:18px;
@@ -1193,9 +836,7 @@
       flex:0 0 auto;
     }
 
-    details[open] .chev{
-      transform:rotate(180deg);
-    }
+    details[open] .chev{transform:rotate(180deg)}
 
     .content{
       margin-top:10px;
@@ -1204,7 +845,125 @@
       line-height:1.52;
     }
 
+    .coverage-wrap{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+
+    .coverage-search{
+      border:1px solid var(--line);
+      background:var(--card-lite);
+      border-radius:22px;
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .coverage-search-head{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .coverage-search-head h3{
+      margin:0;
+      font-size:18px;
+    }
+
+    .coverage-search-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.45;
+    }
+
+    .zone-search-input{
+      position:relative;
+      max-width:520px;
+    }
+
+    .zone-search-input input{
+      padding-right:44px;
+    }
+
+    .zone-search-input .search-icon{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--muted);
+      font-size:16px;
+      pointer-events:none;
+      opacity:.9;
+    }
+
+    .zone-empty{
+      display:none;
+      border:1px dashed color-mix(in srgb, var(--accent), var(--line) 62%);
+      background:color-mix(in srgb, var(--accent), transparent 94%);
+      border-radius:16px;
+      padding:14px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .zone-results{
+      display:none;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+      max-height:260px;
+      overflow:auto;
+      padding-right:4px;
+    }
+
+    @media (max-width:560px){
+      .zone-results{grid-template-columns:1fr}
+    }
+
+    .zone-results::-webkit-scrollbar{width:8px}
+    .zone-results::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
+    }
+
+    .zone-item{
+      border:1px solid var(--line);
+      background:var(--card-strong);
+      border-radius:14px;
+      padding:10px 12px;
+      font-size:13px;
+      font-weight:800;
+      line-height:1.35;
+    }
+
+    .map-box{
+      border:1px solid var(--line);
+      background:var(--card-lite);
+      border-radius:22px;
+      padding:16px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+
+    .map-box h3{
+      margin:0;
+      font-size:18px;
+    }
+
+    .map-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.45;
+    }
+
     .map{
+      width:min(420px,100%);
+      aspect-ratio:1 / 1;
       border-radius:22px;
       overflow:hidden;
       border:1px solid var(--line);
@@ -1214,15 +973,9 @@
 
     .map iframe{
       width:100%;
-      height:280px;
+      height:100%;
       border:0;
       display:block;
-    }
-
-    @media (max-width:560px){
-      .map iframe{
-        height:240px;
-      }
     }
 
     footer{
@@ -1274,35 +1027,25 @@
     .float a{
       width:56px;
       height:56px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:var(--card-strong);
-      box-shadow:var(--shadow);
       display:flex;
       align-items:center;
       justify-content:center;
       text-decoration:none;
       transition:transform .12s ease;
+      background:transparent;
+      border:none;
+      box-shadow:none;
+      padding:0;
     }
 
-    .float a:hover{
-      transform:translateY(-2px);
-    }
+    .float a:hover{transform:translateY(-2px)}
 
     .float img{
-      width:30px;
-      height:30px;
+      width:46px;
+      height:46px;
       display:block;
-    }
-
-    .float .wa{
-      background:#eafff2;
-      border-color:#b7f2cf;
-    }
-
-    html[data-theme="dark"] .float .wa{
-      background:#0b1a12;
-      border-color:#1c3d2a;
+      object-fit:contain;
+      filter:drop-shadow(0 8px 18px rgba(0,0,0,.18));
     }
   </style>
 </head>
@@ -1324,15 +1067,10 @@
 
                 <div class="hero-copy">
                   <span class="eyebrow">Recambio simple y coordinado</span>
-                  <h1>Pedí tu recambio de sifones de soda de forma rápida, clara y por WhatsApp</h1>
-                  <p>
-                    Elegí tu combo, cargá los datos del pedido y coordiná la entrega o retiro sin vueltas.
-                    Servicio pensado para resolver el recambio de manera práctica, con atención clara y seguimiento por WhatsApp.
-                  </p>
+                  <h1>Pedí tu recambio de sifones de soda por WhatsApp</h1>
+                  <p>Elegí tu combo, completá los datos y coordiná la entrega o el retiro de forma rápida y clara.</p>
 
-                  <div class="hero-note">
-                    RECARGAMOS EL SIFON CON 450 GRS DE CO2 NACIONAL, (CERTIFICADO ANMAT)
-                  </div>
+                  <div class="hero-note">RECARGAMOS EL SIFON CON 450 GRS DE CO2 NACIONAL, (CERTIFICADO ANMAT)</div>
 
                   <div class="hero-actions">
                     <a class="btn primary" href="#pedido">Pedir ahora</a>
@@ -1341,17 +1079,7 @@
                 </div>
               </div>
 
-              <div class="hero-right">
-                <div class="hero-tools">
-                  <button class="btn toggle" id="themeBtn" aria-label="Cambiar tema" title="Cambiar tema">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="2"/>
-                      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                  </button>
-                  <a class="btn soft" href="#zonas">Ver zonas</a>
-                </div>
-              </div>
+              <div class="hero-right"></div>
             </div>
           </div>
 
@@ -1370,21 +1098,7 @@
             <div class="section-head">
               <span class="eyebrow">Pedido directo</span>
               <h2>Elegí tu combo y confirmalo por WhatsApp</h2>
-              <p class="subtitle">
-                Vendemos solo recambio. El repartidor entrega los sifones cargados y retira los envases vacíos.
-                Si necesitás coordinar un caso especial, también se puede consultar por WhatsApp.
-              </p>
-            </div>
-
-            <div class="spotlight">
-              <div class="spot-icon">✓</div>
-              <div>
-                <h3>Un servicio pensado para que pedir sea simple</h3>
-                <p>
-                  No necesitás dar vueltas ni explicar demasiado. Elegís la cantidad, completás tus datos y enviás el pedido listo.
-                  Ideal para resolver el recambio de forma rápida y ordenada.
-                </p>
-              </div>
+              <p class="subtitle">Vendemos solo recambio. El repartidor entrega los sifones cargados y retira los envases vacíos.</p>
             </div>
 
             <div class="combo-grid" role="radiogroup" aria-label="Combos disponibles">
@@ -1396,15 +1110,12 @@
                   </div>
                   <span class="badge">Envío CABA incluido</span>
                 </div>
-
                 <div class="price">$16.000 <small>total</small></div>
-
                 <div class="combo-points">
                   <div>Pedido simple y rápido</div>
                   <div>Entrega coordinada por WhatsApp</div>
                   <div>GBA con costo a consultar</div>
                 </div>
-
                 <div class="combo-foot">
                   <label class="radio"><input type="radio" name="combo" value="1" checked> Seleccionar</label>
                   <span class="tiny muted">Total fijo</span>
@@ -1419,15 +1130,12 @@
                   </div>
                   <span class="badge">Envío CABA incluido</span>
                 </div>
-
                 <div class="price">$27.000 <small>total</small></div>
-
                 <div class="combo-points">
                   <div>Más conveniente que pedir de a uno</div>
                   <div>Retiro de vacíos en el mismo proceso</div>
                   <div>GBA con costo a consultar</div>
                 </div>
-
                 <div class="combo-foot">
                   <label class="radio"><input type="radio" name="combo" value="2"> Seleccionar</label>
                   <span class="tiny muted">Total fijo</span>
@@ -1442,15 +1150,12 @@
                   </div>
                   <span class="badge">Envío CABA incluido</span>
                 </div>
-
                 <div class="price">$38.000 <small>total</small></div>
-
                 <div class="combo-points">
                   <div>Más cantidad, mismo proceso simple</div>
                   <div>Atención clara para coordinar entrega</div>
                   <div>GBA con costo a consultar</div>
                 </div>
-
                 <div class="combo-foot">
                   <label class="radio"><input type="radio" name="combo" value="3"> Seleccionar</label>
                   <span class="tiny muted">Total fijo</span>
@@ -1465,15 +1170,12 @@
                   </div>
                   <span class="badge">Envío CABA incluido</span>
                 </div>
-
                 <div class="price">$49.000 <small>total</small></div>
-
                 <div class="combo-points">
                   <div>Muy práctico para pedir más cantidad</div>
                   <div>Coordinación por WhatsApp sin vueltas</div>
                   <div>GBA con costo a consultar</div>
                 </div>
-
                 <div class="combo-foot">
                   <label class="radio"><input type="radio" name="combo" value="4"> Seleccionar</label>
                   <span class="tiny muted">Total fijo</span>
@@ -1501,9 +1203,7 @@
 
             <div class="form-box">
               <h3>Datos para tomar el pedido</h3>
-              <p class="subtitle">
-                Pago por transferencia adelantado. Los datos se comparten por WhatsApp al momento de confirmar.
-              </p>
+              <p class="subtitle">Pago por transferencia adelantado. Los datos se comparten por WhatsApp al confirmar.</p>
 
               <div class="form">
                 <label>
@@ -1576,10 +1276,7 @@
                 <div class="total" id="totalBox">Total: $16.000</div>
               </div>
 
-              <p class="help">
-                Importante: la mayoría de las veces llega en el día, pero puede haber demoras si la logística tiene una falla.
-                Si no te encuentran, vuelven a pasar o se reprograma hasta poder entregar.
-              </p>
+              <p class="help">Importante: la mayoría de las veces llega en el día, pero puede haber demoras si la logística tiene una falla. Si no te encuentran, vuelven a pasar o se reprograma hasta poder entregar.</p>
             </div>
           </div>
 
@@ -1587,7 +1284,7 @@
             <div class="card info-card">
               <div class="section-head">
                 <span class="eyebrow">Información rápida</span>
-                <h2>Todo lo importante, claro y a mano</h2>
+                <h2>Lo importante para pedir</h2>
               </div>
 
               <div class="pillrow">
@@ -1640,7 +1337,7 @@
                 </div>
 
                 <div class="iconbox">
-                  <img src="https://iili.io/qquNUnR.png" alt="Práctica" />
+                  <img src="https://iili.io/qquNUnR.png" alt="Práctico" />
                   <div>
                     <p class="tt">Práctico</p>
                     <p class="dd">Pedís y coordinás el recambio por WhatsApp de forma simple.</p>
@@ -1648,7 +1345,7 @@
                 </div>
 
                 <div class="iconbox">
-                  <img src="https://iili.io/qquN8Zv.png" alt="Económica" />
+                  <img src="https://iili.io/qquN8Zv.png" alt="Conveniente" />
                   <div>
                     <p class="tt">Conveniente</p>
                     <p class="dd">Una forma más cómoda de resolver el consumo habitual.</p>
@@ -1656,7 +1353,7 @@
                 </div>
 
                 <div class="iconbox">
-                  <img src="https://iili.io/qquNvwJ.png" alt="Fresca" />
+                  <img src="https://iili.io/qquNvwJ.png" alt="Lista para usar" />
                   <div>
                     <p class="tt">Lista para usar</p>
                     <p class="dd">Soda bien gasificada y recambio coordinado sin complicarte.</p>
@@ -1664,146 +1361,32 @@
                 </div>
               </div>
             </div>
-
-            <div class="card info-card">
-              <div class="section-head">
-                <span class="eyebrow">Cómo trabajamos</span>
-                <h2>Atención clara y servicio coordinado</h2>
-              </div>
-
-              <div class="icons" aria-label="Cómo trabajamos">
-                <div class="iconbox">
-                  <img src="https://iili.io/qqu6vCF.png" alt="Atención personalizada" />
-                  <div>
-                    <p class="tt">Atención personalizada</p>
-                    <p class="dd">Confirmación y coordinación por WhatsApp.</p>
-                  </div>
-                </div>
-
-                <div class="iconbox">
-                  <img src="https://iili.io/qqu6OhP.png" alt="Compra segura" />
-                  <div>
-                    <p class="tt">Pedido claro</p>
-                    <p class="dd">La información sale ordenada para confirmar más rápido.</p>
-                  </div>
-                </div>
-
-                <div class="iconbox">
-                  <img src="https://iili.io/qqu6eQ1.png" alt="Envíos coordinados" />
-                  <div>
-                    <p class="tt">Envíos coordinados</p>
-                    <p class="dd">Servicio terciarizado, sujeto a coordinación y disponibilidad.</p>
-                  </div>
-                </div>
-
-                <div class="iconbox">
-                  <img src="https://iili.io/qqu6NTB.png" alt="Retiro en local" />
-                  <div>
-                    <p class="tt">Retiro en local</p>
-                    <p class="dd">Haedo, en horario del local y con coordinación previa.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </aside>
-        </section>
-
-        <section class="card pad section" id="servicio">
-          <div class="section-head">
-            <span class="eyebrow">Descripción del servicio</span>
-            <h2>Un recambio pensado para resolverte el pedido de forma simple</h2>
-          </div>
-
-          <div class="service-grid" style="margin-top:14px;">
-            <div class="service-copy">
-              <p class="lead">
-                Este servicio está pensado para que pedir tu recambio sea rápido, claro y cómodo.
-                Elegís la cantidad, indicás tus datos y confirmás todo por WhatsApp en un solo paso.
-                El repartidor entrega los sifones cargados y retira los vacíos, para que no tengas que hacer más de lo necesario.
-              </p>
-
-              <div class="feature-points">
-                <div class="feature">
-                  <strong>Pedido simple</strong>
-                  <p>La web te guía para completar lo justo y mandar el pedido ya estructurado.</p>
-                </div>
-                <div class="feature">
-                  <strong>Coordinación clara</strong>
-                  <p>La confirmación y los datos de pago se manejan por WhatsApp al momento de avanzar.</p>
-                </div>
-                <div class="feature">
-                  <strong>Recambio práctico</strong>
-                  <p>Se entrega el nuevo y se retira el envase vacío en el mismo proceso.</p>
-                </div>
-                <div class="feature">
-                  <strong>Envío o retiro</strong>
-                  <p>Podés elegir la modalidad que mejor te sirva según tu zona y comodidad.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="service-images">
-              <div class="imgcard">
-                <img src="https://iili.io/qquwWdX.jpg" alt="Servicio de recambio" />
-                <div class="pad">
-                  <p class="t">Recambio simple</p>
-                  <p class="d">Elegís el combo, enviás el pedido y coordinás sin vueltas.</p>
-                </div>
-              </div>
-
-              <div class="imgcard">
-                <img src="https://iili.io/qquwhes.jpg" alt="Servicio coordinado" />
-                <div class="pad">
-                  <p class="t">Entrega coordinada</p>
-                  <p class="d">La logística entrega de 17 a 22 hs. Tiempo estimado: 24 a 48 hs.</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
 
         <section class="card pad section" id="zonas">
           <div class="section-head">
             <span class="eyebrow">Cobertura</span>
-            <h2>Zonas de reparto y cobertura</h2>
-            <p class="subtitle">
-              CABA y GBA. Envío incluido en CABA y costo a consultar para GBA según la zona.
-            </p>
+            <h2>Buscá tu localidad</h2>
+            <p class="subtitle">Escribí tu localidad, barrio o partido. Los resultados aparecen solo cuando buscás.</p>
           </div>
 
-          <div class="zone-wrap" style="margin-top:14px;">
-            <div class="imgcard map-small">
-              <img class="img-top" src="https://iili.io/qquQ2Hb.jpg" alt="Mapa de zonas de reparto" />
-              <div class="pad">
-                <p class="t">Mapa general de cobertura</p>
-                <p class="d">Visual de referencia para ubicar la zona de entregas de forma rápida.</p>
-              </div>
-            </div>
-
-            <div class="zone-search-card">
-              <div class="zone-search-head">
-                <h3>Buscá tu localidad</h3>
-                <p>
-                  Escribí el nombre de tu localidad, barrio o partido para ver si está dentro de la cobertura de entregas.
-                </p>
+          <div class="coverage-wrap" style="margin-top:14px;">
+            <div class="coverage-search">
+              <div class="coverage-search-head">
+                <h3>Localidades de entrega</h3>
+                <p>Cobertura en CABA y GBA. En GBA el costo de envío queda sujeto a consulta.</p>
               </div>
 
               <div class="zone-search-input">
                 <input id="zoneSearch" type="text" placeholder="Ej: Morón, San Miguel, CABA..." />
-                <span>🔎</span>
+                <span class="search-icon">🔎</span>
               </div>
 
-              <div class="zone-stats">
-                <div class="zone-stat">Cobertura: CABA + GBA</div>
-                <div class="zone-stat">GBA: costo a consultar</div>
-                <div class="zone-stat"><span id="zoneCount">45</span> localidades visibles</div>
-              </div>
+              <div class="zone-empty" id="zoneHint">Usá la lupa para buscar tu localidad.</div>
+              <div class="zone-empty" id="zoneEmpty">No encontramos coincidencias con esa búsqueda. Probá con otra localidad o consultá por WhatsApp.</div>
 
-              <div class="zone-empty" id="zoneEmpty">
-                No encontramos coincidencias con esa búsqueda. Probá con otra localidad o consultá por WhatsApp.
-              </div>
-
-              <div class="zone-list" id="zoneList" aria-label="Lista filtrable de localidades de entrega">
+              <div class="zone-results" id="zoneResults" aria-label="Resultados de localidades">
                 <div class="zone-item" data-zone="zarate">Zárate</div>
                 <div class="zone-item" data-zone="campana">Campana</div>
                 <div class="zone-item" data-zone="escobar">Escobar</div>
@@ -1850,10 +1433,6 @@
                 <div class="zone-item" data-zone="ituzaingo">Ituzaingó</div>
                 <div class="zone-item" data-zone="moreno">Moreno</div>
               </div>
-
-              <div class="cta-row">
-                <a class="btn soft" href="#pedido">Ir al pedido</a>
-              </div>
             </div>
           </div>
         </section>
@@ -1871,25 +1450,21 @@
               <div class="stars">★★★★★</div>
               <p>Rápido y coordinado. Muy buena atención.</p>
             </div>
-
             <div class="review">
               <img src="https://iili.io/qq3joUF.jpg" alt="Reseña 2" />
               <div class="stars">★★★★★</div>
               <p>Entrega dentro del horario y todo claro.</p>
             </div>
-
             <div class="review">
               <img src="https://iili.io/qq3jqiB.jpg" alt="Reseña 3" />
               <div class="stars">★★★★★</div>
               <p>Proceso simple por WhatsApp. Recomendable.</p>
             </div>
-
             <div class="review">
               <img src="https://iili.io/qq3jCKP.jpg" alt="Reseña 4" />
               <div class="stars">★★★★★</div>
               <p>Buena soda y coordinación rápida del envío.</p>
             </div>
-
             <div class="review">
               <img src="https://iili.io/qq3jTOJ.jpg" alt="Reseña 5" />
               <div class="stars">★★★★★</div>
@@ -1911,38 +1486,27 @@
           <div style="margin-top:14px;">
             <details>
               <summary>¿Qué necesito para pedir? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
-              <div class="content">
-                Nombre y apellido, zona o barrio, calle y altura, modelo o color del tubo, y confirmar si tenés envases vacíos.
-              </div>
+              <div class="content">Nombre y apellido, zona o barrio, calle y altura, modelo o color del tubo, y confirmar si tenés envases vacíos.</div>
             </details>
 
             <details>
               <summary>¿Cómo funciona el recambio? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
-              <div class="content">
-                El repartidor entrega los sifones cargados y retira los envases vacíos. Se vende solo recambio.
-              </div>
+              <div class="content">El repartidor entrega los sifones cargados y retira los envases vacíos. Se vende solo recambio.</div>
             </details>
 
             <details>
               <summary>¿Cuándo entregan? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
-              <div class="content">
-                Envíos de lunes a viernes. Entrega estimada de 24 a 48 hs. La logística entrega de 17 a 22 hs.
-                Para intentar entrega en el día, se toman pedidos hasta las 14 hs.
-              </div>
+              <div class="content">Envíos de lunes a viernes. Entrega estimada de 24 a 48 hs. La logística entrega de 17 a 22 hs. Para intentar entrega en el día, se toman pedidos hasta las 14 hs.</div>
             </details>
 
             <details>
               <summary>¿Cómo se paga? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
-              <div class="content">
-                El pago es por transferencia adelantada. Los datos se pasan por WhatsApp al momento de confirmar el pedido.
-              </div>
+              <div class="content">El pago es por transferencia adelantada. Los datos se pasan por WhatsApp al momento de confirmar el pedido.</div>
             </details>
 
             <details>
               <summary>Si no tengo envase vacío, ¿puedo pedir igual? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
-              <div class="content">
-                Sí, se puede consultar. En ese caso, en el pedido indicá que no tenés envases vacíos y se coordina por WhatsApp.
-              </div>
+              <div class="content">Sí, se puede consultar. En ese caso, en el pedido indicá que no tenés envases vacíos y se coordina por WhatsApp.</div>
             </details>
           </div>
         </section>
@@ -1959,14 +1523,19 @@
             <span class="pill">Retiros: <strong>L a S</strong> 15:30 a 19:00</span>
           </div>
 
-          <div class="map" aria-label="Mapa Google" style="margin-top:14px;">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.157839506933!2d-58.59649002509548!3d-34.650716559980395!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc79b7ed3249d%3A0xd696357ce33733e9!2sFERRETERIA!5e0!3m2!1ses!2sar!4v1772326758687!5m2!1ses!2sar"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Mapa Recambios MK"
-            ></iframe>
+          <div class="map-box" style="margin-top:14px;">
+            <h3>Dirección</h3>
+            <p>Gdor. Emilio Castro 624, B1706 Haedo, Provincia de Buenos Aires.</p>
+
+            <div class="map" aria-label="Mapa Google">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.157839506933!2d-58.59649002509548!3d-34.650716559980395!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc79b7ed3249d%3A0xd696357ce33733e9!2sFERRETERIA!5e0!3m2!1ses!2sar!4v1772326758687!5m2!1ses!2sar"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa Recambios MK"
+              ></iframe>
+            </div>
           </div>
 
           <div class="cta-row" style="margin-top:14px;">
@@ -1992,7 +1561,7 @@
     </footer>
 
     <div class="float" id="float">
-      <a class="wa" id="waFloat" href="#" aria-label="WhatsApp">
+      <a id="waFloat" href="#" aria-label="WhatsApp">
         <img src="https://iili.io/fm1NjzQ.jpg" alt="WhatsApp" />
       </a>
     </div>
@@ -2013,6 +1582,12 @@
       const state = {
         combo: 1
       };
+
+      function setThemeByHour(){
+        const hour = new Date().getHours();
+        const theme = (hour >= 7 && hour < 19) ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+      }
 
       function formatMoney(n){
         try{
@@ -2044,9 +1619,7 @@
       }
 
       function buildMessage(){
-        const comboKey = state.combo;
-        const combo = combos[comboKey];
-
+        const combo = combos[state.combo];
         const nombre = ($("fNombre").value || "").trim();
         const zona = $("fZona").value;
         const barrio = ($("fBarrio").value || "").trim();
@@ -2058,18 +1631,14 @@
         const ref = ($("fRef").value || "").trim();
         const nota = ($("fNota").value || "").trim();
 
-        const total = combo.total;
-        const direccion = calle || "-";
-        const ubicacion = zona + (barrio ? " - " + barrio : "");
-
         const lines = [];
         lines.push("Hola! Quiero realizar el siguiente pedido:");
         lines.push("");
         lines.push("Combo: " + combo.qty + " recambio(s)");
-        lines.push("Total: $" + formatMoney(total));
+        lines.push("Total: $" + formatMoney(combo.total));
         if(nombre) lines.push("Nombre: " + nombre);
-        lines.push("Zona: " + ubicacion);
-        lines.push("Direccion: " + direccion);
+        lines.push("Zona: " + zona + (barrio ? " - " + barrio : ""));
+        lines.push("Direccion: " + (calle || "-"));
         lines.push("Modelo/Color del tubo: " + (modelo || "-"));
         lines.push("Envases vacios: " + (vacios === "SI" ? "SI" : "NO (a coordinar)"));
         lines.push("Modalidad: " + (modalidad === "RETIRO" ? "RETIRO EN LOCAL (HAEDO)" : "ENVIO A DOMICILIO"));
@@ -2092,27 +1661,9 @@
         window.open(url, "_blank", "noopener");
       }
 
-      const themeBtn = $("themeBtn");
-
-      function setTheme(t){
-        document.documentElement.setAttribute("data-theme", t);
-        localStorage.setItem("rmk_theme", t);
-      }
-
-      function toggleTheme(){
-        const cur = document.documentElement.getAttribute("data-theme") || "light";
-        setTheme(cur === "light" ? "dark" : "light");
-      }
-
-      try{
-        const saved = localStorage.getItem("rmk_theme");
-        if(saved === "dark" || saved === "light") setTheme(saved);
-      }catch(e){}
-
-      const float = $("float");
-      const footer = $("footer");
-
       function adjustFloat(){
+        const float = $("float");
+        const footer = $("footer");
         if(!float || !footer) return;
         const footerRect = footer.getBoundingClientRect();
         const overlap = window.innerHeight - footerRect.top;
@@ -2131,23 +1682,35 @@
 
       function filterZones(){
         const input = $("zoneSearch");
-        const list = $("zoneList");
+        const results = $("zoneResults");
         const empty = $("zoneEmpty");
-        const count = $("zoneCount");
-        if(!input || !list || !empty || !count) return;
+        const hint = $("zoneHint");
+        if(!input || !results || !empty || !hint) return;
 
         const q = normalizeText(input.value);
-        let visible = 0;
 
-        list.querySelectorAll(".zone-item").forEach(item=>{
+        if(!q){
+          results.style.display = "none";
+          empty.style.display = "none";
+          hint.style.display = "block";
+          return;
+        }
+
+        hint.style.display = "none";
+        results.style.display = "grid";
+
+        let visible = 0;
+        results.querySelectorAll(".zone-item").forEach(item=>{
           const zone = normalizeText(item.dataset.zone || item.textContent);
-          const show = !q || zone.includes(q);
+          const show = zone.includes(q);
           item.style.display = show ? "" : "none";
           if(show) visible++;
         });
 
-        count.textContent = visible;
         empty.style.display = visible === 0 ? "block" : "none";
+        if(visible === 0){
+          results.style.display = "none";
+        }
       }
 
       document.querySelectorAll('input[name="combo"]').forEach(radio=>{
@@ -2166,10 +1729,10 @@
         zoneSearch.addEventListener("input", filterZones);
       }
 
-      themeBtn.addEventListener("click", toggleTheme);
       window.addEventListener("scroll", adjustFloat, { passive:true });
       window.addEventListener("resize", adjustFloat);
 
+      setThemeByHour();
       updateTotal();
       adjustFloat();
       filterZones();
