@@ -1,0 +1,1194 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RECAMBIOS MK | Recambio de sifones de soda</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="RECAMBIOS MK | Recambio de sifones de soda" />
+  <meta property="og:description" content="Pedí tu recambio por WhatsApp. Envíos coordinados (CABA y GBA) y retiro en local. Pago por transferencia adelantado (datos por WhatsApp al confirmar)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://iili.io/qqujKtR.jpg" />
+  <meta property="og:locale" content="es_AR" />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111827cc;
+      --card2:#0f172acc;
+      --text:#e5e7eb;
+      --muted:#a3a3a3;
+      --line:#233044;
+      --brand:#22c55e;
+      --accent:#60a5fa;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:24px;
+
+      --overlay-url: url("https://iili.io/qqABRmQ.jpg"); /* overlay (usando la misma imagen que pasaste) */
+      --banner-url: url("https://iili.io/qqujKtR.jpg");
+    }
+    html[data-theme="light"]{
+      --bg:#f6f7fb;
+      --card:#ffffffcc;
+      --card2:#ffffffd9;
+      --text:#0b1220;
+      --muted:#5b6472;
+      --line:#e7eaf1;
+      --shadow: 0 18px 60px rgba(10,18,32,.12);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
+    }
+
+    /* Layout para footer abajo */
+    .page{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    main{flex:1}
+
+    /* Overlay global */
+    .bg-overlay{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+    }
+    .bg-overlay::before{
+      content:"";
+      position:absolute;
+      inset:-10%;
+      background-image: var(--overlay-url);
+      background-size: 520px auto;
+      background-repeat: repeat;
+      opacity: .06;
+      transform: rotate(-6deg);
+      filter: saturate(1.1) contrast(1.05);
+    }
+    html[data-theme="light"] .bg-overlay::before{
+      opacity:.05;
+      filter: saturate(1.05) contrast(1.02);
+    }
+
+    /* Container */
+    .wrap{
+      position:relative;
+      z-index:1;
+      width:min(1120px, 92vw);
+      margin:0 auto;
+      padding: 18px 0 120px;
+    }
+
+    /* Top banner */
+    .banner{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      background: #000;
+    }
+    .banner-img{
+      height: clamp(160px, 22vw, 260px);
+      background-image: var(--banner-url);
+      background-size: cover;
+      background-position: center;
+      position:relative;
+    }
+    .banner-img::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.15), rgba(0,0,0,0));
+    }
+    html[data-theme="light"] .banner-img::after{
+      background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,.10), rgba(0,0,0,0));
+    }
+
+    .topbar{
+      margin-top:-54px;
+      display:flex;
+      align-items:flex-end;
+      gap:14px;
+      padding: 0 16px 16px;
+    }
+    .logo{
+      width:86px;
+      height:86px;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: #000;
+      flex: 0 0 auto;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .brand{
+      flex:1;
+      min-width:0;
+    }
+    .brand h1{
+      margin:0;
+      font-size: clamp(22px, 3.2vw, 34px);
+      letter-spacing:.2px;
+      line-height:1.1;
+      text-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .brand p{
+      margin:6px 0 0;
+      color: rgba(255,255,255,.86);
+      font-weight: 600;
+    }
+    html[data-theme="light"] .brand p{
+      color: rgba(11,18,32,.80);
+      text-shadow:none;
+    }
+
+    .top-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex:0 0 auto;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-weight: 700;
+      cursor:pointer;
+      box-shadow: 0 12px 40px rgba(0,0,0,.10);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      text-decoration:none;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: color-mix(in srgb, var(--line), var(--accent) 30%);}
+    .btn.primary{
+      background: linear-gradient(135deg, color-mix(in srgb, var(--brand), #000 0%), color-mix(in srgb, var(--brand), #000 12%));
+      border-color: color-mix(in srgb, var(--brand), #000 35%);
+      color: #08110c;
+    }
+    html[data-theme="light"] .btn.primary{
+      color:#062312;
+    }
+    .btn.ghost{
+      background: transparent;
+    }
+    .toggle{
+      width:44px;
+      height:44px;
+      border-radius: 14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0;
+    }
+    .toggle svg{width:18px;height:18px;opacity:.9}
+
+    /* Grid sections */
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .topbar{flex-wrap:wrap; align-items:center;}
+      .top-actions{width:100%; justify-content:flex-start;}
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      backdrop-filter: blur(10px);
+    }
+    .card h2{
+      margin:0 0 8px;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+    .muted{color: var(--muted)}
+    .tiny{font-size: 12.5px}
+    .pillrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 10px;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12.5px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .pill strong{color: color-mix(in srgb, var(--accent), var(--text) 10%)}
+    .warn{
+      border-color: color-mix(in srgb, var(--warn), var(--line) 55%);
+      background: color-mix(in srgb, var(--warn), transparent 88%);
+    }
+
+    /* Combos */
+    .combo-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 560px){
+      .combo-grid{grid-template-columns:1fr}
+      .logo{width:78px;height:78px;border-radius:20px}
+    }
+    .combo{
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      border-radius: 18px;
+      padding: 12px;
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+    }
+    .combo .row{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .combo .title{
+      font-weight: 900;
+      font-size: 15px;
+    }
+    .combo .price{
+      font-weight: 900;
+      font-size: 16px;
+    }
+    .combo .meta{color: var(--muted); font-size: 12.5px; line-height:1.35}
+    .combo .select{
+      margin-top: 6px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .radio{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      cursor:pointer;
+      user-select:none;
+    }
+    .radio input{accent-color: var(--brand)}
+
+    /* Order form */
+    .form{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 720px){
+      .form{grid-template-columns:1fr}
+    }
+    label{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: color-mix(in srgb, var(--text), var(--muted) 20%);
+    }
+    input, select, textarea{
+      width:100%;
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 11px 12px;
+      outline:none;
+      font-size: 14px;
+    }
+    textarea{min-height: 92px; resize: vertical;}
+    .full{grid-column: 1 / -1}
+    .help{
+      margin-top:8px;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height:1.35;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+      align-items:center;
+    }
+    .total{
+      margin-left:auto;
+      font-weight: 900;
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      padding: 10px 12px;
+      border-radius: 14px;
+      white-space:nowrap;
+    }
+    @media (max-width: 720px){
+      .total{margin-left:0; width:100%; text-align:center}
+    }
+
+    /* Service images */
+    .service-images{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 720px){
+      .service-images{grid-template-columns:1fr}
+    }
+    .imgcard{
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+      display:flex;
+      flex-direction:column;
+    }
+    .imgcard img{width:100%; height: 190px; object-fit: cover; display:block}
+    .imgcard .pad{padding:12px}
+    .imgcard .pad .t{font-weight: 900; margin:0 0 6px}
+    .imgcard .pad .d{margin:0; color:var(--muted); font-size: 13px; line-height:1.4}
+
+    /* Icons sections */
+    .icons{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+    }
+    @media (max-width: 980px){
+      .icons{grid-template-columns: repeat(2, minmax(0,1fr))}
+    }
+    .iconbox{
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      border-radius: 18px;
+      padding: 12px;
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      min-height: 72px;
+    }
+    .iconbox img{
+      width:46px;
+      height:46px;
+      object-fit:contain;
+      flex:0 0 auto;
+    }
+    .iconbox .tt{font-weight: 900; margin:0; font-size: 13px}
+    .iconbox .dd{margin:2px 0 0; color:var(--muted); font-size: 12.5px; line-height:1.25}
+
+    /* Zones */
+    .zones{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .zone{
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-weight: 800;
+      font-size: 12.5px;
+    }
+
+    /* Reviews */
+    .reviews{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 10px;
+    }
+    @media (max-width: 980px){
+      .reviews{grid-template-columns: repeat(3, minmax(0,1fr))}
+    }
+    @media (max-width: 560px){
+      .reviews{grid-template-columns: repeat(2, minmax(0,1fr))}
+    }
+    .review{
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      border-radius: 18px;
+      padding: 12px;
+      text-align:center;
+    }
+    .review img{
+      width:62px;height:62px;border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0,0,0,.10);
+    }
+    .stars{margin:10px 0 6px; font-weight: 900; letter-spacing:.4px}
+    .review p{margin:0; color:var(--muted); font-size: 12.5px; line-height:1.35}
+
+    /* FAQ */
+    details{
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      border-radius: 18px;
+      padding: 12px 12px;
+    }
+    details + details{margin-top: 10px}
+    summary{
+      cursor:pointer;
+      font-weight: 900;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .chev{
+      width:18px;height:18px; opacity:.85;
+      transition: transform .14s ease;
+    }
+    details[open] .chev{transform: rotate(180deg)}
+    details .content{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.5;
+    }
+
+    /* Map */
+    .map{
+      margin-top: 12px;
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+      background:#000;
+    }
+    .map iframe{
+      width:100%;
+      height: 320px;
+      border:0;
+      display:block;
+    }
+    @media (max-width: 560px){
+      .map iframe{height: 280px}
+    }
+
+    /* Footer */
+    footer{
+      position:relative;
+      z-index:1;
+      border-top: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      backdrop-filter: blur(10px);
+      padding: 18px 0 34px;
+    }
+    .footer-wrap{
+      width:min(1120px, 92vw);
+      margin: 0 auto;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .footer-wrap a{color: inherit}
+    .credit{
+      font-weight: 800;
+      color: var(--muted);
+    }
+    .credit a{
+      text-decoration:none;
+      border-bottom: 1px dashed color-mix(in srgb, var(--muted), transparent 30%);
+    }
+    .credit .name{
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    /* Floating WhatsApp */
+    .float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 50;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:flex-end;
+    }
+    .float a{
+      width:56px;height:56px;border-radius: 18px;
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--card2), transparent 0%);
+      box-shadow: var(--shadow);
+      display:flex;align-items:center;justify-content:center;
+      text-decoration:none;
+      transform: translateZ(0);
+      transition: transform .12s ease;
+    }
+    .float a:hover{transform: translateY(-2px)}
+    .float img{width:30px;height:30px; display:block}
+    .float .wa{
+      background: #eafff2;
+      border-color: #b7f2cf;
+    }
+    html[data-theme="dark"] .float .wa{
+      background: #0b1a12;
+      border-color: #1c3d2a;
+    }
+
+    /* Section spacing */
+    .section{margin-top: 16px}
+    .sep{height:1px;background: var(--line); margin: 14px 0}
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="bg-overlay" aria-hidden="true"></div>
+
+    <main>
+      <div class="wrap">
+        <section class="banner" id="inicio">
+          <div class="banner-img" role="img" aria-label="Banner Recambios MK"></div>
+
+          <div class="topbar">
+            <div class="logo" aria-label="Logo Recambios MK">
+              <img src="https://iili.io/qqABRmQ.jpg" alt="RECAMBIOS MK" />
+            </div>
+
+            <div class="brand">
+              <h1>RECAMBIOS MK</h1>
+              <p>Recambio de sifones de soda • Envíos coordinados (CABA y GBA) • Retiro en local</p>
+
+              <div class="pillrow">
+                <span class="pill warn">Mismo día: pedidos hasta <strong>14 hs</strong></span>
+                <span class="pill">Pedidos: <strong>08 a 20 hs</strong></span>
+                <span class="pill">Entregas: <strong>24 a 48 hs</strong></span>
+                <span class="pill">Logística: <strong>17 a 22 hs</strong></span>
+              </div>
+            </div>
+
+            <div class="top-actions">
+              <button class="btn toggle" id="themeBtn" aria-label="Cambiar tema" title="Cambiar tema">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+
+              <a class="btn primary" href="#pedido">Hacer pedido</a>
+              <a class="btn ghost" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid section">
+          <div class="card" id="pedido">
+            <h2>Elegí tu combo</h2>
+            <p class="muted">Venden solo recambio. El repartidor entrega los nuevos y retira los envases vacíos.</p>
+
+            <div class="combo-grid" role="radiogroup" aria-label="Combos disponibles">
+              <div class="combo">
+                <div class="row">
+                  <div class="title">1 recambio</div>
+                  <div class="price">$16.000</div>
+                </div>
+                <div class="meta">Envío CABA incluido • GBA consultar costo</div>
+                <div class="select">
+                  <label class="radio"><input type="radio" name="combo" value="1" checked> Seleccionar</label>
+                  <span class="tiny muted">Total fijo</span>
+                </div>
+              </div>
+
+              <div class="combo">
+                <div class="row">
+                  <div class="title">2 recambios</div>
+                  <div class="price">$27.000</div>
+                </div>
+                <div class="meta">Envío CABA incluido • GBA consultar costo</div>
+                <div class="select">
+                  <label class="radio"><input type="radio" name="combo" value="2"> Seleccionar</label>
+                  <span class="tiny muted">Total fijo</span>
+                </div>
+              </div>
+
+              <div class="combo">
+                <div class="row">
+                  <div class="title">3 recambios</div>
+                  <div class="price">$38.000</div>
+                </div>
+                <div class="meta">Envío CABA incluido • GBA consultar costo</div>
+                <div class="select">
+                  <label class="radio"><input type="radio" name="combo" value="3"> Seleccionar</label>
+                  <span class="tiny muted">Total fijo</span>
+                </div>
+              </div>
+
+              <div class="combo">
+                <div class="row">
+                  <div class="title">4 recambios</div>
+                  <div class="price">$49.000</div>
+                </div>
+                <div class="meta">Envío CABA incluido • GBA consultar costo</div>
+                <div class="select">
+                  <label class="radio"><input type="radio" name="combo" value="4"> Seleccionar</label>
+                  <span class="tiny muted">Total fijo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sep"></div>
+
+            <h2>Datos para tomar el pedido</h2>
+            <p class="muted">Pago por transferencia adelantado. Los datos de transferencia se pasan por WhatsApp al confirmar.</p>
+
+            <div class="form">
+              <label>
+                Nombre y apellido
+                <input id="fNombre" type="text" placeholder="Ej: Juan Pérez" autocomplete="name" />
+              </label>
+
+              <label>
+                Zona
+                <select id="fZona">
+                  <option value="CABA">CABA</option>
+                  <option value="GBA">GBA</option>
+                </select>
+              </label>
+
+              <label>
+                Localidad / Partido (o Barrio si es CABA)
+                <input id="fBarrio" type="text" placeholder="Ej: Caballito / Morón / San Miguel" />
+              </label>
+
+              <label>
+                Calle y altura
+                <input id="fCalle" type="text" placeholder="Ej: Rivadavia 1234" autocomplete="street-address" />
+              </label>
+
+              <label>
+                Modelo del tubo o color
+                <input id="fModelo" type="text" placeholder="Ej: Azul / Rojo / Modelo..." />
+              </label>
+
+              <label>
+                ¿Tenés envases vacíos para entregar?
+                <select id="fVacios">
+                  <option value="SI">Sí</option>
+                  <option value="NO">No (a coordinar)</option>
+                </select>
+              </label>
+
+              <label>
+                Modalidad
+                <select id="fModalidad">
+                  <option value="ENVIO">Envío a domicilio</option>
+                  <option value="RETIRO">Retiro en local (Haedo)</option>
+                </select>
+              </label>
+
+              <label>
+                Horario para recibir (referencia)
+                <select id="fHorario">
+                  <option value="17 a 22 hs">17 a 22 hs</option>
+                  <option value="Cualquier momento (17 a 22 hs)">Cualquier momento (17 a 22 hs)</option>
+                  <option value="A coordinar">A coordinar</option>
+                </select>
+              </label>
+
+              <label class="full">
+                Referencia (opcional)
+                <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Piso y dpto" />
+              </label>
+
+              <label class="full">
+                Nota (opcional)
+                <textarea id="fNota" placeholder="Ej: Si es posible entregar hoy (pedidos hasta 14 hs)."></textarea>
+              </label>
+            </div>
+
+            <div class="cta-row">
+              <button class="btn primary" id="btnWsp">Confirmar pedido por WhatsApp</button>
+              <a class="btn ghost" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver más en Instagram</a>
+              <div class="total" id="totalBox">Total: $16.000</div>
+            </div>
+
+            <p class="help">
+              Importante: La mayoría de las veces llega en el día, pero puede haber demoras si la logística tiene una falla.
+              Si no te encuentran, vuelven a pasar o se reprograma hasta poder entregar.
+            </p>
+          </div>
+
+          <aside class="card">
+            <h2>Información rápida</h2>
+            <div class="pillrow">
+              <span class="pill">Envíos: <strong>L a V</strong></span>
+              <span class="pill">Entregas: <strong>24 a 48 hs</strong></span>
+              <span class="pill">Ventana: <strong>17 a 22 hs</strong></span>
+              <span class="pill warn">Mismo día: hasta <strong>14 hs</strong></span>
+            </div>
+
+            <div class="sep"></div>
+
+            <h2>CO2</h2>
+            <p class="muted">Beneficios del sistema CO2</p>
+            <div class="icons" aria-label="Beneficios CO2">
+              <div class="iconbox">
+                <img src="https://iili.io/qquNgGp.png" alt="Ecológico" />
+                <div>
+                  <p class="tt">Ecológico</p>
+                  <p class="dd">Menos descartables, sistema CO2.</p>
+                </div>
+              </div>
+              <div class="iconbox">
+                <img src="https://iili.io/qquNUnR.png" alt="Práctica" />
+                <div>
+                  <p class="tt">Práctico</p>
+                  <p class="dd">Pedís y coordinás por WhatsApp.</p>
+                </div>
+              </div>
+              <div class="iconbox">
+                <img src="https://iili.io/qquN8Zv.png" alt="Económica" />
+                <div>
+                  <p class="tt">Económico</p>
+                  <p class="dd">Más conveniente para el consumo.</p>
+                </div>
+              </div>
+              <div class="iconbox">
+                <img src="https://iili.io/qquNvwJ.png" alt="Fresca" />
+                <div>
+                  <p class="tt">Fresca</p>
+                  <p class="dd">Soda bien gasificada, lista.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sep"></div>
+
+            <h2>Cómo trabajamos</h2>
+            <div class="icons" aria-label="Cómo trabajamos">
+              <div class="iconbox">
+                <img src="https://iili.io/qqu6vCF.png" alt="Atención personalizada" />
+                <div>
+                  <p class="tt">Atención personalizada</p>
+                  <p class="dd">Confirmación y coordinación por WhatsApp.</p>
+                </div>
+              </div>
+              <div class="iconbox">
+                <img src="https://iili.io/qqu6OhP.png" alt="Compra segura" />
+                <div>
+                  <p class="tt">Compra segura</p>
+                  <p class="dd">Pedido claro y registrado.</p>
+                </div>
+              </div>
+              <div class="iconbox">
+                <img src="https://iili.io/qqu6eQ1.png" alt="Envíos coordinados" />
+                <div>
+                  <p class="tt">Envíos coordinados</p>
+                  <p class="dd">Servicio terciarizado, a coordinar.</p>
+                </div>
+              </div>
+              <div class="iconbox">
+                <img src="https://iili.io/qqu6NTB.png" alt="Retiro en local" />
+                <div>
+                  <p class="tt">Retiro en local</p>
+                  <p class="dd">Haedo, en horario del local.</p>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="card section" id="servicio">
+          <h2>Descripción del servicio</h2>
+          <p class="muted">Recambio rápido y coordinado. Se entrega el sifón cargado y se retira el envase vacío.</p>
+
+          <div class="service-images">
+            <div class="imgcard">
+              <img src="https://iili.io/qquwWdX.jpg" alt="Servicio de recambio" />
+              <div class="pad">
+                <p class="t">Recambio simple</p>
+                <p class="d">Pedís el combo, coordinás la entrega y listo.</p>
+              </div>
+            </div>
+            <div class="imgcard">
+              <img src="https://iili.io/qquwhes.jpg" alt="Servicio coordinado" />
+              <div class="pad">
+                <p class="t">Entrega coordinada</p>
+                <p class="d">La logística entrega de 17 a 22 hs. Estimado 24 a 48 hs.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card section" id="zonas">
+          <h2>Zonas de reparto</h2>
+          <p class="muted">Mapa de cobertura y lista de distritos.</p>
+
+          <div class="imgcard" style="margin-top:12px;">
+            <img src="https://iili.io/qquQ2Hb.jpg" alt="Mapa de zonas de reparto" />
+            <div class="pad">
+              <p class="t">Distritos</p>
+              <p class="d">CABA y GBA (consultar costo para GBA). Envío CABA incluido.</p>
+              <div class="zones" aria-label="Lista de distritos">
+                <span class="zone">Zárate</span>
+                <span class="zone">Campana</span>
+                <span class="zone">Escobar</span>
+                <span class="zone">Villa Rosa</span>
+                <span class="zone">Ingeniero Maschwitz</span>
+                <span class="zone">Nordelta</span>
+                <span class="zone">Tigre</span>
+                <span class="zone">San Fernando</span>
+                <span class="zone">San José</span>
+                <span class="zone">Vicente López</span>
+                <span class="zone">CABA</span>
+                <span class="zone">Avellaneda</span>
+                <span class="zone">Lanús</span>
+                <span class="zone">Quilmes</span>
+                <span class="zone">Berazategui</span>
+                <span class="zone">Florencio Varela</span>
+                <span class="zone">Almirante Brown</span>
+                <span class="zone">Lomas de Zamora</span>
+                <span class="zone">La Plata Norte</span>
+                <span class="zone">La Plata Centro</span>
+                <span class="zone">La Plata Oeste</span>
+                <span class="zone">Berisso</span>
+                <span class="zone">Ensenada</span>
+                <span class="zone">San Vicente</span>
+                <span class="zone">Ezeiza</span>
+                <span class="zone">Esteban Echeverría</span>
+                <span class="zone">La Matanza Sur</span>
+                <span class="zone">La Matanza Norte</span>
+                <span class="zone">Merlo</span>
+                <span class="zone">Marcos Paz</span>
+                <span class="zone">Cañuelas</span>
+                <span class="zone">General Rodríguez</span>
+                <span class="zone">Luján</span>
+                <span class="zone">Pilar</span>
+                <span class="zone">Del Viso</span>
+                <span class="zone">Garín</span>
+                <span class="zone">Malvinas Argentinas</span>
+                <span class="zone">José C. Paz</span>
+                <span class="zone">San Miguel</span>
+                <span class="zone">San Martín</span>
+                <span class="zone">Tres de Febrero</span>
+                <span class="zone">Morón</span>
+                <span class="zone">Hurlingham</span>
+                <span class="zone">Ituzaingó</span>
+                <span class="zone">Moreno</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card section" id="reseñas">
+          <h2>Reseñas</h2>
+          <p class="muted">Experiencias de clientes (formato circular).</p>
+
+          <div class="reviews" aria-label="Reseñas de clientes">
+            <div class="review">
+              <img src="https://iili.io/qq3SlA7.jpg" alt="Reseña 1" />
+              <div class="stars">★★★★★</div>
+              <p>Rápido y coordinado. Muy buena atención.</p>
+            </div>
+            <div class="review">
+              <img src="https://iili.io/qq3joUF.jpg" alt="Reseña 2" />
+              <div class="stars">★★★★★</div>
+              <p>Entrega dentro del horario y todo claro.</p>
+            </div>
+            <div class="review">
+              <img src="https://iili.io/qq3jqiB.jpg" alt="Reseña 3" />
+              <div class="stars">★★★★★</div>
+              <p>Proceso simple por WhatsApp. Recomendable.</p>
+            </div>
+            <div class="review">
+              <img src="https://iili.io/qq3jCKP.jpg" alt="Reseña 4" />
+              <div class="stars">★★★★★</div>
+              <p>Buena soda y coordinación rápida del envío.</p>
+            </div>
+            <div class="review">
+              <img src="https://iili.io/qq3jTOJ.jpg" alt="Reseña 5" />
+              <div class="stars">★★★★★</div>
+              <p>Atención excelente y cumplen con el pedido.</p>
+            </div>
+          </div>
+
+          <div class="cta-row" style="margin-top:14px;">
+            <a class="btn ghost" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver reseñas en Instagram</a>
+          </div>
+        </section>
+
+        <section class="card section" id="faq">
+          <h2>Preguntas frecuentes</h2>
+          <p class="muted">Información para tomar el pedido sin vueltas.</p>
+
+          <details>
+            <summary>¿Qué necesito para pedir? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <div class="content">
+              Nombre y apellido, zona/barrio, calle y altura, modelo/color del tubo, y confirmar si tenés envases vacíos.
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Cómo funciona el recambio? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <div class="content">
+              El repartidor entrega los nuevos y retira los envases vacíos. Venden solo recambio.
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Cuándo entregan? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <div class="content">
+              Envíos de lunes a viernes. Entregas estimadas de 24 a 48 hs. La logística entrega de 17 a 22 hs.
+              Para intentar entrega en el día, se toman pedidos hasta las 14 hs.
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Puede demorarse la entrega? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <div class="content">
+              La mayoría de las veces llega en el día, pero siempre existe la posibilidad de demoras si la logística tiene una falla.
+              Si no te encuentran, vuelven a pasar o se reprograma hasta poder entregar.
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Cómo se paga? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <div class="content">
+              Pago por transferencia adelantado. Los datos de transferencia se pasan por WhatsApp al confirmar.
+              Avisanos al transferir así se carga al reparto.
+            </div>
+          </details>
+
+          <details>
+            <summary>Si no tengo envase vacío, ¿puedo pedir igual? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+            <div class="content">
+              Sí, se puede, pero queda a coordinar. En el pedido indicá “Envases vacíos: NO (a coordinar)”.
+            </div>
+          </details>
+        </section>
+
+        <section class="card section" id="ubicacion">
+          <h2>Ubicación y retiro en local</h2>
+          <p class="muted">Gdor. Emilio Castro 624, B1706 Haedo, Provincia de Buenos Aires.</p>
+
+          <div class="pillrow">
+            <span class="pill">Retiros: <strong>L a S</strong> 9:30 a 13:00</span>
+            <span class="pill">Retiros: <strong>L a S</strong> 15:30 a 19:00</span>
+          </div>
+
+          <div class="map" aria-label="Mapa Google">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.157839506933!2d-58.59649002509548!3d-34.650716559980395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc79b7ed3249d%3A0xd696357ce33733e9!2sFERRETERIA!5e0!3m2!1ses!2sar!4v1772326758687!5m2!1ses!2sar"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa Recambios MK"
+            ></iframe>
+          </div>
+
+          <div class="cta-row" style="margin-top:14px;">
+            <button class="btn primary" id="btnWsp2">Hacer pedido por WhatsApp</button>
+            <a class="btn ghost" href="#inicio">Volver arriba</a>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer id="footer">
+      <div class="footer-wrap">
+        <div class="credit">
+          © <span id="year"></span> RECAMBIOS MK • Instagram:
+          <a href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">@recambio.soda</a>
+        </div>
+
+        <div class="credit">
+          Creado y diseñado por <a href="https://ciborg347oficial.onrender.com" target="_blank" rel="noopener"><span class="name">Ciborg 347</span></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <div class="float" id="float">
+      <a class="wa" id="waFloat" href="#" aria-label="WhatsApp">
+        <img src="https://iili.io/fm1NjzQ.jpg" alt="WhatsApp" />
+      </a>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const WA_NUMBER = "5491162843339"; // 11 6284-3339
+      const combos = {
+        1: { qty: 1, total: 16000 },
+        2: { qty: 2, total: 27000 },
+        3: { qty: 3, total: 38000 },
+        4: { qty: 4, total: 49000 }
+      };
+
+      const $ = (id)=>document.getElementById(id);
+
+      const state = {
+        combo: 1
+      };
+
+      function formatMoney(n){
+        try{
+          return n.toLocaleString("es-AR");
+        }catch(e){
+          return String(n);
+        }
+      }
+
+      function getSelectedCombo(){
+        const el = document.querySelector('input[name="combo"]:checked');
+        const v = el ? Number(el.value) : 1;
+        return combos[v] ? v : 1;
+      }
+
+      function updateTotal(){
+        state.combo = getSelectedCombo();
+        const total = combos[state.combo].total;
+        $("totalBox").textContent = "Total: $" + formatMoney(total);
+      }
+
+      function buildMessage(){
+        const comboKey = state.combo;
+        const combo = combos[comboKey];
+
+        const nombre = ($("fNombre").value || "").trim();
+        const zona = $("fZona").value;
+        const barrio = ($("fBarrio").value || "").trim();
+        const calle = ($("fCalle").value || "").trim();
+        const modelo = ($("fModelo").value || "").trim();
+        const vacios = $("fVacios").value; // SI / NO (a coordinar)
+        const modalidad = $("fModalidad").value; // ENVIO / RETIRO
+        const horario = $("fHorario").value;
+        const ref = ($("fRef").value || "").trim();
+        const nota = ($("fNota").value || "").trim();
+
+        const total = combo.total;
+
+        const lines = [];
+        lines.push("Hola! Quiero realizar el siguiente pedido:");
+        lines.push("");
+        lines.push("Combo: " + combo.qty + " recambio(s)");
+        lines.push("Cantidad: " + combo.qty);
+        lines.push("Total: $" + formatMoney(total));
+        lines.push("Zona: " + zona + (barrio ? " - " + barrio : ""));
+        lines.push("Direccion: " + (calle || "-"));
+        lines.push("Modelo/Color del tubo: " + (modelo || "-"));
+        lines.push("Envases vacios: " + (vacios === "SI" ? "SI" : "NO (a coordinar)"));
+        lines.push("Modalidad: " + (modalidad === "RETIRO" ? "RETIRO EN LOCAL (HAEDO)" : "ENVIO A DOMICILIO"));
+        lines.push("Horario: " + horario);
+        if(ref) lines.push("Referencia: " + ref);
+        if(nombre) lines.push("Nombre: " + nombre);
+        if(nota) { lines.push(""); lines.push("Nota: " + nota); }
+
+        lines.push("");
+        lines.push("Quedo a la espera de confirmacion.");
+        lines.push("A continuacion te envio el comprobante.");
+
+        return lines.join("\n");
+      }
+
+      function openWhatsApp(){
+        updateTotal();
+        const msg = buildMessage();
+        const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+        window.open(url, "_blank", "noopener");
+      }
+
+      // Theme
+      const themeBtn = $("themeBtn");
+      function setTheme(t){
+        document.documentElement.setAttribute("data-theme", t);
+        localStorage.setItem("rmk_theme", t);
+      }
+      function toggleTheme(){
+        const cur = document.documentElement.getAttribute("data-theme") || "light";
+        setTheme(cur === "light" ? "dark" : "light");
+      }
+      try{
+        const saved = localStorage.getItem("rmk_theme");
+        if(saved === "dark" || saved === "light") setTheme(saved);
+      }catch(e){}
+
+      // Footer-safe floating buttons (no tapar footer)
+      const float = $("float");
+      const footer = $("footer");
+      function adjustFloat(){
+        if(!float || !footer) return;
+        const footerRect = footer.getBoundingClientRect();
+        const overlap = (window.innerHeight - footerRect.top);
+        const base = 18;
+        const extra = overlap > 0 ? Math.min(overlap + 18, 220) : 0;
+        float.style.bottom = (base + extra) + "px";
+      }
+
+      // Events
+      document.querySelectorAll('input[name="combo"]').forEach(r=>{
+        r.addEventListener("change", updateTotal);
+      });
+
+      $("btnWsp").addEventListener("click", openWhatsApp);
+      $("btnWsp2").addEventListener("click", openWhatsApp);
+
+      themeBtn.addEventListener("click", toggleTheme);
+
+      // Floating WA should open WhatsApp too
+      $("waFloat").addEventListener("click", function(e){
+        e.preventDefault();
+        openWhatsApp();
+      });
+
+      window.addEventListener("scroll", adjustFloat, {passive:true});
+      window.addEventListener("resize", adjustFloat);
+
+      // Init
+      updateTotal();
+      adjustFloat();
+      $("year").textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
