@@ -33,7 +33,7 @@
       --radius-lg:26px;
 
       --overlay-url:url("https://iili.io/qqABRmQ.jpg");
-      --banner-url:url("https://iili.io/qqujKtR.jpg");
+      --banner-url:url("https://iili.io/qqAZooQ.md.jpg");
     }
 
     html[data-theme="light"]{
@@ -250,7 +250,7 @@
     .hero-banner{
       min-height:clamp(240px,34vw,360px);
       background-image:
-        linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.42)),
+        linear-gradient(to bottom, rgba(0,0,0,.16), rgba(0,0,0,.48)),
         var(--banner-url);
       background-size:cover;
       background-position:center;
@@ -261,7 +261,7 @@
 
     html[data-theme="light"] .hero-banner{
       background-image:
-        linear-gradient(to bottom, rgba(255,255,255,.06), rgba(0,0,0,.20)),
+        linear-gradient(to bottom, rgba(255,255,255,.04), rgba(0,0,0,.28)),
         var(--banner-url);
     }
 
@@ -343,6 +343,24 @@
       font-size:15px;
       line-height:1.58;
       font-weight:500;
+    }
+
+    .hero-note{
+      margin-top:12px;
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.10);
+      color:#fff;
+      font-size:12.5px;
+      font-weight:900;
+      letter-spacing:.2px;
+      line-height:1.45;
+      backdrop-filter:blur(10px);
+      text-transform:uppercase;
+      max-width:760px;
     }
 
     html[data-theme="light"] .hero-copy h1{
@@ -957,7 +975,7 @@
 
     .zone-wrap{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
+      grid-template-columns:1fr 1fr;
       gap:16px;
       align-items:start;
     }
@@ -968,19 +986,126 @@
       }
     }
 
-    .zones{
+    .map-small .img-top{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
+      border-bottom:1px solid var(--line);
+    }
+
+    @media (max-width:560px){
+      .map-small .img-top{
+        height:180px;
+      }
+    }
+
+    .zone-search-card{
+      border:1px solid var(--line);
+      background:var(--card-lite);
+      border-radius:22px;
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:100%;
+    }
+
+    .zone-search-head{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .zone-search-head h3{
+      margin:0;
+      font-size:18px;
+    }
+
+    .zone-search-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.45;
+    }
+
+    .zone-search-input{
+      position:relative;
+    }
+
+    .zone-search-input input{
+      padding-right:44px;
+    }
+
+    .zone-search-input span{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--muted);
+      font-size:15px;
+      pointer-events:none;
+    }
+
+    .zone-stats{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
     }
 
-    .zone{
+    .zone-stat{
       border:1px solid var(--line);
-      background:var(--card-lite);
+      background:var(--card-strong);
       border-radius:999px;
       padding:8px 11px;
+      font-size:12px;
       font-weight:800;
-      font-size:12.5px;
+    }
+
+    .zone-list{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+      max-height:340px;
+      overflow:auto;
+      padding-right:4px;
+    }
+
+    @media (max-width:560px){
+      .zone-list{
+        grid-template-columns:1fr;
+        max-height:300px;
+      }
+    }
+
+    .zone-list::-webkit-scrollbar{
+      width:8px;
+    }
+
+    .zone-list::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
+    }
+
+    .zone-item{
+      border:1px solid var(--line);
+      background:var(--card-strong);
+      border-radius:14px;
+      padding:10px 12px;
+      font-size:13px;
+      font-weight:800;
+      line-height:1.35;
+    }
+
+    .zone-empty{
+      display:none;
+      border:1px dashed color-mix(in srgb, var(--accent), var(--line) 62%);
+      background:color-mix(in srgb, var(--accent), transparent 94%);
+      border-radius:16px;
+      padding:14px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
     }
 
     .reviews{
@@ -1089,14 +1214,14 @@
 
     .map iframe{
       width:100%;
-      height:320px;
+      height:280px;
       border:0;
       display:block;
     }
 
     @media (max-width:560px){
       .map iframe{
-        height:280px;
+        height:240px;
       }
     }
 
@@ -1204,6 +1329,10 @@
                     Elegí tu combo, cargá los datos del pedido y coordiná la entrega o retiro sin vueltas.
                     Servicio pensado para resolver el recambio de manera práctica, con atención clara y seguimiento por WhatsApp.
                   </p>
+
+                  <div class="hero-note">
+                    RECARGAMOS EL SIFON CON 450 GRS DE CO2 NACIONAL, (CERTIFICADO ANMAT)
+                  </div>
 
                   <div class="hero-actions">
                     <a class="btn primary" href="#pedido">Pedir ahora</a>
@@ -1473,7 +1602,7 @@
                   <div class="quick-icon">01</div>
                   <div>
                     <strong>Pedido directo</strong>
-                    <p>Completás el formulario y el mensaje sale listo para confirmar por WhatsApp.</p>
+                    <p>Completás el formulario y el mensaje sale listo para confirmar más rápido.</p>
                   </div>
                 </div>
 
@@ -1643,65 +1772,83 @@
           </div>
 
           <div class="zone-wrap" style="margin-top:14px;">
-            <div class="imgcard">
-              <img src="https://iili.io/qquQ2Hb.jpg" alt="Mapa de zonas de reparto" />
+            <div class="imgcard map-small">
+              <img class="img-top" src="https://iili.io/qquQ2Hb.jpg" alt="Mapa de zonas de reparto" />
               <div class="pad">
-                <p class="t">Mapa de zonas</p>
-                <p class="d">Podés consultar cobertura específica por WhatsApp si tenés dudas sobre tu localidad.</p>
+                <p class="t">Mapa general de cobertura</p>
+                <p class="d">Visual de referencia para ubicar la zona de entregas de forma rápida.</p>
               </div>
             </div>
 
-            <div class="service-copy">
-              <div class="feature">
-                <strong>Cobertura amplia</strong>
-                <p>Trabajan con cobertura en distintos puntos de CABA y GBA, con coordinación previa del pedido.</p>
+            <div class="zone-search-card">
+              <div class="zone-search-head">
+                <h3>Buscá tu localidad</h3>
+                <p>
+                  Escribí el nombre de tu localidad, barrio o partido para ver si está dentro de la cobertura de entregas.
+                </p>
               </div>
 
-              <div class="zones" aria-label="Lista de distritos">
-                <span class="zone">Zárate</span>
-                <span class="zone">Campana</span>
-                <span class="zone">Escobar</span>
-                <span class="zone">Villa Rosa</span>
-                <span class="zone">Ingeniero Maschwitz</span>
-                <span class="zone">Nordelta</span>
-                <span class="zone">Tigre</span>
-                <span class="zone">San Fernando</span>
-                <span class="zone">Vicente López</span>
-                <span class="zone">CABA</span>
-                <span class="zone">Avellaneda</span>
-                <span class="zone">Lanús</span>
-                <span class="zone">Quilmes</span>
-                <span class="zone">Berazategui</span>
-                <span class="zone">Florencio Varela</span>
-                <span class="zone">Almirante Brown</span>
-                <span class="zone">Lomas de Zamora</span>
-                <span class="zone">La Plata Norte</span>
-                <span class="zone">La Plata Centro</span>
-                <span class="zone">La Plata Oeste</span>
-                <span class="zone">Berisso</span>
-                <span class="zone">Ensenada</span>
-                <span class="zone">San Vicente</span>
-                <span class="zone">Ezeiza</span>
-                <span class="zone">Esteban Echeverría</span>
-                <span class="zone">La Matanza Sur</span>
-                <span class="zone">La Matanza Norte</span>
-                <span class="zone">Merlo</span>
-                <span class="zone">Marcos Paz</span>
-                <span class="zone">Cañuelas</span>
-                <span class="zone">General Rodríguez</span>
-                <span class="zone">Luján</span>
-                <span class="zone">Pilar</span>
-                <span class="zone">Del Viso</span>
-                <span class="zone">Garín</span>
-                <span class="zone">Malvinas Argentinas</span>
-                <span class="zone">José C. Paz</span>
-                <span class="zone">San Miguel</span>
-                <span class="zone">San Martín</span>
-                <span class="zone">Tres de Febrero</span>
-                <span class="zone">Morón</span>
-                <span class="zone">Hurlingham</span>
-                <span class="zone">Ituzaingó</span>
-                <span class="zone">Moreno</span>
+              <div class="zone-search-input">
+                <input id="zoneSearch" type="text" placeholder="Ej: Morón, San Miguel, CABA..." />
+                <span>🔎</span>
+              </div>
+
+              <div class="zone-stats">
+                <div class="zone-stat">Cobertura: CABA + GBA</div>
+                <div class="zone-stat">GBA: costo a consultar</div>
+                <div class="zone-stat"><span id="zoneCount">45</span> localidades visibles</div>
+              </div>
+
+              <div class="zone-empty" id="zoneEmpty">
+                No encontramos coincidencias con esa búsqueda. Probá con otra localidad o consultá por WhatsApp.
+              </div>
+
+              <div class="zone-list" id="zoneList" aria-label="Lista filtrable de localidades de entrega">
+                <div class="zone-item" data-zone="zarate">Zárate</div>
+                <div class="zone-item" data-zone="campana">Campana</div>
+                <div class="zone-item" data-zone="escobar">Escobar</div>
+                <div class="zone-item" data-zone="villa rosa">Villa Rosa</div>
+                <div class="zone-item" data-zone="ingeniero maschwitz">Ingeniero Maschwitz</div>
+                <div class="zone-item" data-zone="nordelta">Nordelta</div>
+                <div class="zone-item" data-zone="tigre">Tigre</div>
+                <div class="zone-item" data-zone="san fernando">San Fernando</div>
+                <div class="zone-item" data-zone="san jose">San José</div>
+                <div class="zone-item" data-zone="vicente lopez">Vicente López</div>
+                <div class="zone-item" data-zone="caba">CABA</div>
+                <div class="zone-item" data-zone="avellaneda">Avellaneda</div>
+                <div class="zone-item" data-zone="lanus">Lanús</div>
+                <div class="zone-item" data-zone="quilmes">Quilmes</div>
+                <div class="zone-item" data-zone="berazategui">Berazategui</div>
+                <div class="zone-item" data-zone="florencio varela">Florencio Varela</div>
+                <div class="zone-item" data-zone="almirante brown">Almirante Brown</div>
+                <div class="zone-item" data-zone="lomas de zamora">Lomas de Zamora</div>
+                <div class="zone-item" data-zone="la plata norte">La Plata Norte</div>
+                <div class="zone-item" data-zone="la plata centro">La Plata Centro</div>
+                <div class="zone-item" data-zone="la plata oeste">La Plata Oeste</div>
+                <div class="zone-item" data-zone="berisso">Berisso</div>
+                <div class="zone-item" data-zone="ensenada">Ensenada</div>
+                <div class="zone-item" data-zone="san vicente">San Vicente</div>
+                <div class="zone-item" data-zone="ezeiza">Ezeiza</div>
+                <div class="zone-item" data-zone="esteban echeverria">Esteban Echeverría</div>
+                <div class="zone-item" data-zone="la matanza sur">La Matanza Sur</div>
+                <div class="zone-item" data-zone="la matanza norte">La Matanza Norte</div>
+                <div class="zone-item" data-zone="merlo">Merlo</div>
+                <div class="zone-item" data-zone="marcos paz">Marcos Paz</div>
+                <div class="zone-item" data-zone="canuelas">Cañuelas</div>
+                <div class="zone-item" data-zone="general rodriguez">General Rodríguez</div>
+                <div class="zone-item" data-zone="lujan">Luján</div>
+                <div class="zone-item" data-zone="pilar">Pilar</div>
+                <div class="zone-item" data-zone="del viso">Del Viso</div>
+                <div class="zone-item" data-zone="garin">Garín</div>
+                <div class="zone-item" data-zone="malvinas argentinas">Malvinas Argentinas</div>
+                <div class="zone-item" data-zone="jose c paz">José C. Paz</div>
+                <div class="zone-item" data-zone="san miguel">San Miguel</div>
+                <div class="zone-item" data-zone="san martin">San Martín</div>
+                <div class="zone-item" data-zone="tres de febrero">Tres de Febrero</div>
+                <div class="zone-item" data-zone="moron">Morón</div>
+                <div class="zone-item" data-zone="hurlingham">Hurlingham</div>
+                <div class="zone-item" data-zone="ituzaingo">Ituzaingó</div>
+                <div class="zone-item" data-zone="moreno">Moreno</div>
               </div>
 
               <div class="cta-row">
@@ -1974,6 +2121,35 @@
         float.style.bottom = (base + extra) + "px";
       }
 
+      function normalizeText(text){
+        return (text || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .trim();
+      }
+
+      function filterZones(){
+        const input = $("zoneSearch");
+        const list = $("zoneList");
+        const empty = $("zoneEmpty");
+        const count = $("zoneCount");
+        if(!input || !list || !empty || !count) return;
+
+        const q = normalizeText(input.value);
+        let visible = 0;
+
+        list.querySelectorAll(".zone-item").forEach(item=>{
+          const zone = normalizeText(item.dataset.zone || item.textContent);
+          const show = !q || zone.includes(q);
+          item.style.display = show ? "" : "none";
+          if(show) visible++;
+        });
+
+        count.textContent = visible;
+        empty.style.display = visible === 0 ? "block" : "none";
+      }
+
       document.querySelectorAll('input[name="combo"]').forEach(radio=>{
         radio.addEventListener("change", updateTotal);
       });
@@ -1985,12 +2161,18 @@
         openWhatsApp();
       });
 
+      const zoneSearch = $("zoneSearch");
+      if(zoneSearch){
+        zoneSearch.addEventListener("input", filterZones);
+      }
+
       themeBtn.addEventListener("click", toggleTheme);
       window.addEventListener("scroll", adjustFloat, { passive:true });
       window.addEventListener("resize", adjustFloat);
 
       updateTotal();
       adjustFloat();
+      filterZones();
       $("year").textContent = new Date().getFullYear();
     })();
   </script>
