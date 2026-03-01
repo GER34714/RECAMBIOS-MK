@@ -8,39 +8,42 @@
   <meta property="og:title" content="RECAMBIOS MK | Recambio de sifones de soda" />
   <meta property="og:description" content="Pedí tu recambio por WhatsApp. Envíos coordinados (CABA y GBA) y retiro en local. Pago por transferencia adelantado al confirmar." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://iili.io/qqAZooQ.md.jpg" />
+  <meta property="og:image" content="https://iili.io/qqRBRNR.md.jpg" />
   <meta property="og:locale" content="es_AR" />
 
   <style>
     :root{
       --bg:#f5f7fb;
       --bg-soft:#eef2f8;
-      --card:rgba(255,255,255,.88);
+      --card:rgba(255,255,255,.90);
       --card-strong:rgba(255,255,255,.96);
       --card-lite:rgba(11,18,32,.03);
       --text:#0b1220;
       --muted:#5f6b7a;
       --line:#e4e9f1;
+      --line-strong:#d7deea;
       --brand:#22c55e;
       --accent:#60a5fa;
       --warn:#f59e0b;
+      --danger:#ef4444;
       --shadow:0 18px 60px rgba(10,18,32,.12);
       --shadow-soft:0 12px 32px rgba(10,18,32,.08);
       --radius:18px;
-      --radius-lg:26px;
+      --radius-lg:28px;
       --overlay-url:url("https://iili.io/qqABRmQ.jpg");
-      --banner-url:url("https://iili.io/qqAZooQ.md.jpg");
+      --banner-url:url("https://iili.io/qqRBRNR.md.jpg");
     }
 
     html[data-theme="dark"]{
       --bg:#0b0f14;
       --bg-soft:#101722;
-      --card:rgba(17,24,39,.82);
+      --card:rgba(17,24,39,.84);
       --card-strong:rgba(15,23,42,.94);
       --card-lite:rgba(255,255,255,.04);
       --text:#e5e7eb;
       --muted:#9ca3af;
       --line:#233044;
+      --line-strong:#314258;
       --shadow:0 18px 60px rgba(0,0,0,.35);
       --shadow-soft:0 12px 32px rgba(0,0,0,.18);
     }
@@ -48,6 +51,7 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;
@@ -100,7 +104,15 @@
       padding:18px 0 118px;
     }
 
-    .section{margin-top:18px}
+    .section{
+      margin-top:32px;
+    }
+
+    @media (max-width:720px){
+      .section{
+        margin-top:24px;
+      }
+    }
 
     .card{
       background:var(--card);
@@ -111,7 +123,15 @@
       transition:background .35s ease,border-color .35s ease;
     }
 
-    .card.pad{padding:18px}
+    .card.pad{
+      padding:22px;
+    }
+
+    @media (max-width:720px){
+      .card.pad{
+        padding:16px;
+      }
+    }
 
     .eyebrow{
       display:inline-flex;
@@ -178,38 +198,13 @@
       color:#072111;
     }
 
-    .btn.ghost{background:transparent}
+    .btn.ghost{
+      background:transparent;
+    }
+
     .btn.soft{
       background:color-mix(in srgb, var(--accent), transparent 92%);
       border-color:color-mix(in srgb, var(--accent), var(--line) 78%);
-    }
-
-    .pillrow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-
-    .pill{
-      border:1px solid var(--line);
-      background:var(--card-lite);
-      padding:8px 11px;
-      border-radius:999px;
-      font-weight:800;
-      font-size:12.5px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      min-height:36px;
-    }
-
-    .pill strong{
-      color:color-mix(in srgb, var(--accent), var(--text) 8%);
-    }
-
-    .pill.warn{
-      border-color:color-mix(in srgb, var(--warn), var(--line) 58%);
-      background:color-mix(in srgb, var(--warn), transparent 90%);
     }
 
     .hero{
@@ -218,28 +213,41 @@
     }
 
     .hero-banner{
-      min-height:clamp(230px,33vw,350px);
-      background-image:var(--banner-url);
-      background-size:cover;
-      background-position:center;
+      position:relative;
+      width:100%;
+      overflow:hidden;
+      background:#000;
+    }
+
+    .hero-banner img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:contain;
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
       display:flex;
       align-items:flex-end;
+      padding:22px;
+      background:linear-gradient(to top, rgba(0,0,0,.42), rgba(0,0,0,.10) 42%, rgba(0,0,0,0) 72%);
+    }
+
+    @media (max-width:720px){
+      .hero-overlay{
+        padding:16px;
+        background:linear-gradient(to top, rgba(0,0,0,.52), rgba(0,0,0,.16) 44%, rgba(0,0,0,0) 76%);
+      }
     }
 
     .hero-content{
       width:100%;
-      padding:20px;
       display:grid;
-      grid-template-columns:minmax(0,1fr) auto;
+      grid-template-columns:minmax(0,1fr);
       gap:16px;
       align-items:end;
-    }
-
-    @media (max-width:900px){
-      .hero-content{
-        grid-template-columns:1fr;
-        align-items:start;
-      }
     }
 
     .hero-left{
@@ -261,7 +269,7 @@
       height:92px;
       border-radius:24px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.25);
+      border:1px solid rgba(255,255,255,.28);
       box-shadow:0 18px 48px rgba(0,0,0,.22);
       background:#000;
       flex:0 0 auto;
@@ -294,17 +302,21 @@
       letter-spacing:-.6px;
       color:#fff;
       text-wrap:balance;
-      text-shadow:0 10px 26px rgba(0,0,0,.18);
+      text-shadow:
+        0 2px 8px rgba(0,0,0,.55),
+        0 10px 26px rgba(0,0,0,.28);
     }
 
     .hero-copy p{
       margin:0;
       max-width:720px;
-      color:rgba(255,255,255,.96);
+      color:rgba(255,255,255,.98);
       font-size:15px;
       line-height:1.56;
-      font-weight:600;
-      text-shadow:0 6px 18px rgba(0,0,0,.16);
+      font-weight:700;
+      text-shadow:
+        0 2px 8px rgba(0,0,0,.55),
+        0 6px 18px rgba(0,0,0,.28);
     }
 
     .hero-note{
@@ -314,7 +326,7 @@
       padding:10px 14px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.22);
-      background:rgba(255,255,255,.10);
+      background:rgba(0,0,0,.22);
       color:#fff;
       font-size:12.5px;
       font-weight:900;
@@ -333,51 +345,188 @@
       margin-top:16px;
     }
 
-    .hero-right{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      align-items:flex-end;
+    .ops-strip{
+      margin-top:18px;
     }
 
-    @media (max-width:900px){
-      .hero-right{
-        align-items:flex-start;
+    .ops-track{
+      display:flex;
+      gap:10px;
+      overflow:auto;
+      padding-bottom:4px;
+      scroll-snap-type:x proximity;
+    }
+
+    .ops-track::-webkit-scrollbar{
+      height:8px;
+    }
+
+    .ops-track::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
+    }
+
+    .ops-chip{
+      min-width:170px;
+      scroll-snap-align:start;
+      border:1px solid var(--line);
+      background:var(--card-lite);
+      border-radius:18px;
+      padding:12px 14px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .ops-chip strong{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:4px;
+      letter-spacing:.2px;
+      text-transform:uppercase;
+    }
+
+    .ops-chip span{
+      display:block;
+      font-size:15px;
+      font-weight:900;
+      line-height:1.2;
+      color:var(--text);
+    }
+
+    header.site-header{
+      position:sticky;
+      top:0;
+      z-index:80;
+      background:color-mix(in srgb, var(--card-strong), transparent 10%);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-wrap{
+      width:min(1140px,92vw);
+      margin:0 auto;
+      min-height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .brand-mini{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:inherit;
+      font-weight:900;
+      min-width:0;
+    }
+
+    .brand-mini img{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .brand-mini span{
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:var(--text);
+      font-weight:800;
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:12px;
+    }
+
+    .nav-links a:hover{
+      background:var(--card-lite);
+    }
+
+    .burger{
+      display:none;
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--card-strong);
+      color:var(--text);
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .burger svg{
+      width:20px;
+      height:20px;
+    }
+
+    @media (max-width:860px){
+      .burger{
+        display:inline-flex;
+      }
+
+      .nav-links{
+        position:absolute;
+        left:4vw;
+        right:4vw;
+        top:72px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        padding:12px;
+        border:1px solid var(--line);
+        background:var(--card-strong);
+        border-radius:20px;
+        box-shadow:var(--shadow);
+      }
+
+      .nav-links.open{
+        display:flex;
+      }
+
+      .nav-links a{
+        padding:12px 14px;
       }
     }
-
-    .hero-bottom{
-      padding:0 20px 20px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-
-    .hero-bottom .pill{
-      background:rgba(255,255,255,.12);
-      border-color:rgba(255,255,255,.18);
-      color:#fff;
-      backdrop-filter:blur(10px);
-    }
-
-    .hero-bottom .pill strong{color:#fff}
 
     .grid{
       display:grid;
       grid-template-columns:minmax(0,1.16fr) minmax(300px,.84fr);
-      gap:16px;
+      gap:18px;
       align-items:start;
     }
 
     @media (max-width:980px){
-      .grid{grid-template-columns:1fr}
+      .grid{
+        grid-template-columns:1fr;
+      }
     }
 
     .order-card{
-      padding:18px;
+      padding:22px;
       display:flex;
       flex-direction:column;
-      gap:18px;
+      gap:22px;
+    }
+
+    @media (max-width:720px){
+      .order-card{
+        padding:16px;
+        gap:16px;
+      }
     }
 
     .section-head{
@@ -402,7 +551,9 @@
     }
 
     @media (max-width:640px){
-      .combo-grid{grid-template-columns:1fr}
+      .combo-grid{
+        grid-template-columns:1fr;
+      }
     }
 
     .combo{
@@ -533,7 +684,9 @@
     }
 
     @media (max-width:640px){
-      .mini-steps{grid-template-columns:1fr}
+      .mini-steps{
+        grid-template-columns:1fr;
+      }
     }
 
     .step{
@@ -595,7 +748,9 @@
     }
 
     @media (max-width:740px){
-      .form{grid-template-columns:1fr}
+      .form{
+        grid-template-columns:1fr;
+      }
     }
 
     label{
@@ -629,7 +784,9 @@
       resize:vertical;
     }
 
-    .full{grid-column:1 / -1}
+    .full{
+      grid-column:1 / -1;
+    }
 
     .cta-row{
       display:flex;
@@ -667,14 +824,20 @@
     .aside-col{
       display:flex;
       flex-direction:column;
-      gap:16px;
+      gap:18px;
     }
 
     .info-card{
-      padding:18px;
+      padding:22px;
       display:flex;
       flex-direction:column;
       gap:16px;
+    }
+
+    @media (max-width:720px){
+      .info-card{
+        padding:16px;
+      }
     }
 
     .quick-list{
@@ -725,7 +888,9 @@
     }
 
     @media (max-width:560px){
-      .icons{grid-template-columns:1fr}
+      .icons{
+        grid-template-columns:1fr;
+      }
     }
 
     .iconbox{
@@ -759,6 +924,148 @@
       line-height:1.32;
     }
 
+    .coverage-layout{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    @media (max-width:980px){
+      .coverage-layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .coverage-map-image{
+      border:1px solid var(--line);
+      background:var(--card-lite);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .coverage-map-image img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:contain;
+      background:#fff;
+    }
+
+    .coverage-map-image .pad{
+      padding:14px;
+    }
+
+    .coverage-map-image .t{
+      margin:0 0 6px;
+      font-weight:900;
+      font-size:15px;
+    }
+
+    .coverage-map-image .d{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.46;
+    }
+
+    .coverage-search{
+      border:1px solid var(--line);
+      background:var(--card-lite);
+      border-radius:22px;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-height:100%;
+    }
+
+    @media (max-width:720px){
+      .coverage-search{
+        padding:16px;
+      }
+    }
+
+    .coverage-search-head{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .coverage-search-head h3{
+      margin:0;
+      font-size:18px;
+    }
+
+    .coverage-search-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.45;
+    }
+
+    .zone-search-input{
+      position:relative;
+      max-width:100%;
+    }
+
+    .zone-search-input input{
+      padding-right:44px;
+    }
+
+    .zone-search-input .search-icon{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--muted);
+      font-size:16px;
+      pointer-events:none;
+      opacity:.9;
+    }
+
+    .zone-feedback{
+      min-height:24px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.4;
+    }
+
+    .zone-results{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+      max-height:280px;
+      overflow:auto;
+      padding-right:4px;
+    }
+
+    @media (max-width:560px){
+      .zone-results{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .zone-results::-webkit-scrollbar{
+      width:8px;
+    }
+
+    .zone-results::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
+    }
+
+    .zone-item{
+      border:1px solid var(--line);
+      background:var(--card-strong);
+      border-radius:14px;
+      padding:10px 12px;
+      font-size:13px;
+      font-weight:800;
+      line-height:1.35;
+    }
+
     .reviews{
       display:grid;
       grid-template-columns:repeat(5,minmax(0,1fr));
@@ -766,11 +1073,15 @@
     }
 
     @media (max-width:980px){
-      .reviews{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .reviews{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
     }
 
     @media (max-width:560px){
-      .reviews{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .reviews{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
     }
 
     .review{
@@ -814,7 +1125,9 @@
       padding:12px;
     }
 
-    details + details{margin-top:10px}
+    details + details{
+      margin-top:10px;
+    }
 
     summary{
       cursor:pointer;
@@ -826,7 +1139,9 @@
       gap:12px;
     }
 
-    summary::-webkit-details-marker{display:none}
+    summary::-webkit-details-marker{
+      display:none;
+    }
 
     .chev{
       width:18px;
@@ -836,7 +1151,9 @@
       flex:0 0 auto;
     }
 
-    details[open] .chev{transform:rotate(180deg)}
+    details[open] .chev{
+      transform:rotate(180deg);
+    }
 
     .content{
       margin-top:10px;
@@ -845,108 +1162,20 @@
       line-height:1.52;
     }
 
-    .coverage-wrap{
+    .map-box{
+      border:1px solid var(--line);
+      background:var(--card-lite);
+      border-radius:22px;
+      padding:18px;
       display:grid;
       grid-template-columns:1fr;
       gap:14px;
     }
 
-    .coverage-search{
-      border:1px solid var(--line);
-      background:var(--card-lite);
-      border-radius:22px;
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-
-    .coverage-search-head{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-
-    .coverage-search-head h3{
-      margin:0;
-      font-size:18px;
-    }
-
-    .coverage-search-head p{
-      margin:0;
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.45;
-    }
-
-    .zone-search-input{
-      position:relative;
-      max-width:520px;
-    }
-
-    .zone-search-input input{
-      padding-right:44px;
-    }
-
-    .zone-search-input .search-icon{
-      position:absolute;
-      right:14px;
-      top:50%;
-      transform:translateY(-50%);
-      color:var(--muted);
-      font-size:16px;
-      pointer-events:none;
-      opacity:.9;
-    }
-
-    .zone-empty{
-      display:none;
-      border:1px dashed color-mix(in srgb, var(--accent), var(--line) 62%);
-      background:color-mix(in srgb, var(--accent), transparent 94%);
-      border-radius:16px;
-      padding:14px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.45;
-    }
-
-    .zone-results{
-      display:none;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:8px;
-      max-height:260px;
-      overflow:auto;
-      padding-right:4px;
-    }
-
-    @media (max-width:560px){
-      .zone-results{grid-template-columns:1fr}
-    }
-
-    .zone-results::-webkit-scrollbar{width:8px}
-    .zone-results::-webkit-scrollbar-thumb{
-      background:color-mix(in srgb, var(--line), var(--accent) 18%);
-      border-radius:999px;
-    }
-
-    .zone-item{
-      border:1px solid var(--line);
-      background:var(--card-strong);
-      border-radius:14px;
-      padding:10px 12px;
-      font-size:13px;
-      font-weight:800;
-      line-height:1.35;
-    }
-
-    .map-box{
-      border:1px solid var(--line);
-      background:var(--card-lite);
-      border-radius:22px;
-      padding:16px;
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
+    @media (max-width:720px){
+      .map-box{
+        padding:16px;
+      }
     }
 
     .map-box h3{
@@ -967,7 +1196,7 @@
       border-radius:22px;
       overflow:hidden;
       border:1px solid var(--line);
-      background:#000;
+      background:#fff;
       box-shadow:var(--shadow-soft);
     }
 
@@ -985,6 +1214,7 @@
       background:color-mix(in srgb, var(--card-strong), transparent 0%);
       backdrop-filter:blur(10px);
       padding:18px 0 34px;
+      margin-top:32px;
     }
 
     .footer-wrap{
@@ -1025,8 +1255,6 @@
     }
 
     .float a{
-      width:56px;
-      height:56px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -1038,11 +1266,13 @@
       padding:0;
     }
 
-    .float a:hover{transform:translateY(-2px)}
+    .float a:hover{
+      transform:translateY(-2px);
+    }
 
     .float img{
-      width:46px;
-      height:46px;
+      width:60px;
+      height:60px;
       display:block;
       object-fit:contain;
       filter:drop-shadow(0 8px 18px rgba(0,0,0,.18));
@@ -1051,6 +1281,29 @@
 </head>
 
 <body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand-mini" href="#inicio">
+        <img src="https://iili.io/qqABRmQ.jpg" alt="RECAMBIOS MK">
+        <span>RECAMBIOS MK</span>
+      </a>
+
+      <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <nav class="nav-links" id="mobileNav">
+        <a href="#pedido">Pedir</a>
+        <a href="#zonas">Cobertura</a>
+        <a href="#faq">Preguntas</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+  </header>
+
   <div class="page">
     <div class="bg-overlay" aria-hidden="true"></div>
 
@@ -1059,37 +1312,40 @@
 
         <section class="hero card" id="inicio">
           <div class="hero-banner">
-            <div class="hero-content">
-              <div class="hero-left">
-                <div class="logo" aria-label="Logo Recambios MK">
-                  <img src="https://iili.io/qqABRmQ.jpg" alt="RECAMBIOS MK" />
-                </div>
+            <img src="https://iili.io/qqRBRNR.md.jpg" alt="Banner Recambios MK">
+            <div class="hero-overlay">
+              <div class="hero-content">
+                <div class="hero-left">
+                  <div class="logo" aria-label="Logo Recambios MK">
+                    <img src="https://iili.io/qqABRmQ.jpg" alt="RECAMBIOS MK" />
+                  </div>
 
-                <div class="hero-copy">
-                  <span class="eyebrow">Recambio simple y coordinado</span>
-                  <h1>Pedí tu recambio de sifones de soda por WhatsApp</h1>
-                  <p>Elegí tu combo, completá los datos y coordiná la entrega o el retiro de forma rápida y clara.</p>
+                  <div class="hero-copy">
+                    <span class="eyebrow">Recambio simple y coordinado</span>
+                    <h1>Pedí tu recambio de sifones de soda por WhatsApp</h1>
+                    <p>Elegí tu combo, completá los datos y coordiná la entrega o el retiro de forma rápida y clara.</p>
 
-                  <div class="hero-note">RECARGAMOS EL SIFON CON 450 GRS DE CO2 NACIONAL, (CERTIFICADO ANMAT)</div>
+                    <div class="hero-note">RECARGAMOS EL SIFON CON 450 GRS DE CO2 NACIONAL, (CERTIFICADO ANMAT)</div>
 
-                  <div class="hero-actions">
-                    <a class="btn primary" href="#pedido">Pedir ahora</a>
-                    <a class="btn ghost" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver Instagram</a>
+                    <div class="hero-actions">
+                      <a class="btn primary" href="#pedido">Pedir ahora</a>
+                      <a class="btn ghost" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver Instagram</a>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div class="hero-right"></div>
             </div>
           </div>
+        </section>
 
-          <div class="hero-bottom">
-            <span class="pill warn">Mismo día: pedidos hasta <strong>14 hs</strong></span>
-            <span class="pill">Pedidos: <strong>08 a 20 hs</strong></span>
-            <span class="pill">Entregas: <strong>24 a 48 hs</strong></span>
-            <span class="pill">Logística: <strong>17 a 22 hs</strong></span>
-            <span class="pill">Cobertura: <strong>CABA y GBA</strong></span>
-            <span class="pill">Retiro: <strong>Haedo</strong></span>
+        <section class="ops-strip">
+          <div class="ops-track" aria-label="Datos destacados">
+            <div class="ops-chip"><strong>Mismo día</strong><span>Pedidos hasta 14 hs</span></div>
+            <div class="ops-chip"><strong>Pedidos</strong><span>08 a 20 hs</span></div>
+            <div class="ops-chip"><strong>Entregas</strong><span>24 a 48 hs</span></div>
+            <div class="ops-chip"><strong>Logística</strong><span>17 a 22 hs</span></div>
+            <div class="ops-chip"><strong>Cobertura</strong><span>CABA y GBA</span></div>
+            <div class="ops-chip"><strong>Retiro</strong><span>Haedo</span></div>
           </div>
         </section>
 
@@ -1287,13 +1543,6 @@
                 <h2>Lo importante para pedir</h2>
               </div>
 
-              <div class="pillrow">
-                <span class="pill">Envíos: <strong>L a V</strong></span>
-                <span class="pill">Entregas: <strong>24 a 48 hs</strong></span>
-                <span class="pill">Ventana: <strong>17 a 22 hs</strong></span>
-                <span class="pill warn">Mismo día: hasta <strong>14 hs</strong></span>
-              </div>
-
               <div class="quick-list">
                 <div class="quick-item">
                   <div class="quick-icon">01</div>
@@ -1368,14 +1617,22 @@
           <div class="section-head">
             <span class="eyebrow">Cobertura</span>
             <h2>Buscá tu localidad</h2>
-            <p class="subtitle">Escribí tu localidad, barrio o partido. Los resultados aparecen solo cuando buscás.</p>
+            <p class="subtitle">Escribí tu localidad, barrio o partido. El filtro ahora busca por coincidencias reales y muestra solo los resultados correctos.</p>
           </div>
 
-          <div class="coverage-wrap" style="margin-top:14px;">
+          <div class="coverage-layout" style="margin-top:16px;">
+            <div class="coverage-map-image">
+              <img src="https://iili.io/qquQ2Hb.jpg" alt="Mapa de localidades de entrega">
+              <div class="pad">
+                <p class="t">Mapa general de cobertura</p>
+                <p class="d">Referencia visual de la zona de entregas en CABA y GBA.</p>
+              </div>
+            </div>
+
             <div class="coverage-search">
               <div class="coverage-search-head">
                 <h3>Localidades de entrega</h3>
-                <p>Cobertura en CABA y GBA. En GBA el costo de envío queda sujeto a consulta.</p>
+                <p>Escribí el nombre tal como lo buscás habitualmente. Si no aparece, consultalo por WhatsApp.</p>
               </div>
 
               <div class="zone-search-input">
@@ -1383,8 +1640,7 @@
                 <span class="search-icon">🔎</span>
               </div>
 
-              <div class="zone-empty" id="zoneHint">Usá la lupa para buscar tu localidad.</div>
-              <div class="zone-empty" id="zoneEmpty">No encontramos coincidencias con esa búsqueda. Probá con otra localidad o consultá por WhatsApp.</div>
+              <div class="zone-feedback" id="zoneFeedback">Usá la lupa para buscar tu localidad.</div>
 
               <div class="zone-results" id="zoneResults" aria-label="Resultados de localidades">
                 <div class="zone-item" data-zone="zarate">Zárate</div>
@@ -1444,7 +1700,7 @@
             <p class="subtitle">Experiencias compartidas por quienes ya hicieron su pedido.</p>
           </div>
 
-          <div class="reviews" aria-label="Reseñas de clientes" style="margin-top:14px;">
+          <div class="reviews" aria-label="Reseñas de clientes" style="margin-top:16px;">
             <div class="review">
               <img src="https://iili.io/qq3SlA7.jpg" alt="Reseña 1" />
               <div class="stars">★★★★★</div>
@@ -1472,7 +1728,7 @@
             </div>
           </div>
 
-          <div class="cta-row" style="margin-top:14px;">
+          <div class="cta-row" style="margin-top:16px;">
             <a class="btn ghost" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver reseñas en Instagram</a>
           </div>
         </section>
@@ -1483,7 +1739,7 @@
             <h2>Información útil antes de confirmar</h2>
           </div>
 
-          <div style="margin-top:14px;">
+          <div style="margin-top:16px;">
             <details>
               <summary>¿Qué necesito para pedir? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
               <div class="content">Nombre y apellido, zona o barrio, calle y altura, modelo o color del tubo, y confirmar si tenés envases vacíos.</div>
@@ -1518,29 +1774,24 @@
             <p class="subtitle">Gdor. Emilio Castro 624, B1706 Haedo, Provincia de Buenos Aires.</p>
           </div>
 
-          <div class="pillrow" style="margin-top:14px;">
-            <span class="pill">Retiros: <strong>L a S</strong> 9:30 a 13:00</span>
-            <span class="pill">Retiros: <strong>L a S</strong> 15:30 a 19:00</span>
-          </div>
-
-          <div class="map-box" style="margin-top:14px;">
+          <div class="map-box" style="margin-top:16px;">
             <h3>Dirección</h3>
             <p>Gdor. Emilio Castro 624, B1706 Haedo, Provincia de Buenos Aires.</p>
 
             <div class="map" aria-label="Mapa Google">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.157839506933!2d-58.59649002509548!3d-34.650716559980395!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc79b7ed3249d%3A0xd696357ce33733e9!2sFERRETERIA!5e0!3m2!1ses!2sar!4v1772326758687!5m2!1ses!2sar"
-                allowfullscreen=""
+                src="https://www.google.com/maps?q=Gdor.+Emilio+Castro+624,+Haedo,+Provincia+de+Buenos+Aires&output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
                 title="Mapa Recambios MK"
               ></iframe>
             </div>
-          </div>
 
-          <div class="cta-row" style="margin-top:14px;">
-            <button class="btn primary" id="btnWsp2">Hacer pedido por WhatsApp</button>
-            <a class="btn ghost" href="#inicio">Volver arriba</a>
+            <div class="cta-row">
+              <a class="btn soft" href="https://www.google.com/maps/place/Gdor.+Emilio+Castro+624,+B1706AJN+Haedo,+Provincia+de+Buenos+Aires/@-34.650733,-58.5964677,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcc79b78fafe8d:0x6f36aa7d1a0db610!8m2!3d-34.6507374!4d-58.5938928!16s%2Fg%2F11nfflsg62?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Cómo llegar</a>
+              <button class="btn primary" id="btnWsp2">Hacer pedido por WhatsApp</button>
+              <a class="btn ghost" href="#inicio">Volver arriba</a>
+            </div>
           </div>
         </section>
 
@@ -1561,8 +1812,8 @@
     </footer>
 
     <div class="float" id="float">
-      <a id="waFloat" href="#" aria-label="WhatsApp">
-        <img src="https://iili.io/fm1NjzQ.jpg" alt="WhatsApp" />
+      <a href="https://wa.me/5491162843339" id="waFloat" aria-label="WhatsApp">
+        <img src="https://iili.io/fm1NjzQ.jpg" alt="WhatsApp" style="width: 60px; height: 60px;">
       </a>
     </div>
   </div>
@@ -1576,6 +1827,17 @@
         3: { qty: 3, total: 38000 },
         4: { qty: 4, total: 49000 }
       };
+
+      const LOCATIONS = [
+        "Zárate","Campana","Escobar","Villa Rosa","Ingeniero Maschwitz","Nordelta","Tigre",
+        "San Fernando","San José","Vicente López","CABA","Avellaneda","Lanús","Quilmes",
+        "Berazategui","Florencio Varela","Almirante Brown","Lomas de Zamora","La Plata Norte",
+        "La Plata Centro","La Plata Oeste","Berisso","Ensenada","San Vicente","Ezeiza",
+        "Esteban Echeverría","La Matanza Sur","La Matanza Norte","Merlo","Marcos Paz",
+        "Cañuelas","General Rodríguez","Luján","Pilar","Del Viso","Garín","Malvinas Argentinas",
+        "José C. Paz","San Miguel","San Martín","Tres de Febrero","Morón","Hurlingham",
+        "Ituzaingó","Moreno"
+      ];
 
       const $ = (id)=>document.getElementById(id);
 
@@ -1654,7 +1916,8 @@
         return lines.join("\n");
       }
 
-      function openWhatsApp(){
+      function openWhatsApp(e){
+        if(e) e.preventDefault();
         updateTotal();
         const msg = buildMessage();
         const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
@@ -1677,40 +1940,82 @@
           .toLowerCase()
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\s+/g, " ")
           .trim();
+      }
+
+      function renderZoneResults(matches, query){
+        const results = $("zoneResults");
+        const feedback = $("zoneFeedback");
+        if(!results || !feedback) return;
+
+        results.innerHTML = "";
+
+        if(!query){
+          feedback.textContent = "Usá la lupa para buscar tu localidad.";
+          return;
+        }
+
+        if(matches.length === 0){
+          feedback.textContent = "No encontramos coincidencias con esa búsqueda. Probá con otra localidad o consultá por WhatsApp.";
+          return;
+        }
+
+        feedback.textContent = matches.length === 1
+          ? "Encontramos 1 localidad."
+          : "Encontramos " + matches.length + " localidades.";
+
+        matches.forEach(name=>{
+          const div = document.createElement("div");
+          div.className = "zone-item";
+          div.textContent = name;
+          results.appendChild(div);
+        });
       }
 
       function filterZones(){
         const input = $("zoneSearch");
-        const results = $("zoneResults");
-        const empty = $("zoneEmpty");
-        const hint = $("zoneHint");
-        if(!input || !results || !empty || !hint) return;
+        if(!input) return;
 
-        const q = normalizeText(input.value);
+        const query = normalizeText(input.value);
 
-        if(!q){
-          results.style.display = "none";
-          empty.style.display = "none";
-          hint.style.display = "block";
+        if(!query){
+          renderZoneResults([], "");
           return;
         }
 
-        hint.style.display = "none";
-        results.style.display = "grid";
+        const exactStart = [];
+        const partial = [];
 
-        let visible = 0;
-        results.querySelectorAll(".zone-item").forEach(item=>{
-          const zone = normalizeText(item.dataset.zone || item.textContent);
-          const show = zone.includes(q);
-          item.style.display = show ? "" : "none";
-          if(show) visible++;
+        LOCATIONS.forEach(location=>{
+          const normalized = normalizeText(location);
+          if(normalized.startsWith(query)){
+            exactStart.push(location);
+          } else if(normalized.includes(query)){
+            partial.push(location);
+          }
         });
 
-        empty.style.display = visible === 0 ? "block" : "none";
-        if(visible === 0){
-          results.style.display = "none";
-        }
+        const matches = [...exactStart, ...partial];
+        renderZoneResults(matches, query);
+      }
+
+      function setupBurger(){
+        const btn = $("burgerBtn");
+        const nav = $("mobileNav");
+        if(!btn || !nav) return;
+
+        btn.addEventListener("click", function(){
+          const isOpen = nav.classList.toggle("open");
+          btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        nav.querySelectorAll("a").forEach(link=>{
+          link.addEventListener("click", function(){
+            nav.classList.remove("open");
+            btn.setAttribute("aria-expanded", "false");
+          });
+        });
       }
 
       document.querySelectorAll('input[name="combo"]').forEach(radio=>{
@@ -1719,10 +2024,7 @@
 
       $("btnWsp").addEventListener("click", openWhatsApp);
       $("btnWsp2").addEventListener("click", openWhatsApp);
-      $("waFloat").addEventListener("click", function(e){
-        e.preventDefault();
-        openWhatsApp();
-      });
+      $("waFloat").addEventListener("click", openWhatsApp);
 
       const zoneSearch = $("zoneSearch");
       if(zoneSearch){
@@ -1733,6 +2035,7 @@
       window.addEventListener("resize", adjustFloat);
 
       setThemeByHour();
+      setupBurger();
       updateTotal();
       adjustFloat();
       filterZones();
