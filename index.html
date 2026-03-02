@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RECAMBIOS MK | Recambio de sifones de soda</title>
+  <title>RECAMBIOS MK | Cilindro de soda cargado</title>
 
-  <meta name="description" content="Pedí tu recambio de sifones de soda por WhatsApp. Envíos coordinados en CABA y GBA, y retiro en Haedo." />
-  <meta property="og:title" content="RECAMBIOS MK | Recambio de sifones de soda" />
-  <meta property="og:description" content="Pedí tu recambio por WhatsApp. Envíos coordinados (CABA y GBA) y retiro en local. Pago por transferencia adelantado al confirmar." />
+  <meta name="description" content="Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT. Pedido online para agilizar envíos en CABA y GBA." />
+  <meta property="og:title" content="RECAMBIOS MK | Cilindro de soda cargado" />
+  <meta property="og:description" content="Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT. Agilizá tu pedido online para envíos en CABA y GBA." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://iili.io/qqRBRNR.md.jpg" />
   <meta property="og:locale" content="es_AR" />
@@ -26,6 +26,7 @@
       --brand:#22c55e;
       --brand-deep:#16a34a;
       --accent:#2563eb;
+      --danger:#ef4444;
       --shadow:0 16px 50px rgba(15,23,42,.08);
       --shadow-soft:0 10px 28px rgba(15,23,42,.05);
       --radius:20px;
@@ -47,6 +48,7 @@
       --brand:#22c55e;
       --brand-deep:#16a34a;
       --accent:#60a5fa;
+      --danger:#f87171;
       --shadow:0 18px 56px rgba(0,0,0,.34);
       --shadow-soft:0 12px 28px rgba(0,0,0,.22);
     }
@@ -54,7 +56,6 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     html,body{height:100%}
-
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;
@@ -67,8 +68,13 @@
       transition:background .3s ease,color .3s ease;
     }
 
+    body.modal-open{
+      overflow:hidden;
+    }
+
     img{max-width:100%;display:block}
     a{color:inherit}
+    button,input,select,textarea{font:inherit}
 
     .page{
       min-height:100vh;
@@ -88,30 +94,14 @@
     }
 
     @media (max-width:720px){
-      .section{
-        padding:28px 0;
-      }
-    }
-
-    .section + .section{
-      border-top:1px solid transparent;
+      .section{padding:28px 0}
     }
 
     .block{
-      background:color-mix(in srgb, var(--surface), transparent 0%);
+      background:var(--surface);
       border:1px solid var(--line);
       border-radius:var(--radius-lg);
       box-shadow:var(--shadow);
-    }
-
-    .block.pad{
-      padding:28px;
-    }
-
-    @media (max-width:720px){
-      .block.pad{
-        padding:18px;
-      }
     }
 
     .eyebrow{
@@ -183,33 +173,25 @@
       min-height:48px;
     }
 
-    .btn:hover{
-      transform:translateY(-1px);
-    }
-
+    .btn:hover{transform:translateY(-1px)}
     .btn.primary{
       background:linear-gradient(135deg, var(--brand), var(--brand-deep));
       color:#072111;
       box-shadow:0 14px 28px rgba(34,197,94,.24);
     }
-
     .btn.secondary{
       background:var(--surface);
       color:var(--text);
       border:1px solid var(--line);
       box-shadow:var(--shadow-soft);
     }
-
     .btn.soft{
       background:color-mix(in srgb, var(--accent), transparent 90%);
       color:var(--text);
       border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
       box-shadow:var(--shadow-soft);
     }
-
-    .btn.full{
-      width:100%;
-    }
+    .btn.full{width:100%}
 
     .topbar{
       position:sticky;
@@ -230,6 +212,7 @@
       align-items:center;
       justify-content:space-between;
       gap:16px;
+      position:relative;
     }
 
     .brand{
@@ -291,18 +274,24 @@
       color:var(--text);
     }
 
-    .nav a:hover{
-      background:var(--surface-alt);
+    .nav a:hover{background:var(--surface-alt)}
+
+    .header-tools{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex:0 0 auto;
     }
 
+    .theme-toggle,
     .burger{
-      display:none;
       width:46px;
       height:46px;
       border-radius:14px;
       border:1px solid var(--line);
       background:var(--surface);
       color:var(--text);
+      display:inline-flex;
       align-items:center;
       justify-content:center;
       cursor:pointer;
@@ -310,18 +299,21 @@
       flex:0 0 auto;
     }
 
+    .theme-toggle svg,
     .burger svg{
       width:20px;
       height:20px;
     }
+
+    .burger{display:none}
 
     @media (max-width:900px){
       .burger{display:inline-flex}
 
       .nav{
         position:absolute;
-        left:4vw;
-        right:4vw;
+        left:0;
+        right:0;
         top:calc(var(--header-h) - 4px);
         display:none;
         flex-direction:column;
@@ -335,10 +327,7 @@
       }
 
       .nav.open{display:flex}
-
-      .nav a{
-        padding:12px 14px;
-      }
+      .nav a{padding:12px 14px}
     }
 
     .hero{
@@ -353,9 +342,7 @@
     }
 
     @media (max-width:980px){
-      .hero-grid{
-        grid-template-columns:1fr;
-      }
+      .hero-grid{grid-template-columns:1fr}
     }
 
     .hero-copy-card{
@@ -443,6 +430,37 @@
       flex:0 0 auto;
     }
 
+    .hero-price-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    .price-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-height:52px;
+      padding:12px 16px;
+      border-radius:18px;
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .price-pill strong{
+      font-size:28px;
+      line-height:1;
+      letter-spacing:-.8px;
+    }
+
+    .price-pill span{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:800;
+    }
+
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
@@ -450,12 +468,8 @@
     }
 
     @media (max-width:520px){
-      .hero-actions{
-        flex-direction:column;
-      }
-      .hero-actions .btn{
-        width:100%;
-      }
+      .hero-actions{flex-direction:column}
+      .hero-actions .btn{width:100%}
     }
 
     .hero-banner-card{
@@ -489,9 +503,7 @@
       html[data-theme="dark"] .hero-banner{
         background:#0b1017;
       }
-      .hero-banner-fade{
-        display:none;
-      }
+      .hero-banner-fade{display:none}
     }
 
     @media (max-width:560px){
@@ -513,15 +525,11 @@
     }
 
     @media (max-width:1100px){
-      .highlight-row{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
+      .highlight-row{grid-template-columns:repeat(3,minmax(0,1fr))}
     }
 
     @media (max-width:620px){
-      .highlight-row{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
+      .highlight-row{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
 
     .chip-card{
@@ -550,218 +558,162 @@
       line-height:1.25;
     }
 
-    .combos-layout{
+    .product-grid{
       display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(280px,360px);
+      grid-template-columns:minmax(320px,420px) minmax(0,1fr);
       gap:22px;
       align-items:start;
     }
 
     @media (max-width:980px){
-      .combos-layout{
-        grid-template-columns:1fr;
-      }
+      .product-grid{grid-template-columns:1fr}
     }
 
-    .combo-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
-    }
-
-    @media (max-width:720px){
-      .combo-grid{
-        grid-template-columns:1fr;
-      }
-    }
-
-    .combo{
+    .product-media,
+    .product-card,
+    .benefit-card,
+    .coverage-card,
+    .search-card,
+    .map-card,
+    .faq-card,
+    .review-card{
       background:var(--surface-soft);
       border:1px solid var(--line);
       border-radius:24px;
-      padding:18px;
+      padding:22px;
       box-shadow:var(--shadow-soft);
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      min-height:100%;
-      transition:border-color .14s ease, transform .14s ease, box-shadow .14s ease, background .14s ease;
-      cursor:pointer;
     }
 
-    .combo:hover{
-      transform:translateY(-1px);
-      border-color:color-mix(in srgb, var(--accent), var(--line) 58%);
+    @media (max-width:720px){
+      .product-media,
+      .product-card,
+      .benefit-card,
+      .coverage-card,
+      .search-card,
+      .map-card,
+      .faq-card,
+      .review-card{
+        padding:16px;
+      }
     }
 
-    .combo.active{
-      border-color:color-mix(in srgb, var(--brand), var(--line) 36%);
-      background:
-        linear-gradient(180deg, color-mix(in srgb, var(--brand), transparent 93%), transparent 55%),
-        var(--surface-soft);
-      box-shadow:0 16px 34px rgba(34,197,94,.12);
-    }
-
-    .combo-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-    }
-
-    .combo-title{
-      min-width:0;
-    }
-
-    .combo-title strong{
-      display:block;
-      font-size:20px;
-      line-height:1.08;
-      margin-bottom:6px;
-    }
-
-    .combo-title span{
-      display:block;
-      font-size:13px;
-      line-height:1.45;
-      color:var(--muted);
-    }
-
-    .tag{
-      padding:8px 10px;
-      border-radius:999px;
-      background:color-mix(in srgb, var(--brand), transparent 89%);
-      border:1px solid color-mix(in srgb, var(--brand), var(--line) 58%);
-      font-size:11px;
-      font-weight:900;
-      white-space:nowrap;
-    }
-
-    .combo-price{
-      font-size:34px;
-      line-height:1;
-      font-weight:900;
-      letter-spacing:-.8px;
-    }
-
-    .combo-price small{
-      font-size:12px;
-      font-weight:800;
-      color:var(--muted);
-      letter-spacing:0;
-    }
-
-    .combo-points{
-      display:grid;
-      gap:8px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.45;
-    }
-
-    .combo-points div{
-      display:flex;
-      gap:8px;
-      align-items:flex-start;
-    }
-
-    .combo-points div::before{
-      content:"•";
-      color:var(--brand);
-      font-weight:900;
-      line-height:1;
-      margin-top:1px;
-      flex:0 0 auto;
-    }
-
-    .combo-foot{
-      margin-top:auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding-top:2px;
-    }
-
-    .radio{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-size:13px;
-      font-weight:900;
-      cursor:pointer;
-      user-select:none;
-    }
-
-    .radio input{
-      accent-color:var(--brand);
-    }
-
-    .combo-side{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-    .info-stack{
-      background:var(--surface-soft);
+    .product-media-wrap{
+      overflow:hidden;
+      border-radius:18px;
       border:1px solid var(--line);
-      border-radius:22px;
-      padding:18px;
+      background:#fff;
       box-shadow:var(--shadow-soft);
     }
 
-    .info-stack h3{
-      margin:0 0 12px;
-      font-size:18px;
-      letter-spacing:-.2px;
+    .product-media-wrap img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
     }
 
-    .steps{
+    .product-card h3{
+      margin:0 0 10px;
+      font-size:28px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+      text-wrap:balance;
+    }
+
+    .product-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.68;
+    }
+
+    .product-stack{
+      display:grid;
+      gap:14px;
+    }
+
+    .price-box{
+      display:flex;
+      align-items:flex-end;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:2px;
+    }
+
+    .price-box strong{
+      font-size:42px;
+      line-height:1;
+      letter-spacing:-1px;
+    }
+
+    .price-box span{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:900;
+    }
+
+    .bullet-list{
       display:grid;
       gap:10px;
     }
 
-    .step{
-      display:grid;
-      grid-template-columns:40px 1fr;
-      gap:12px;
-      align-items:start;
-      padding:12px;
+    .bullet{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px 14px;
       border-radius:18px;
       border:1px solid var(--line);
       background:var(--surface);
+      box-shadow:var(--shadow-soft);
     }
 
-    .step-badge{
-      width:40px;
-      height:40px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      font-size:12px;
-      font-weight:900;
-      background:color-mix(in srgb, var(--accent), transparent 88%);
-      border:1px solid color-mix(in srgb, var(--accent), var(--line) 68%);
-      color:color-mix(in srgb, var(--accent), var(--text) 12%);
+    .bullet::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--brand);
+      box-shadow:0 0 0 7px color-mix(in srgb, var(--brand), transparent 86%);
+      margin-top:6px;
+      flex:0 0 auto;
     }
 
-    .step strong{
+    .bullet strong{
       display:block;
       margin-bottom:4px;
       font-size:14px;
     }
 
-    .step p{
+    .bullet p{
       margin:0;
       font-size:13px;
-      line-height:1.45;
-      color:var(--muted);
+      line-height:1.5;
     }
 
-    .benefit-grid{
-      display:grid;
+    .product-actions{
+      display:flex;
+      flex-wrap:wrap;
       gap:10px;
+      margin-top:4px;
+    }
+
+    @media (max-width:560px){
+      .product-actions{flex-direction:column}
+      .product-actions .btn{width:100%}
+    }
+
+    .benefits-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+
+    @media (max-width:980px){
+      .benefits-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
+    @media (max-width:560px){
+      .benefits-grid{grid-template-columns:1fr}
     }
 
     .benefit{
@@ -769,10 +721,11 @@
       grid-template-columns:48px 1fr;
       gap:12px;
       align-items:center;
-      padding:12px;
+      padding:14px;
       border-radius:18px;
       border:1px solid var(--line);
       background:var(--surface);
+      box-shadow:var(--shadow-soft);
     }
 
     .benefit img{
@@ -794,192 +747,6 @@
       color:var(--muted);
     }
 
-    .form-layout{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(280px,340px);
-      gap:22px;
-      align-items:start;
-    }
-
-    @media (max-width:980px){
-      .form-layout{
-        grid-template-columns:1fr;
-      }
-    }
-
-    .form-panel{
-      background:var(--surface-soft);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:22px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    @media (max-width:720px){
-      .form-panel{
-        padding:16px;
-      }
-    }
-
-    .form-panel h3{
-      margin:0 0 8px;
-      font-size:22px;
-      letter-spacing:-.3px;
-    }
-
-    .form-panel > p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .form{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-    }
-
-    @media (max-width:760px){
-      .form{
-        grid-template-columns:1fr;
-      }
-    }
-
-    label{
-      display:flex;
-      flex-direction:column;
-      gap:7px;
-      font-size:12.5px;
-      font-weight:900;
-      color:color-mix(in srgb, var(--text), var(--muted) 14%);
-    }
-
-    input, select, textarea{
-      width:100%;
-      appearance:none;
-      border:1px solid var(--line);
-      background:var(--surface);
-      color:var(--text);
-      border-radius:14px;
-      padding:13px 13px;
-      font-size:14px;
-      outline:none;
-      transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
-    }
-
-    input:focus, select:focus, textarea:focus{
-      border-color:color-mix(in srgb, var(--accent), var(--line) 42%);
-      box-shadow:0 0 0 4px color-mix(in srgb, var(--accent), transparent 84%);
-    }
-
-    textarea{
-      min-height:108px;
-      resize:vertical;
-    }
-
-    .full{
-      grid-column:1 / -1;
-    }
-
-    .form-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      margin-top:18px;
-    }
-
-    .total-box{
-      margin-left:auto;
-      min-height:48px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 15px;
-      border-radius:16px;
-      background:color-mix(in srgb, var(--brand), transparent 90%);
-      border:1px solid color-mix(in srgb, var(--brand), var(--line) 54%);
-      font-size:14px;
-      font-weight:900;
-      white-space:nowrap;
-      box-shadow:var(--shadow-soft);
-    }
-
-    @media (max-width:760px){
-      .total-box{
-        width:100%;
-        margin-left:0;
-      }
-    }
-
-    .form-help{
-      margin:14px 0 0;
-      font-size:12.8px;
-      color:var(--muted);
-      line-height:1.55;
-    }
-
-    .form-side{
-      display:grid;
-      gap:14px;
-    }
-
-    .side-card{
-      background:var(--surface-soft);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:18px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .side-card h3{
-      margin:0 0 12px;
-      font-size:18px;
-      letter-spacing:-.2px;
-    }
-
-    .mini-list{
-      display:grid;
-      gap:10px;
-    }
-
-    .mini-item{
-      display:grid;
-      grid-template-columns:38px 1fr;
-      gap:12px;
-      align-items:start;
-      padding:12px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:var(--surface);
-    }
-
-    .mini-icon{
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:color-mix(in srgb, var(--brand), transparent 88%);
-      border:1px solid color-mix(in srgb, var(--brand), var(--line) 64%);
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .mini-item strong{
-      display:block;
-      margin-bottom:4px;
-      font-size:13.7px;
-    }
-
-    .mini-item p{
-      margin:0;
-      color:var(--muted);
-      font-size:12.8px;
-      line-height:1.42;
-    }
-
     .coverage-layout{
       display:grid;
       grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
@@ -988,31 +755,7 @@
     }
 
     @media (max-width:980px){
-      .coverage-layout{
-        grid-template-columns:1fr;
-      }
-    }
-
-    .coverage-card,
-    .search-card,
-    .map-card,
-    .faq-card,
-    .review-card{
-      background:var(--surface-soft);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:22px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    @media (max-width:720px){
-      .coverage-card,
-      .search-card,
-      .map-card,
-      .faq-card,
-      .review-card{
-        padding:16px;
-      }
+      .coverage-layout{grid-template-columns:1fr}
     }
 
     .coverage-image-wrap{
@@ -1021,6 +764,7 @@
       border:1px solid var(--line);
       background:#fff;
       box-shadow:var(--shadow-soft);
+      margin-top:14px;
     }
 
     .coverage-image-wrap img{
@@ -1053,7 +797,21 @@
     }
 
     .search-input input{
-      padding-right:48px;
+      width:100%;
+      appearance:none;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      border-radius:14px;
+      padding:13px 48px 13px 13px;
+      font-size:14px;
+      outline:none;
+      transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    .search-input input:focus{
+      border-color:color-mix(in srgb, var(--accent), var(--line) 42%);
+      box-shadow:0 0 0 4px color-mix(in srgb, var(--accent), transparent 84%);
     }
 
     .search-icon{
@@ -1086,15 +844,10 @@
     }
 
     @media (max-width:560px){
-      .results{
-        grid-template-columns:1fr;
-      }
+      .results{grid-template-columns:1fr}
     }
 
-    .results::-webkit-scrollbar{
-      width:8px;
-    }
-
+    .results::-webkit-scrollbar{width:8px}
     .results::-webkit-scrollbar-thumb{
       background:color-mix(in srgb, var(--line), var(--accent) 18%);
       border-radius:999px;
@@ -1119,9 +872,7 @@
     }
 
     @media (max-width:980px){
-      .map-layout{
-        grid-template-columns:1fr;
-      }
+      .map-layout{grid-template-columns:1fr}
     }
 
     .map-wrap{
@@ -1165,12 +916,8 @@
     }
 
     @media (max-width:520px){
-      .map-actions{
-        flex-direction:column;
-      }
-      .map-actions .btn{
-        width:100%;
-      }
+      .map-actions{flex-direction:column}
+      .map-actions .btn{width:100%}
     }
 
     .faq-grid{
@@ -1197,9 +944,7 @@
       font-weight:900;
     }
 
-    summary::-webkit-details-marker{
-      display:none;
-    }
+    summary::-webkit-details-marker{display:none}
 
     .chev{
       width:18px;
@@ -1209,9 +954,7 @@
       transition:transform .14s ease;
     }
 
-    details[open] .chev{
-      transform:rotate(180deg);
-    }
+    details[open] .chev{transform:rotate(180deg)}
 
     .answer{
       margin-top:10px;
@@ -1227,15 +970,11 @@
     }
 
     @media (max-width:1100px){
-      .reviews-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
+      .reviews-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
     }
 
     @media (max-width:640px){
-      .reviews-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
+      .reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
 
     .review{
@@ -1281,9 +1020,7 @@
     }
 
     @media (max-width:520px){
-      .reviews-actions .btn{
-        width:100%;
-      }
+      .reviews-actions .btn{width:100%}
     }
 
     footer{
@@ -1333,9 +1070,7 @@
       transition:bottom .16s ease, transform .14s ease;
     }
 
-    .float-wa:hover{
-      transform:translateY(-2px);
-    }
+    .float-wa:hover{transform:translateY(-2px)}
 
     .float-wa img{
       width:60px;
@@ -1346,14 +1081,351 @@
     }
 
     @media (max-width:560px){
-      .float-wa{
-        right:14px;
-      }
-
+      .float-wa{right:14px}
       .float-wa img{
         width:56px;
         height:56px;
       }
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:120;
+    }
+
+    .modal.open{display:flex}
+
+    .modal-overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(6,10,16,.68);
+      backdrop-filter:blur(6px);
+    }
+
+    .modal-dialog{
+      position:relative;
+      z-index:1;
+      width:min(760px, 100%);
+      max-height:min(92vh, 920px);
+      overflow:auto;
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:0 28px 80px rgba(0,0,0,.35);
+    }
+
+    .modal-dialog::-webkit-scrollbar{width:9px}
+    .modal-dialog::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
+    }
+
+    .modal-head{
+      position:sticky;
+      top:0;
+      z-index:2;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 18px 16px;
+      background:color-mix(in srgb, var(--surface), transparent 4%);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+      border-top-left-radius:28px;
+      border-top-right-radius:28px;
+    }
+
+    .modal-head h3{
+      margin:0 0 6px;
+      font-size:24px;
+      line-height:1.05;
+      letter-spacing:-.5px;
+    }
+
+    .modal-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .modal-close{
+      width:44px;
+      height:44px;
+      flex:0 0 auto;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .modal-close svg{
+      width:20px;
+      height:20px;
+    }
+
+    .modal-body{
+      padding:18px;
+      display:grid;
+      gap:16px;
+    }
+
+    .checkout-step{
+      display:none;
+      gap:16px;
+    }
+
+    .checkout-step.active{
+      display:grid;
+    }
+
+    .checkout-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(250px,290px);
+      gap:16px;
+      align-items:start;
+    }
+
+    @media (max-width:760px){
+      .checkout-grid{grid-template-columns:1fr}
+    }
+
+    .checkout-card{
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .checkout-card h4{
+      margin:0 0 12px;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+
+    .checkout-product{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:14px;
+      align-items:start;
+    }
+
+    @media (max-width:520px){
+      .checkout-product{grid-template-columns:1fr}
+    }
+
+    .checkout-product .thumb{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .checkout-product .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
+    .checkout-product h5{
+      margin:0 0 8px;
+      font-size:18px;
+      line-height:1.1;
+      letter-spacing:-.2px;
+    }
+
+    .checkout-product p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    .qty-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .qty-row strong{
+      font-size:14px;
+    }
+
+    .qty-controls{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex:0 0 auto;
+    }
+
+    .qty-btn{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      cursor:pointer;
+      font-size:22px;
+      line-height:1;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .qty-value{
+      min-width:30px;
+      text-align:center;
+      font-size:20px;
+      font-weight:900;
+    }
+
+    .modal-summary{
+      display:grid;
+      gap:10px;
+    }
+
+    .summary-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-size:14px;
+      line-height:1.4;
+    }
+
+    .summary-row span:last-child{
+      text-align:right;
+      font-weight:900;
+    }
+
+    .summary-row.total{
+      padding-top:10px;
+      border-top:1px solid var(--line);
+      font-size:16px;
+    }
+
+    .summary-note{
+      padding:12px;
+      border-radius:16px;
+      background:color-mix(in srgb, var(--brand), transparent 92%);
+      border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
+      color:var(--text);
+      font-size:12.8px;
+      line-height:1.5;
+      font-weight:800;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    @media (max-width:640px){
+      .form-grid{grid-template-columns:1fr}
+    }
+
+    label{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+      font-size:12.5px;
+      font-weight:900;
+      color:color-mix(in srgb, var(--text), var(--muted) 14%);
+    }
+
+    input, select, textarea{
+      width:100%;
+      appearance:none;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--text);
+      border-radius:14px;
+      padding:13px 13px;
+      font-size:14px;
+      outline:none;
+      transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    input:focus, select:focus, textarea:focus{
+      border-color:color-mix(in srgb, var(--accent), var(--line) 42%);
+      box-shadow:0 0 0 4px color-mix(in srgb, var(--accent), transparent 84%);
+    }
+
+    textarea{
+      min-height:110px;
+      resize:vertical;
+    }
+
+    .full{grid-column:1 / -1}
+
+    .error{
+      font-size:12px;
+      font-weight:900;
+      color:var(--danger);
+      min-height:16px;
+    }
+
+    .modal-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      padding-top:2px;
+    }
+
+    @media (max-width:560px){
+      .modal-actions{
+        flex-direction:column-reverse;
+        align-items:stretch;
+      }
+      .modal-actions .btn{width:100%}
+    }
+
+    .step-badges{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .step-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:38px;
+      height:38px;
+      padding:0 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      font-size:12px;
+      font-weight:900;
+      color:var(--muted);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .step-badge.active{
+      background:color-mix(in srgb, var(--brand), transparent 88%);
+      border-color:color-mix(in srgb, var(--brand), var(--line) 56%);
+      color:color-mix(in srgb, var(--text), var(--brand) 16%);
     }
 
     .sr-only{
@@ -1378,24 +1450,32 @@
         </span>
         <span class="brand-text">
           <strong>RECAMBIOS MK</strong>
-          <span>Recambio de sifones de soda</span>
+          <span>Cilindro de soda cargado</span>
         </span>
       </a>
 
-      <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="siteNav">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-
       <nav class="nav" id="siteNav">
-        <a href="#combos">Combos</a>
-        <a href="#pedido">Pedido</a>
+        <a href="#producto">Producto</a>
         <a href="#zonas">Cobertura</a>
         <a href="#ubicacion">Ubicación</a>
         <a href="#faq">FAQ</a>
+        <a href="#reseñas">Reseñas</a>
         <a href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Instagram</a>
       </nav>
+
+      <div class="header-tools">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v2.2M12 18.8V21M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M3 12h2.2M18.8 12H21M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56M12 16.2a4.2 4.2 0 100-8.4 4.2 4.2 0 000 8.4z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="siteNav">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -1411,17 +1491,28 @@
                 </div>
 
                 <div class="hero-copy">
-                  <span class="eyebrow">Recambio simple y coordinado</span>
-                  <h1>Pedí tu recambio de sifones de soda por WhatsApp</h1>
-                  <p>Elegí tu combo, completá los datos y coordiná la entrega o el retiro de forma rápida, clara y ordenada.</p>
+                  <span class="eyebrow">Pedido rápido para agilizar envíos</span>
+                  <h1>Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h1>
+                  <p>Elegí la cantidad, cargá tus datos y dejá el pedido listo para acelerar la gestión del envío en CABA y GBA.</p>
                 </div>
               </div>
 
-              <div class="hero-note">RECARGAMOS EL SIFON CON 450 GRS DE CO2 NACIONAL, (CERTIFICADO ANMAT)</div>
+              <div class="hero-note">CILINDRO DE SODA CARGADO CON 450 GRS DE CO2 NACIONAL CERTIFICADO ANMAT</div>
+
+              <div class="hero-price-row">
+                <div class="price-pill">
+                  <strong>$12.000</strong>
+                  <span>por unidad</span>
+                </div>
+                <div class="price-pill">
+                  <strong>08 a 20 hs</strong>
+                  <span>pedidos</span>
+                </div>
+              </div>
 
               <div class="hero-actions">
-                <a class="btn primary" href="#pedido">Pedir ahora</a>
-                <a class="btn secondary" href="#combos">Ver combos</a>
+                <button class="btn primary" type="button" id="heroBuyBtn">Comprar ahora</button>
+                <a class="btn secondary" href="#producto">Ver producto</a>
                 <a class="btn secondary" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver Instagram</a>
               </div>
             </div>
@@ -1436,12 +1527,16 @@
         <section class="section" aria-label="Datos operativos destacados">
           <div class="highlight-row">
             <article class="chip-card">
-              <strong>Mismo día</strong>
-              <span>Pedidos hasta 14 hs</span>
+              <strong>Precio</strong>
+              <span>$12.000 por unidad</span>
             </article>
             <article class="chip-card">
               <strong>Pedidos</strong>
               <span>08 a 20 hs</span>
+            </article>
+            <article class="chip-card">
+              <strong>Mismo día</strong>
+              <span>Hasta las 14 hs</span>
             </article>
             <article class="chip-card">
               <strong>Entregas</strong>
@@ -1455,343 +1550,109 @@
               <strong>Cobertura</strong>
               <span>CABA y GBA</span>
             </article>
-            <article class="chip-card">
-              <strong>Retiro</strong>
-              <span>Haedo</span>
-            </article>
           </div>
         </section>
 
-        <section class="section" id="combos">
+        <section class="section" id="producto">
           <div class="section-head">
-            <span class="eyebrow">Combos</span>
-            <h2>Elegí la cantidad que necesitás</h2>
-            <p>Vendemos solo recambio. El repartidor entrega los sifones cargados y retira los envases vacíos en el mismo proceso.</p>
+            <span class="eyebrow">Producto</span>
+            <h2>Compra simple, rápida y enfocada en el envío</h2>
+            <p>Esta web está pensada para tomar el pedido más ordenado, con todos los datos necesarios para agilizar la logística y la confirmación final.</p>
           </div>
 
-          <div class="combos-layout">
-            <div class="combo-grid" role="radiogroup" aria-label="Combos disponibles">
-              <article class="combo active" data-combo-card="1" tabindex="0">
-                <div class="combo-top">
-                  <div class="combo-title">
-                    <strong>1 recambio</strong>
-                    <span>Ideal para una reposición puntual.</span>
-                  </div>
-                  <span class="tag">Envío CABA incluido</span>
-                </div>
-
-                <div class="combo-price">$16.000 <small>total</small></div>
-
-                <div class="combo-points">
-                  <div>Pedido simple y rápido.</div>
-                  <div>Entrega coordinada por WhatsApp.</div>
-                  <div>GBA con costo a consultar.</div>
-                </div>
-
-                <div class="combo-foot">
-                  <label class="radio">
-                    <input type="radio" name="combo" value="1" checked>
-                    Seleccionar
-                  </label>
-                  <span style="font-size:12px;color:var(--muted);font-weight:800;">Total fijo</span>
-                </div>
-              </article>
-
-              <article class="combo" data-combo-card="2" tabindex="0">
-                <div class="combo-top">
-                  <div class="combo-title">
-                    <strong>2 recambios</strong>
-                    <span>Una opción práctica para resolver más de una carga.</span>
-                  </div>
-                  <span class="tag">Envío CABA incluido</span>
-                </div>
-
-                <div class="combo-price">$27.000 <small>total</small></div>
-
-                <div class="combo-points">
-                  <div>Más conveniente que pedir de a uno.</div>
-                  <div>Retiro de vacíos en el mismo proceso.</div>
-                  <div>GBA con costo a consultar.</div>
-                </div>
-
-                <div class="combo-foot">
-                  <label class="radio">
-                    <input type="radio" name="combo" value="2">
-                    Seleccionar
-                  </label>
-                  <span style="font-size:12px;color:var(--muted);font-weight:800;">Total fijo</span>
-                </div>
-              </article>
-
-              <article class="combo" data-combo-card="3" tabindex="0">
-                <div class="combo-top">
-                  <div class="combo-title">
-                    <strong>3 recambios</strong>
-                    <span>Ideal para hogares o consumo más frecuente.</span>
-                  </div>
-                  <span class="tag">Envío CABA incluido</span>
-                </div>
-
-                <div class="combo-price">$38.000 <small>total</small></div>
-
-                <div class="combo-points">
-                  <div>Más cantidad, mismo proceso simple.</div>
-                  <div>Atención clara para coordinar entrega.</div>
-                  <div>GBA con costo a consultar.</div>
-                </div>
-
-                <div class="combo-foot">
-                  <label class="radio">
-                    <input type="radio" name="combo" value="3">
-                    Seleccionar
-                  </label>
-                  <span style="font-size:12px;color:var(--muted);font-weight:800;">Total fijo</span>
-                </div>
-              </article>
-
-              <article class="combo" data-combo-card="4" tabindex="0">
-                <div class="combo-top">
-                  <div class="combo-title">
-                    <strong>4 recambios</strong>
-                    <span>Para resolver el recambio completo de una sola vez.</span>
-                  </div>
-                  <span class="tag">Envío CABA incluido</span>
-                </div>
-
-                <div class="combo-price">$49.000 <small>total</small></div>
-
-                <div class="combo-points">
-                  <div>Muy práctico para pedir más cantidad.</div>
-                  <div>Coordinación por WhatsApp sin vueltas.</div>
-                  <div>GBA con costo a consultar.</div>
-                </div>
-
-                <div class="combo-foot">
-                  <label class="radio">
-                    <input type="radio" name="combo" value="4">
-                    Seleccionar
-                  </label>
-                  <span style="font-size:12px;color:var(--muted);font-weight:800;">Total fijo</span>
-                </div>
-              </article>
+          <div class="product-grid">
+            <div class="product-media">
+              <div class="product-media-wrap">
+                <img src="https://iili.io/qqRBRNR.md.jpg" alt="Cilindro de soda cargado">
+              </div>
             </div>
 
-            <aside class="combo-side">
-              <div class="info-stack">
-                <h3>Cómo funciona</h3>
-                <div class="steps">
-                  <div class="step">
-                    <div class="step-badge">01</div>
+            <div class="product-card">
+              <div class="product-stack">
+                <div>
+                  <span class="eyebrow">Un solo producto</span>
+                  <h3>Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h3>
+                  <p>Hacé tu pedido online, indicá la cantidad y completá los datos necesarios para enviar la solicitud lista por WhatsApp.</p>
+                </div>
+
+                <div class="price-box">
+                  <strong>$12.000</strong>
+                  <span>precio por unidad</span>
+                </div>
+
+                <div class="bullet-list">
+                  <div class="bullet">
                     <div>
-                      <strong>Elegís el combo</strong>
-                      <p>Seleccionás la cantidad de recambios que necesitás.</p>
+                      <strong>Pedido enfocado en envíos</strong>
+                      <p>La compra queda armada con tus datos para acelerar la gestión del reparto.</p>
                     </div>
                   </div>
 
-                  <div class="step">
-                    <div class="step-badge">02</div>
+                  <div class="bullet">
                     <div>
-                      <strong>Completás tus datos</strong>
-                      <p>Dejás la dirección o elegís retiro en local.</p>
+                      <strong>Cobertura operativa</strong>
+                      <p>Entregas coordinadas en CABA y GBA, con pedido simple y claro desde la web.</p>
                     </div>
                   </div>
 
-                  <div class="step">
-                    <div class="step-badge">03</div>
+                  <div class="bullet">
                     <div>
-                      <strong>Confirmás por WhatsApp</strong>
-                      <p>El pedido sale listo para coordinar de forma más rápida.</p>
+                      <strong>Horarios visibles</strong>
+                      <p>Pedidos de 08 a 20 hs. Para intentar entrega en el día, hasta las 14 hs.</p>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="info-stack">
-                <h3>Beneficios del sistema</h3>
-                <div class="benefit-grid">
-                  <div class="benefit">
-                    <img src="https://iili.io/qquNgGp.png" alt="Ecológico">
-                    <div>
-                      <strong>Ecológico</strong>
-                      <p>Menos descartables, más practicidad con sistema CO2.</p>
-                    </div>
-                  </div>
-
-                  <div class="benefit">
-                    <img src="https://iili.io/qquNUnR.png" alt="Práctico">
-                    <div>
-                      <strong>Práctico</strong>
-                      <p>Pedís y coordinás el recambio por WhatsApp de forma simple.</p>
-                    </div>
-                  </div>
-
-                  <div class="benefit">
-                    <img src="https://iili.io/qquN8Zv.png" alt="Conveniente">
-                    <div>
-                      <strong>Conveniente</strong>
-                      <p>Una forma más cómoda de resolver el consumo habitual.</p>
-                    </div>
-                  </div>
-
-                  <div class="benefit">
-                    <img src="https://iili.io/qquNvwJ.png" alt="Lista para usar">
-                    <div>
-                      <strong>Lista para usar</strong>
-                      <p>Soda bien gasificada y recambio coordinado sin complicarte.</p>
-                    </div>
-                  </div>
+                <div class="product-actions">
+                  <button class="btn primary" type="button" id="productBuyBtn">Comprar con carrito</button>
+                  <button class="btn soft" type="button" id="directWspBtn">Pedir por WhatsApp</button>
                 </div>
               </div>
-            </aside>
+            </div>
           </div>
         </section>
 
-        <section class="section" id="pedido">
+        <section class="section" id="beneficios">
           <div class="section-head">
-            <span class="eyebrow">Pedido</span>
-            <h2>Completá tus datos y confirmá el pedido</h2>
-            <p>Pago por transferencia adelantado. Los datos se comparten por WhatsApp al momento de confirmar.</p>
+            <span class="eyebrow">Beneficios</span>
+            <h2>Una forma más clara de resolver el pedido</h2>
+            <p>Menos vueltas, más datos útiles y un cierre más prolijo para la confirmación.</p>
           </div>
 
-          <div class="form-layout">
-            <div class="form-panel">
-              <h3>Datos para tomar el pedido</h3>
-              <p>El mensaje se arma automáticamente con toda la información necesaria para coordinar entrega o retiro.</p>
-
-              <div class="form">
-                <label>
-                  Nombre y apellido
-                  <input id="fNombre" type="text" placeholder="Ej: Juan Pérez" autocomplete="name">
-                </label>
-
-                <label>
-                  Zona
-                  <select id="fZona">
-                    <option value="CABA">CABA</option>
-                    <option value="GBA">GBA</option>
-                  </select>
-                </label>
-
-                <label>
-                  Localidad / Partido (o Barrio si es CABA)
-                  <input id="fBarrio" type="text" placeholder="Ej: Caballito / Morón / San Miguel">
-                </label>
-
-                <label>
-                  Calle y altura
-                  <input id="fCalle" type="text" placeholder="Ej: Rivadavia 1234" autocomplete="street-address">
-                </label>
-
-                <label>
-                  Modelo del tubo o color
-                  <input id="fModelo" type="text" placeholder="Ej: Azul / Rojo / Modelo...">
-                </label>
-
-                <label>
-                  ¿Tenés envases vacíos para entregar?
-                  <select id="fVacios">
-                    <option value="SI">Sí</option>
-                    <option value="NO">No (a coordinar)</option>
-                  </select>
-                </label>
-
-                <label>
-                  Modalidad
-                  <select id="fModalidad">
-                    <option value="ENVIO">Envío a domicilio</option>
-                    <option value="RETIRO">Retiro en local (Haedo)</option>
-                  </select>
-                </label>
-
-                <label>
-                  Horario para recibir (referencia)
-                  <select id="fHorario">
-                    <option value="17 a 22 hs">17 a 22 hs</option>
-                    <option value="Cualquier momento (17 a 22 hs)">Cualquier momento (17 a 22 hs)</option>
-                    <option value="A coordinar">A coordinar</option>
-                  </select>
-                </label>
-
-                <label class="full">
-                  Referencia (opcional)
-                  <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Piso y dpto">
-                </label>
-
-                <label class="full">
-                  Nota (opcional)
-                  <textarea id="fNota" placeholder="Ej: Si es posible entregar hoy (pedidos hasta 14 hs)."></textarea>
-                </label>
+          <div class="benefit-card">
+            <div class="benefits-grid">
+              <div class="benefit">
+                <img src="https://iili.io/qquNgGp.png" alt="Ecológico">
+                <div>
+                  <strong>Ecológico</strong>
+                  <p>Menos descartables y una opción más práctica para el consumo habitual.</p>
+                </div>
               </div>
 
-              <div class="form-actions">
-                <button class="btn primary" id="btnWsp" type="button">Confirmar pedido por WhatsApp</button>
-                <a class="btn secondary" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver Instagram</a>
-                <div class="total-box" id="totalBox">Total: $16.000</div>
+              <div class="benefit">
+                <img src="https://iili.io/qquNUnR.png" alt="Práctico">
+                <div>
+                  <strong>Práctico</strong>
+                  <p>La web ordena el pedido para que salga más rápido y con menos idas y vueltas.</p>
+                </div>
               </div>
 
-              <p class="form-help">Importante: la mayoría de las veces llega en el día, pero puede haber demoras si la logística tiene una falla. Si no te encuentran, vuelven a pasar o se reprograma hasta poder entregar.</p>
+              <div class="benefit">
+                <img src="https://iili.io/qquN8Zv.png" alt="Conveniente">
+                <div>
+                  <strong>Conveniente</strong>
+                  <p>Elegís la cantidad y cargás los datos de una sola vez para agilizar el envío.</p>
+                </div>
+              </div>
+
+              <div class="benefit">
+                <img src="https://iili.io/qquNvwJ.png" alt="Lista para usar">
+                <div>
+                  <strong>Lista para usar</strong>
+                  <p>Cilindro de soda cargado, preparado para una gestión más directa por WhatsApp.</p>
+                </div>
+              </div>
             </div>
-
-            <aside class="form-side">
-              <div class="side-card">
-                <h3>Lo importante para pedir</h3>
-
-                <div class="mini-list">
-                  <div class="mini-item">
-                    <div class="mini-icon">01</div>
-                    <div>
-                      <strong>Pedido directo</strong>
-                      <p>Completás el formulario y el mensaje sale listo para confirmar más rápido.</p>
-                    </div>
-                  </div>
-
-                  <div class="mini-item">
-                    <div class="mini-icon">02</div>
-                    <div>
-                      <strong>Recambio coordinado</strong>
-                      <p>Se entregan los sifones cargados y se retiran los envases vacíos en el mismo proceso.</p>
-                    </div>
-                  </div>
-
-                  <div class="mini-item">
-                    <div class="mini-icon">03</div>
-                    <div>
-                      <strong>Envío o retiro</strong>
-                      <p>Podés coordinar entrega a domicilio o retiro en local, según te quede más cómodo.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="side-card">
-                <h3>Recordatorio</h3>
-                <div class="mini-list">
-                  <div class="mini-item">
-                    <div class="mini-icon">OK</div>
-                    <div>
-                      <strong>Pedidos hasta 14 hs</strong>
-                      <p>Para intentar entrega en el día.</p>
-                    </div>
-                  </div>
-
-                  <div class="mini-item">
-                    <div class="mini-icon">17</div>
-                    <div>
-                      <strong>Logística 17 a 22 hs</strong>
-                      <p>Horario estimado de entregas.</p>
-                    </div>
-                  </div>
-
-                  <div class="mini-item">
-                    <div class="mini-icon">CABA</div>
-                    <div>
-                      <strong>Cobertura CABA y GBA</strong>
-                      <p>Si tu zona no aparece, consultalo por WhatsApp.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </aside>
           </div>
         </section>
 
@@ -1799,7 +1660,7 @@
           <div class="section-head">
             <span class="eyebrow">Cobertura</span>
             <h2>Buscá tu localidad</h2>
-            <p>Escribí tu localidad, barrio o partido. El buscador muestra coincidencias reales y no lista todas las localidades de entrada.</p>
+            <p>Escribí tu localidad, barrio o partido. El buscador muestra coincidencias reales sin listar todo de entrada.</p>
           </div>
 
           <div class="coverage-layout">
@@ -1807,14 +1668,14 @@
               <h3>Mapa general de cobertura</h3>
               <p>Referencia visual de la zona de entregas en CABA y GBA.</p>
 
-              <div class="coverage-image-wrap" style="margin-top:14px;">
+              <div class="coverage-image-wrap">
                 <img src="https://iili.io/qquQ2Hb.jpg" alt="Mapa de localidades de entrega">
               </div>
             </div>
 
             <div class="search-card">
               <h3>Localidades de entrega</h3>
-              <p>Escribí el nombre tal como lo buscás habitualmente. Si no aparece, podés consultarlo por WhatsApp.</p>
+              <p>Si tu zona no aparece, podés consultarla igual por WhatsApp al confirmar el pedido.</p>
 
               <div class="search-input">
                 <label class="sr-only" for="zoneSearch">Buscar localidad</label>
@@ -1825,7 +1686,6 @@
               </div>
 
               <div class="search-feedback" id="zoneFeedback">Escribí una localidad para ver los resultados.</div>
-
               <div class="results" id="zoneResults" aria-label="Resultados de localidades"></div>
             </div>
           </div>
@@ -1834,7 +1694,7 @@
         <section class="section" id="ubicacion">
           <div class="section-head">
             <span class="eyebrow">Ubicación</span>
-            <h2>Retiro en local</h2>
+            <h2>Punto de referencia del negocio</h2>
             <p>Gdor. Emilio Castro 624, B1706 Haedo, Provincia de Buenos Aires.</p>
           </div>
 
@@ -1850,13 +1710,13 @@
               </div>
 
               <div class="map-info">
-                <h3>Dirección</h3>
+                <h3>Base operativa</h3>
                 <div class="address">Gdor. Emilio Castro 624, B1706 Haedo, Provincia de Buenos Aires.</div>
-                <p>Podés coordinar retiro en local o elegir envío a domicilio según la modalidad que te quede más cómoda.</p>
+                <p>La compra desde esta web está pensada para agilizar envíos. Completás el pedido online y la confirmación sale más clara por WhatsApp.</p>
 
                 <div class="map-actions">
                   <a class="btn soft" href="https://www.google.com/maps/place/Gdor.+Emilio+Castro+624,+B1706AJN+Haedo,+Provincia+de+Buenos+Aires/@-34.650733,-58.5964677,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcc79b78fafe8d:0x6f36aa7d1a0db610!8m2!3d-34.6507374!4d-58.5938928!16s%2Fg%2F11nfflsg62?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Cómo llegar</a>
-                  <button class="btn primary" id="btnWsp2" type="button">Hacer pedido por WhatsApp</button>
+                  <button class="btn primary" id="btnOpenCartMap" type="button">Comprar ahora</button>
                   <a class="btn secondary" href="#inicio">Volver arriba</a>
                 </div>
               </div>
@@ -1874,18 +1734,18 @@
             <div class="faq-grid">
               <details>
                 <summary>
-                  <span>¿Qué necesito para pedir?</span>
+                  <span>¿Qué tengo que completar para comprar?</span>
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
-                <div class="answer">Nombre y apellido, zona o barrio, calle y altura, modelo o color del tubo, y confirmar si tenés envases vacíos.</div>
+                <div class="answer">Cantidad, nombre, zona o barrio, calle y altura, modelo o color del cilindro, si tenés cilindro vacío y una referencia para la entrega.</div>
               </details>
 
               <details>
                 <summary>
-                  <span>¿Cómo funciona el recambio?</span>
+                  <span>¿Cuál es el precio?</span>
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
-                <div class="answer">El repartidor entrega los sifones cargados y retira los envases vacíos. Se vende solo recambio.</div>
+                <div class="answer">El cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT tiene un valor de $12.000 por unidad.</div>
               </details>
 
               <details>
@@ -1893,23 +1753,23 @@
                   <span>¿Cuándo entregan?</span>
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
-                <div class="answer">Envíos de lunes a viernes. Entrega estimada de 24 a 48 hs. La logística entrega de 17 a 22 hs. Para intentar entrega en el día, se toman pedidos hasta las 14 hs.</div>
+                <div class="answer">Entregas estimadas de 24 a 48 hs. La logística trabaja de 17 a 22 hs. Para intentar entrega en el día, conviene pedir hasta las 14 hs.</div>
               </details>
 
               <details>
                 <summary>
-                  <span>¿Cómo se paga?</span>
+                  <span>¿Cómo se confirma el pedido?</span>
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
-                <div class="answer">El pago es por transferencia adelantada. Los datos se pasan por WhatsApp al momento de confirmar el pedido.</div>
+                <div class="answer">La web arma el pedido con todos los datos y abre WhatsApp con el mensaje listo para confirmar más rápido.</div>
               </details>
 
               <details>
                 <summary>
-                  <span>Si no tengo envase vacío, ¿puedo pedir igual?</span>
+                  <span>Si no tengo cilindro vacío, ¿puedo consultar igual?</span>
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
-                <div class="answer">Sí, se puede consultar. En ese caso, en el pedido indicá que no tenés envases vacíos y se coordina por WhatsApp.</div>
+                <div class="answer">Sí. En el carrito marcás que no tenés cilindro vacío y el dato sale aclarado en el mensaje final para coordinarlo por WhatsApp.</div>
               </details>
             </div>
           </div>
@@ -1984,16 +1844,214 @@
     </a>
   </div>
 
+  <div class="modal" id="cartModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="modal-overlay" id="cartOverlay"></div>
+
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <div>
+          <div class="step-badges" aria-hidden="true">
+            <span class="step-badge active" id="badgeStep1">Paso 1</span>
+            <span class="step-badge" id="badgeStep2">Paso 2</span>
+          </div>
+          <h3 id="cartTitle">Carrito de compra</h3>
+          <p>Completá el pedido y dejalo listo para confirmar por WhatsApp.</p>
+        </div>
+
+        <button class="modal-close" id="cartClose" type="button" aria-label="Cerrar carrito">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <section class="checkout-step active" id="step1">
+          <div class="checkout-grid">
+            <div class="checkout-card">
+              <h4>Tu producto</h4>
+
+              <div class="checkout-product">
+                <div class="thumb">
+                  <img src="https://iili.io/qqRBRNR.md.jpg" alt="Cilindro de soda cargado">
+                </div>
+
+                <div>
+                  <h5>Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h5>
+                  <p>Compra de un solo producto con cantidad editable. El pedido queda listo para enviarse por WhatsApp con todos los datos cargados.</p>
+                </div>
+              </div>
+
+              <div style="height:14px"></div>
+
+              <div class="qty-row">
+                <div>
+                  <strong>Cantidad</strong>
+                </div>
+
+                <div class="qty-controls">
+                  <button class="qty-btn" id="qtyMinus" type="button" aria-label="Restar cantidad">−</button>
+                  <div class="qty-value" id="qtyValue">1</div>
+                  <button class="qty-btn" id="qtyPlus" type="button" aria-label="Sumar cantidad">+</button>
+                </div>
+              </div>
+
+              <div style="height:14px"></div>
+
+              <div class="summary-note">
+                Precio por unidad: $12.000. Esta web está pensada para agilizar pedidos con envío, dejando la solicitud lista para confirmar por WhatsApp.
+              </div>
+            </div>
+
+            <aside class="checkout-card">
+              <h4>Resumen</h4>
+
+              <div class="modal-summary">
+                <div class="summary-row">
+                  <span>Producto</span>
+                  <span>Cilindro cargado</span>
+                </div>
+
+                <div class="summary-row">
+                  <span>Precio unitario</span>
+                  <span id="summaryUnit">$12.000</span>
+                </div>
+
+                <div class="summary-row">
+                  <span>Cantidad</span>
+                  <span id="summaryQty">1</span>
+                </div>
+
+                <div class="summary-row total">
+                  <span>Total</span>
+                  <span id="summaryTotal">$12.000</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <div class="modal-actions">
+            <button class="btn secondary" type="button" id="btnCloseStep1">Seguir viendo la web</button>
+            <button class="btn primary" type="button" id="btnToStep2">Continuar con mis datos</button>
+          </div>
+        </section>
+
+        <section class="checkout-step" id="step2">
+          <div class="checkout-grid">
+            <div class="checkout-card">
+              <h4>Datos del pedido</h4>
+
+              <div class="form-grid">
+                <label>
+                  Nombre y apellido
+                  <input id="fNombre" type="text" placeholder="Ej: Juan Pérez" autocomplete="name">
+                </label>
+
+                <label>
+                  Zona
+                  <select id="fZona">
+                    <option value="CABA">CABA</option>
+                    <option value="GBA">GBA</option>
+                  </select>
+                </label>
+
+                <label>
+                  Localidad / Partido / Barrio
+                  <input id="fBarrio" type="text" placeholder="Ej: Caballito / Morón / San Miguel">
+                </label>
+
+                <label>
+                  Calle y altura
+                  <input id="fCalle" type="text" placeholder="Ej: Rivadavia 1234" autocomplete="street-address">
+                </label>
+
+                <label>
+                  Modelo del cilindro o color
+                  <input id="fModelo" type="text" placeholder="Ej: Azul / Rojo / Modelo...">
+                </label>
+
+                <label>
+                  ¿Tenés cilindro vacío?
+                  <select id="fVacios">
+                    <option value="SI">Sí</option>
+                    <option value="NO">No</option>
+                  </select>
+                </label>
+
+                <label>
+                  Horario para recibir
+                  <select id="fHorario">
+                    <option value="17 a 22 hs">17 a 22 hs</option>
+                    <option value="Cualquier momento (17 a 22 hs)">Cualquier momento (17 a 22 hs)</option>
+                    <option value="A coordinar">A coordinar</option>
+                  </select>
+                </label>
+
+                <label>
+                  Teléfono (opcional)
+                  <input id="fTel" type="tel" placeholder="Ej: 11 2345 6789" autocomplete="tel">
+                </label>
+
+                <label class="full">
+                  Referencia
+                  <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Piso y dpto">
+                </label>
+
+                <label class="full">
+                  Nota (opcional)
+                  <textarea id="fNota" placeholder="Ej: Si es posible entregar hoy, mejor."></textarea>
+                </label>
+              </div>
+
+              <div class="error" id="formError"></div>
+            </div>
+
+            <aside class="checkout-card">
+              <h4>Resumen final</h4>
+
+              <div class="modal-summary">
+                <div class="summary-row">
+                  <span>Producto</span>
+                  <span>Cilindro cargado</span>
+                </div>
+
+                <div class="summary-row">
+                  <span>Precio unitario</span>
+                  <span id="summaryUnit2">$12.000</span>
+                </div>
+
+                <div class="summary-row">
+                  <span>Cantidad</span>
+                  <span id="summaryQty2">1</span>
+                </div>
+
+                <div class="summary-row total">
+                  <span>Total</span>
+                  <span id="summaryTotal2">$12.000</span>
+                </div>
+              </div>
+
+              <div style="height:14px"></div>
+
+              <div class="summary-note">
+                Al confirmar, se abre WhatsApp con el pedido completo para agilizar la validación y el envío.
+              </div>
+            </aside>
+          </div>
+
+          <div class="modal-actions">
+            <button class="btn secondary" type="button" id="btnBackStep1">Volver</button>
+            <button class="btn primary" type="button" id="btnSendOrder">Confirmar pedido por WhatsApp</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function(){
       const WA_NUMBER = "5491162843339";
-
-      const combos = {
-        1: { qty: 1, total: 16000 },
-        2: { qty: 2, total: 27000 },
-        3: { qty: 3, total: 38000 },
-        4: { qty: 4, total: 49000 }
-      };
+      const UNIT_PRICE = 12000;
 
       const LOCATIONS = [
         "Zárate","Campana","Escobar","Villa Rosa","Ingeniero Maschwitz","Nordelta","Tigre",
@@ -2009,125 +2067,76 @@
       const $ = (id) => document.getElementById(id);
 
       const state = {
-        combo: 1
+        qty: 1,
+        step: 1
       };
 
+      function formatMoney(n){
+        try{
+          return "$" + n.toLocaleString("es-AR");
+        }catch(e){
+          return "$" + String(n);
+        }
+      }
+
+      function getTotal(){
+        return state.qty * UNIT_PRICE;
+      }
+
+      function updateSummary(){
+        const total = getTotal();
+        $("qtyValue").textContent = state.qty;
+        $("summaryQty").textContent = state.qty;
+        $("summaryQty2").textContent = state.qty;
+        $("summaryUnit").textContent = formatMoney(UNIT_PRICE);
+        $("summaryUnit2").textContent = formatMoney(UNIT_PRICE);
+        $("summaryTotal").textContent = formatMoney(total);
+        $("summaryTotal2").textContent = formatMoney(total);
+      }
+
+      function setQty(value){
+        state.qty = Math.max(1, Number(value) || 1);
+        updateSummary();
+      }
+
       function setThemeByHour(){
+        const saved = localStorage.getItem("mk-theme");
+        if(saved === "light" || saved === "dark"){
+          document.documentElement.setAttribute("data-theme", saved);
+          return;
+        }
         const hour = new Date().getHours();
         const theme = (hour >= 7 && hour < 19) ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", theme);
       }
 
-      function formatMoney(n){
-        try{
-          return n.toLocaleString("es-AR");
-        }catch(e){
-          return String(n);
-        }
+      function toggleTheme(){
+        const current = document.documentElement.getAttribute("data-theme") || "light";
+        const next = current === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("mk-theme", next);
       }
 
-      function getSelectedCombo(){
-        const el = document.querySelector('input[name="combo"]:checked');
-        const value = el ? Number(el.value) : 1;
-        return combos[value] ? value : 1;
+      function openModal(){
+        $("cartModal").classList.add("open");
+        $("cartModal").setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        goStep(1);
       }
 
-      function paintActiveCombo(){
-        document.querySelectorAll(".combo").forEach(card => {
-          card.classList.remove("active");
-        });
-        const active = document.querySelector('[data-combo-card="' + state.combo + '"]');
-        if(active) active.classList.add("active");
+      function closeModal(){
+        $("cartModal").classList.remove("open");
+        $("cartModal").setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        $("formError").textContent = "";
       }
 
-      function updateTotal(){
-        state.combo = getSelectedCombo();
-        $("totalBox").textContent = "Total: $" + formatMoney(combos[state.combo].total);
-        paintActiveCombo();
-      }
-
-      function selectCombo(value){
-        const input = document.querySelector('input[name="combo"][value="' + value + '"]');
-        if(input){
-          input.checked = true;
-          updateTotal();
-        }
-      }
-
-      function setupComboCards(){
-        document.querySelectorAll(".combo").forEach(card => {
-          card.addEventListener("click", function(e){
-            if(e.target && e.target.tagName === "INPUT") return;
-            selectCombo(card.getAttribute("data-combo-card"));
-          });
-
-          card.addEventListener("keydown", function(e){
-            if(e.key === "Enter" || e.key === " "){
-              e.preventDefault();
-              selectCombo(card.getAttribute("data-combo-card"));
-            }
-          });
-        });
-
-        document.querySelectorAll('input[name="combo"]').forEach(input => {
-          input.addEventListener("change", updateTotal);
-        });
-      }
-
-      function buildMessage(){
-        const combo = combos[state.combo];
-        const nombre = ($("fNombre").value || "").trim();
-        const zona = $("fZona").value;
-        const barrio = ($("fBarrio").value || "").trim();
-        const calle = ($("fCalle").value || "").trim();
-        const modelo = ($("fModelo").value || "").trim();
-        const vacios = $("fVacios").value;
-        const modalidad = $("fModalidad").value;
-        const horario = $("fHorario").value;
-        const ref = ($("fRef").value || "").trim();
-        const nota = ($("fNota").value || "").trim();
-
-        const lines = [];
-        lines.push("Hola! Quiero realizar el siguiente pedido:");
-        lines.push("");
-        lines.push("Combo: " + combo.qty + " recambio(s)");
-        lines.push("Total: $" + formatMoney(combo.total));
-        if(nombre) lines.push("Nombre: " + nombre);
-        lines.push("Zona: " + zona + (barrio ? " - " + barrio : ""));
-        lines.push("Direccion: " + (calle || "-"));
-        lines.push("Modelo/Color del tubo: " + (modelo || "-"));
-        lines.push("Envases vacios: " + (vacios === "SI" ? "SI" : "NO (a coordinar)"));
-        lines.push("Modalidad: " + (modalidad === "RETIRO" ? "RETIRO EN LOCAL (HAEDO)" : "ENVIO A DOMICILIO"));
-        lines.push("Horario de referencia: " + horario);
-        if(ref) lines.push("Referencia: " + ref);
-        if(nota){
-          lines.push("");
-          lines.push("Nota: " + nota);
-        }
-        lines.push("");
-        lines.push("Quedo a la espera de confirmacion. Gracias.");
-
-        return lines.join("\n");
-      }
-
-      function openWhatsApp(e){
-        if(e) e.preventDefault();
-        updateTotal();
-        const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(buildMessage());
-        window.open(url, "_blank", "noopener");
-      }
-
-      function adjustFloat(){
-        const float = $("waFloat");
-        const footer = $("footer");
-        if(!float || !footer) return;
-
-        const footerRect = footer.getBoundingClientRect();
-        const overlap = window.innerHeight - footerRect.top;
-        const base = 16;
-        const extra = overlap > 0 ? Math.min(overlap + 14, 220) : 0;
-
-        float.style.bottom = (base + extra) + "px";
+      function goStep(step){
+        state.step = step;
+        $("step1").classList.toggle("active", step === 1);
+        $("step2").classList.toggle("active", step === 2);
+        $("badgeStep1").classList.toggle("active", step === 1);
+        $("badgeStep2").classList.toggle("active", step === 2);
       }
 
       function normalizeText(text){
@@ -2195,6 +2204,19 @@
         renderZoneResults(starts.concat(includes), query);
       }
 
+      function adjustFloat(){
+        const float = $("waFloat");
+        const footer = $("footer");
+        if(!float || !footer) return;
+
+        const footerRect = footer.getBoundingClientRect();
+        const overlap = window.innerHeight - footerRect.top;
+        const base = 16;
+        const extra = overlap > 0 ? Math.min(overlap + 14, 220) : 0;
+
+        float.style.bottom = (base + extra) + "px";
+      }
+
       function setupBurger(){
         const btn = $("burgerBtn");
         const nav = $("siteNav");
@@ -2221,10 +2243,126 @@
         });
       }
 
-      function bindActions(){
-        $("btnWsp").addEventListener("click", openWhatsApp);
-        $("btnWsp2").addEventListener("click", openWhatsApp);
-        $("waFloat").addEventListener("click", openWhatsApp);
+      function validateStep2(){
+        const nombre = ($("fNombre").value || "").trim();
+        const barrio = ($("fBarrio").value || "").trim();
+        const calle = ($("fCalle").value || "").trim();
+        const ref = ($("fRef").value || "").trim();
+
+        if(!nombre){
+          $("formError").textContent = "Completá tu nombre y apellido.";
+          $("fNombre").focus();
+          return false;
+        }
+
+        if(!barrio){
+          $("formError").textContent = "Completá la localidad, partido o barrio.";
+          $("fBarrio").focus();
+          return false;
+        }
+
+        if(!calle){
+          $("formError").textContent = "Completá la calle y altura.";
+          $("fCalle").focus();
+          return false;
+        }
+
+        if(!ref){
+          $("formError").textContent = "Agregá una referencia para facilitar la entrega.";
+          $("fRef").focus();
+          return false;
+        }
+
+        $("formError").textContent = "";
+        return true;
+      }
+
+      function buildMessage(){
+        const nombre = ($("fNombre").value || "").trim();
+        const zona = $("fZona").value;
+        const barrio = ($("fBarrio").value || "").trim();
+        const calle = ($("fCalle").value || "").trim();
+        const modelo = ($("fModelo").value || "").trim();
+        const vacios = $("fVacios").value;
+        const horario = $("fHorario").value;
+        const tel = ($("fTel").value || "").trim();
+        const ref = ($("fRef").value || "").trim();
+        const nota = ($("fNota").value || "").trim();
+
+        const lines = [];
+        lines.push("Hola! Quiero realizar el siguiente pedido:");
+        lines.push("");
+        lines.push("Producto: Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT");
+        lines.push("Cantidad: " + state.qty);
+        lines.push("Precio por unidad: " + formatMoney(UNIT_PRICE));
+        lines.push("Total: " + formatMoney(getTotal()));
+        lines.push("");
+        lines.push("Nombre: " + nombre);
+        lines.push("Zona: " + zona);
+        lines.push("Localidad/Partido/Barrio: " + barrio);
+        lines.push("Direccion: " + calle);
+        lines.push("Modelo/Color del cilindro: " + (modelo || "-"));
+        lines.push("Tiene cilindro vacio: " + (vacios === "SI" ? "SI" : "NO"));
+        lines.push("Horario para recibir: " + horario);
+        if(tel) lines.push("Telefono: " + tel);
+        lines.push("Referencia: " + ref);
+        if(nota){
+          lines.push("Nota: " + nota);
+        }
+        lines.push("");
+        lines.push("Quedo a la espera de confirmacion. Gracias.");
+
+        return lines.join("\n");
+      }
+
+      function openWhatsAppWithMessage(message){
+        const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(message);
+        window.open(url, "_blank", "noopener");
+      }
+
+      function sendOrder(){
+        if(!validateStep2()) return;
+        openWhatsAppWithMessage(buildMessage());
+      }
+
+      function setupButtons(){
+        [
+          $("heroBuyBtn"),
+          $("productBuyBtn"),
+          $("btnOpenCartMap")
+        ].forEach(btn => {
+          if(btn){
+            btn.addEventListener("click", openModal);
+          }
+        });
+
+        $("directWspBtn").addEventListener("click", function(){
+          openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT.");
+        });
+
+        $("waFloat").addEventListener("click", function(e){
+          e.preventDefault();
+          openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT.");
+        });
+
+        $("qtyMinus").addEventListener("click", function(){ setQty(state.qty - 1); });
+        $("qtyPlus").addEventListener("click", function(){ setQty(state.qty + 1); });
+
+        $("btnToStep2").addEventListener("click", function(){ goStep(2); });
+        $("btnBackStep1").addEventListener("click", function(){ goStep(1); });
+        $("btnCloseStep1").addEventListener("click", closeModal);
+        $("btnSendOrder").addEventListener("click", sendOrder);
+
+        $("cartClose").addEventListener("click", closeModal);
+        $("cartOverlay").addEventListener("click", closeModal);
+
+        document.addEventListener("keydown", function(e){
+          if(e.key === "Escape" && $("cartModal").classList.contains("open")){
+            closeModal();
+          }
+        });
+
+        $("themeToggle").addEventListener("click", toggleTheme);
 
         const zoneSearch = $("zoneSearch");
         if(zoneSearch){
@@ -2241,9 +2379,8 @@
 
       setThemeByHour();
       setupBurger();
-      setupComboCards();
-      bindActions();
-      updateTotal();
+      setupButtons();
+      setQty(1);
       filterZones();
       adjustFloat();
       setYear();
