@@ -186,6 +186,11 @@
       min-height:52px;
       width:100%;
     }
+    .btn.offer-btn{
+      background:linear-gradient(135deg, #f59e0b, #f97316);
+      color:#fff;
+      box-shadow:0 14px 30px rgba(249,115,22,.28);
+    }
 
     .topbar{
       position:sticky;
@@ -410,7 +415,7 @@
 
     .highlight-row{
       display:grid;
-      grid-template-columns:repeat(6,minmax(0,1fr));
+      grid-template-columns:repeat(5,minmax(0,1fr));
       gap:12px;
     }
 
@@ -441,6 +446,58 @@
       font-size:17px;
       font-weight:900;
       line-height:1.3;
+    }
+
+    .offer-card{
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--warning), transparent 84%), color-mix(in srgb, var(--accent), transparent 92%)),
+        var(--surface);
+      border:1px solid color-mix(in srgb, var(--warning), var(--line) 55%);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:22px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      gap:16px;
+      align-items:center;
+    }
+
+    .offer-tag{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg, #f59e0b, #f97316);
+      color:#fff;
+      font-size:14px;
+      font-weight:900;
+      box-shadow:0 14px 30px rgba(249,115,22,.24);
+      white-space:nowrap;
+    }
+
+    .offer-copy h3{
+      margin:0 0 6px;
+      font-size:26px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+
+    .offer-copy p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      font-weight:700;
+    }
+
+    @media (max-width:820px){
+      .offer-card{
+        grid-template-columns:1fr;
+        align-items:start;
+      }
+      .offer-card .btn{width:100%}
     }
 
     .product-card,.benefit-card,.zones-panel,.coverage-card,.search-card,.faq-card,.review-card{
@@ -910,15 +967,6 @@
     .checkout-step{display:none;gap:16px}
     .checkout-step.active{display:grid}
 
-    .checkout-grid{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(280px,320px);
-      gap:16px;
-      align-items:start;
-    }
-
-    @media (max-width:860px){.checkout-grid{grid-template-columns:1fr}}
-
     .checkout-card{
       background:var(--surface-soft);
       border:1px solid var(--line);
@@ -958,7 +1006,7 @@
 
     @media (max-width:640px){.mode-grid{grid-template-columns:1fr}}
 
-    .select-card,.zone-option,.choice-card{
+    .select-card,.zone-option,.choice-card,.location-card{
       position:relative;
       border:1px solid var(--line);
       background:var(--surface);
@@ -969,8 +1017,8 @@
       transition:border-color .14s ease, transform .14s ease, box-shadow .14s ease, background .14s ease;
     }
 
-    .select-card:hover,.zone-option:hover,.choice-card:hover{transform:translateY(-1px)}
-    .select-card.active,.choice-card.active{
+    .select-card:hover,.zone-option:hover,.choice-card:hover,.location-card:hover{transform:translateY(-1px)}
+    .select-card.active,.choice-card.active,.location-card.active{
       border-color:color-mix(in srgb, var(--brand), var(--line) 40%);
       background:linear-gradient(180deg, color-mix(in srgb, var(--brand), transparent 93%), transparent 55%), var(--surface);
       box-shadow:0 16px 34px rgba(34,197,94,.12);
@@ -981,14 +1029,14 @@
       background:linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 93%), transparent 55%), var(--surface);
     }
 
-    .select-card input,.zone-option input,.choice-card input{
+    .select-card input,.zone-option input,.choice-card input,.location-card input{
       position:absolute;
       opacity:0;
       pointer-events:none;
     }
 
-    .select-card strong,.choice-card strong{display:block;margin-bottom:6px;font-size:16px}
-    .select-card p,.choice-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.54;font-weight:700}
+    .select-card strong,.choice-card strong,.location-card strong{display:block;margin-bottom:6px;font-size:16px}
+    .select-card p,.choice-card p,.location-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.54;font-weight:700}
 
     .qty-row{
       display:flex;
@@ -1020,11 +1068,23 @@
 
     .qty-value{min-width:30px;text-align:center;font-size:20px;font-weight:900}
 
-    .zone-select-grid,.choice-grid{
+    .zone-select-grid,.choice-grid,.location-grid{
       display:grid;
       grid-template-columns:1fr;
       gap:12px;
       margin-top:12px;
+    }
+
+    .location-grid{
+      max-height:320px;
+      overflow:auto;
+      padding-right:4px;
+    }
+
+    .location-grid::-webkit-scrollbar{width:8px}
+    .location-grid::-webkit-scrollbar-thumb{
+      background:color-mix(in srgb, var(--line), var(--accent) 18%);
+      border-radius:999px;
     }
 
     .zone-option-top{
@@ -1287,6 +1347,7 @@
 
       <nav class="nav" id="siteNav">
         <a href="#producto">Producto</a>
+        <a href="#ofertas">Ofertas</a>
         <a href="#zonas">Zonas</a>
         <a href="#cobertura">Cobertura</a>
         <a href="#faq">FAQ</a>
@@ -1335,10 +1396,6 @@
                   <strong>$12.000</strong>
                   <span>pago en local</span>
                 </div>
-                <div class="price-pill">
-                  <strong>$49.000</strong>
-                  <span>5 recambios envío incluido</span>
-                </div>
               </div>
 
               <div class="hero-actions">
@@ -1363,10 +1420,6 @@
               <span>$12.000 pago en local</span>
             </article>
             <article class="chip-card">
-              <strong>Pack</strong>
-              <span>5 recambios $49.000</span>
-            </article>
-            <article class="chip-card">
               <strong>Pedidos</strong>
               <span>De 8 a 20 hs</span>
             </article>
@@ -1382,6 +1435,25 @@
               <strong>Cobertura</strong>
               <span>CABA y GBA</span>
             </article>
+          </div>
+        </section>
+
+        <section class="section" id="ofertas">
+          <div class="section-head">
+            <span class="eyebrow">Ofertas</span>
+            <h2>Una oportunidad para aprovechar</h2>
+            <p>Si necesitás más de un recambio, podés aprovechar esta opción especial y resolver todo junto.</p>
+          </div>
+
+          <div class="offer-card">
+            <div class="offer-tag">Oportunidad!</div>
+
+            <div class="offer-copy">
+              <h3>5 recambios envío incluido $49.000</h3>
+              <p>Una promo pensada para aprovechar mejor el envío y resolver varios recambios en un solo pedido.</p>
+            </div>
+
+            <button class="btn offer-btn" type="button" id="offerBuyBtn">Aprovechar oferta</button>
           </div>
         </section>
 
@@ -1419,6 +1491,13 @@
                   <div>
                     <strong>Pedido más claro</strong>
                     <p>La compra sale armada con nombre, dirección, piso/depto, localidad, cantidad, color del cilindro y teléfono en ese orden.</p>
+                  </div>
+                </div>
+
+                <div class="bullet">
+                  <div>
+                    <strong>Compra simple, rápida y clara</strong>
+                    <p>Recambiá tu cilindro original Soda Stream recargado y sellado con 450 grs de CO2 nacional certificado por ANMAT.</p>
                   </div>
                 </div>
               </div>
@@ -1498,7 +1577,7 @@
                 <img src="https://iili.io/qquNvwJ.png" alt="Lista para usar">
                 <div>
                   <strong>Lista para usar</strong>
-                  <p>Stock permanente, pack de 5 con envío incluido y una gestión más directa para resolver el pedido.</p>
+                  <p>Stock permanente y una gestión más directa para resolver el pedido.</p>
                 </div>
               </div>
             </div>
@@ -1568,8 +1647,7 @@
                 </summary>
                 <div class="answer">
                   • El pago es por transferencia adelantada para envíos.<br>
-                  • Los datos (Alias/CBU) también figuran en el carrito para copiar fácilmente.<br>
-                  • Cuando realices la transferencia, avisános para cargar el pedido al reparto.<br>
+                  • Los datos de alias y CBU aparecen solo al completar la sección de envío.<br>
                   • En local, el pago es directo y vale $12.000.
                 </div>
               </details>
@@ -1698,9 +1776,12 @@
           <div class="step-badges" aria-hidden="true">
             <span class="step-badge active" id="badgeStep1">Paso 1</span>
             <span class="step-badge" id="badgeStep2">Paso 2</span>
+            <span class="step-badge" id="badgeStep3">Paso 3</span>
+            <span class="step-badge" id="badgeStep4">Paso 4</span>
+            <span class="step-badge" id="badgeStep5">Paso 5</span>
           </div>
           <h3 id="cartTitle">Carrito de compra</h3>
-          <p>Elegí modalidad, cantidad y datos del cilindro. La compra se confirma por WhatsApp con el resumen listo.</p>
+          <p id="cartSubtitle">Elegí la modalidad y avanzá paso a paso para completar el pedido sin distracciones.</p>
         </div>
 
         <button class="modal-close" id="cartClose" type="button" aria-label="Cerrar carrito">
@@ -1712,135 +1793,243 @@
 
       <div class="modal-body">
         <section class="checkout-step active" id="step1">
-          <div class="checkout-grid">
-            <div class="checkout-card">
-              <h4>Tu producto</h4>
+          <div class="checkout-card">
+            <h4>Modalidad y cantidad</h4>
 
-              <div class="checkout-product">
-                <div class="thumb">
-                  <img src="https://iili.io/qqjXrwg.md.jpg" alt="Cilindro de recambio">
-                </div>
-
-                <div>
-                  <h5>Cilindro de recambio</h5>
-                  <p>Elegí envío o retiro en local. Si seleccionás envío, primero tenés que marcar una zona. Si no tenés cilindro vacío, no se puede continuar.</p>
-                </div>
+            <div class="checkout-product">
+              <div class="thumb">
+                <img src="https://iili.io/qqjXrwg.md.jpg" alt="Cilindro de recambio">
               </div>
 
-              <div style="height:14px"></div>
+              <div>
+                <h5>Cilindro de recambio</h5>
+                <p>Elegí envío o retiro en local. Si seleccionás envío, el sistema te va guiando por zona, localidad, datos y pago. Si elegís retiro, la web solo informa y no coordina el retiro.</p>
+              </div>
+            </div>
 
-              <h4 style="margin-top:0">Modalidad</h4>
-              <div class="mode-grid">
-                <label class="select-card active" data-mode-card="envio">
-                  <input type="radio" name="modo" value="envio" checked>
-                  <strong>Envío</strong>
-                  <p>El total se calcula según cantidad y zona. Hasta 6 cilindros se cobra un envío; si pedís más, se suma otro envío.</p>
+            <div style="height:14px"></div>
+
+            <div class="mode-grid">
+              <label class="select-card active" data-mode-card="envio">
+                <input type="radio" name="modo" value="envio" checked>
+                <strong>Envío</strong>
+                <p>El total se calcula según cantidad y zona. Hasta 6 cilindros se cobra un envío; si pedís más, se suma otro envío.</p>
+              </label>
+
+              <label class="select-card" data-mode-card="retiro">
+                <input type="radio" name="modo" value="retiro">
+                <strong>Retiro en local</strong>
+                <p>Pago en el local $12.000. Stock permanente. La web no coordina retiros del local, solo informa.</p>
+              </label>
+            </div>
+
+            <div style="height:14px"></div>
+
+            <div class="qty-row">
+              <div>
+                <strong>Cantidad</strong>
+                <div class="helper-text">Podés sumar unidades y el total se recalcula solo. A partir de 7 se suma otro envío.</div>
+              </div>
+
+              <div class="qty-controls">
+                <button class="qty-btn" id="qtyMinus" type="button" aria-label="Restar cantidad">−</button>
+                <div class="qty-value" id="qtyValue">1</div>
+                <button class="qty-btn" id="qtyPlus" type="button" aria-label="Sumar cantidad">+</button>
+              </div>
+            </div>
+
+            <div id="pickupStep1Info" class="warning-note hidden" style="margin-top:14px;">
+              Retiro en local: Emilio Castro 624, Haedo.<br>
+              Horarios: lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.<br>
+              Pago en local: $12.000.<br>
+              Stock permanente.<br>
+              Aclaración: la web no coordina la entrega ni los retiros del local. El cliente puede ir directamente a comprar.
+            </div>
+
+            <div style="height:14px"></div>
+
+            <div class="summary-note" id="step1Note">
+              Si elegís envío, en el próximo paso vas a seleccionar la zona de entrega.
+            </div>
+
+            <div class="error" id="step1Error"></div>
+
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnCloseStep1">Seguir viendo la web</button>
+              <button class="btn primary" type="button" id="btnStep1Next">Continuar</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="checkout-step" id="step2">
+          <div class="checkout-card">
+            <h4 id="step2Title">Elegí tu zona de envío</h4>
+
+            <div id="zonesWrapStep2">
+              <div class="zone-select-grid">
+                <label class="zone-option" data-zone-card="1">
+                  <input type="radio" name="zonaEnvio" value="1">
+                  <div class="zone-option-top">
+                    <strong>Zona 1</strong>
+                    <span class="zone-badge">Envío $5.000</span>
+                  </div>
+                  <p>CABA, Haedo, Ramos Mejía, Hurlingham, Caseros e Ituzaingó.</p>
                 </label>
 
-                <label class="select-card" data-mode-card="retiro">
-                  <input type="radio" name="modo" value="retiro">
-                  <strong>Retiro en local</strong>
-                  <p>Pago en el local $12.000. Stock permanente. La web no coordina retiros del local, solo informa.</p>
+                <label class="zone-option" data-zone-card="2">
+                  <input type="radio" name="zonaEnvio" value="2">
+                  <div class="zone-option-top">
+                    <strong>Zona 2</strong>
+                    <span class="zone-badge">Envío $6.000</span>
+                  </div>
+                  <p>San Miguel, Moreno, José C. Paz, Malvinas Argentinas, San Martín, Vicente López, San Isidro y San Fernando.</p>
+                </label>
+
+                <label class="zone-option" data-zone-card="3">
+                  <input type="radio" name="zonaEnvio" value="3">
+                  <div class="zone-option-top">
+                    <strong>Zona 3</strong>
+                    <span class="zone-badge">Envío $9.000</span>
+                  </div>
+                  <p>Zárate, Campana, Escobar, Nordelta, Maschwitz, Villa Rosa, Garín, Del Viso, Derqui, Pilar, Luján, General Rodríguez, Marcos Paz, Cañuelas, Guernica, San Vicente, La Plata, Berisso y Ensenada.</p>
                 </label>
               </div>
+            </div>
 
-              <div style="height:14px"></div>
+            <div id="pickupStep2Info" class="warning-note hidden">
+              Como elegiste retiro en local, no hace falta seleccionar zona. En el próximo paso vas a confirmar el cilindro y el color.
+            </div>
 
-              <div class="qty-row">
-                <div>
-                  <strong>Cantidad</strong>
-                  <div class="helper-text">Podés sumar unidades y el total se recalcula solo. A partir de 7 se suma otro envío.</div>
-                </div>
+            <div class="error" id="step2Error"></div>
 
-                <div class="qty-controls">
-                  <button class="qty-btn" id="qtyMinus" type="button" aria-label="Restar cantidad">−</button>
-                  <div class="qty-value" id="qtyValue">1</div>
-                  <button class="qty-btn" id="qtyPlus" type="button" aria-label="Sumar cantidad">+</button>
-                </div>
-              </div>
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep2Back">Volver</button>
+              <button class="btn primary" type="button" id="btnStep2Next">Continuar</button>
+            </div>
+          </div>
+        </section>
 
-              <div id="zonesWrap">
-                <div style="height:14px"></div>
-                <h4 style="margin-top:0">Seleccioná tu zona de envío</h4>
+        <section class="checkout-step" id="step3">
+          <div class="checkout-card">
+            <h4 id="step3Title">Elegí tu localidad</h4>
 
-                <div class="zone-select-grid">
-                  <label class="zone-option" data-zone-card="1">
-                    <input type="radio" name="zonaEnvio" value="1">
-                    <div class="zone-option-top">
-                      <strong>Zona 1</strong>
-                      <span class="zone-badge">Envío $5.000</span>
-                    </div>
-                    <p>CABA, Haedo, Ramos Mejía, Hurlingham, Caseros e Ituzaingó.</p>
-                  </label>
+            <div id="locationStepWrap">
+              <div class="helper-text" id="locationStepHelp">Primero elegí una zona en el paso anterior.</div>
+              <div class="location-grid" id="locationStepGrid"></div>
+            </div>
 
-                  <label class="zone-option" data-zone-card="2">
-                    <input type="radio" name="zonaEnvio" value="2">
-                    <div class="zone-option-top">
-                      <strong>Zona 2</strong>
-                      <span class="zone-badge">Envío $6.000</span>
-                    </div>
-                    <p>San Miguel, Moreno, José C. Paz, Malvinas Argentinas, San Martín, Vicente López, San Isidro y San Fernando.</p>
-                  </label>
+            <div id="pickupStep3Info" class="warning-note hidden">
+              Para retiro en local no hace falta elegir localidad. En el próximo paso vas a confirmar que tenés cilindro vacío y el color.
+            </div>
 
-                  <label class="zone-option" data-zone-card="3">
-                    <input type="radio" name="zonaEnvio" value="3">
-                    <div class="zone-option-top">
-                      <strong>Zona 3</strong>
-                      <span class="zone-badge">Envío $9.000</span>
-                    </div>
-                    <p>Zárate, Campana, Escobar, Nordelta, Maschwitz, Villa Rosa, Garín, Del Viso, Derqui, Pilar, Luján, General Rodríguez, Marcos Paz, Cañuelas, Guernica, San Vicente, La Plata, Berisso y Ensenada.</p>
-                  </label>
-                </div>
-              </div>
+            <div class="error" id="step3Error"></div>
 
-              <div id="pickupInfoWrap" class="hidden" style="margin-top:14px;">
-                <div class="warning-note">
-                  Retiro en local: Emilio Castro 624, Haedo.<br>
-                  Horarios: lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.<br>
-                  Pago en local: $12.000.<br>
-                  Stock permanente.<br>
-                  Aclaración: la web no coordina la entrega ni los retiros del local. El cliente puede ir directamente a comprar.
-                </div>
-              </div>
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep3Back">Volver</button>
+              <button class="btn primary" type="button" id="btnStep3Next">Continuar</button>
+            </div>
+          </div>
+        </section>
 
-              <div style="height:14px"></div>
+        <section class="checkout-step" id="step4">
+          <div class="checkout-card">
+            <h4>Confirmá tu cilindro</h4>
 
-              <h4 style="margin-top:0">¿Tenés cilindro vacío?</h4>
+            <div class="choice-grid">
+              <label class="choice-card" data-cylinder-card="si">
+                <input type="radio" name="hasCylinder" value="SI">
+                <strong>Sí, tengo cilindro vacío</strong>
+                <p>Podés continuar con el pedido y elegir el color del cilindro.</p>
+              </label>
+
+              <label class="choice-card" data-cylinder-card="no">
+                <input type="radio" name="hasCylinder" value="NO">
+                <strong>No tengo cilindro vacío</strong>
+                <p>La web no permite avanzar porque Recambios MK vende solo recambio.</p>
+              </label>
+            </div>
+
+            <div class="danger-note" id="noCylinderNote">
+              No se puede continuar sin cilindro vacío. Recambios MK vende únicamente recambio.
+            </div>
+
+            <div id="colorWrap" class="hidden" style="margin-top:14px;">
+              <h4 style="margin-top:0">Color del cilindro</h4>
               <div class="choice-grid">
-                <label class="choice-card" data-cylinder-card="si">
-                  <input type="radio" name="hasCylinder" value="SI">
-                  <strong>Sí, tengo cilindro vacío</strong>
-                  <p>Podés continuar con el pedido y elegir el color del cilindro.</p>
+                <label class="choice-card" data-color-card="Celeste">
+                  <input type="radio" name="cylinderColor" value="Celeste">
+                  <strong>Celeste</strong>
+                  <p>Seleccioná esta opción si tu cilindro es celeste.</p>
                 </label>
 
-                <label class="choice-card" data-cylinder-card="no">
-                  <input type="radio" name="hasCylinder" value="NO">
-                  <strong>No tengo cilindro vacío</strong>
-                  <p>La web no permite avanzar porque Recambios MK vende solo recambio.</p>
+                <label class="choice-card" data-color-card="Rosa">
+                  <input type="radio" name="cylinderColor" value="Rosa">
+                  <strong>Rosa</strong>
+                  <p>Seleccioná esta opción si tu cilindro es rosa.</p>
                 </label>
               </div>
+            </div>
 
-              <div class="danger-note" id="noCylinderNote">
-                No se puede continuar sin cilindro vacío. Recambios MK vende únicamente recambio.
-              </div>
+            <div class="error" id="step4Error"></div>
 
-              <div id="colorWrap" class="hidden" style="margin-top:14px;">
-                <h4 style="margin-top:0">Color del cilindro</h4>
-                <div class="choice-grid">
-                  <label class="choice-card" data-color-card="Celeste">
-                    <input type="radio" name="cylinderColor" value="Celeste">
-                    <strong>Celeste</strong>
-                    <p>Seleccioná esta opción si tu cilindro es celeste.</p>
-                  </label>
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep4Back">Volver</button>
+              <button class="btn primary" type="button" id="btnStep4Next">Continuar</button>
+            </div>
+          </div>
+        </section>
 
-                  <label class="choice-card" data-color-card="Rosa">
-                    <input type="radio" name="cylinderColor" value="Rosa">
-                    <strong>Rosa</strong>
-                    <p>Seleccioná esta opción si tu cilindro es rosa.</p>
-                  </label>
-                </div>
-              </div>
+        <section class="checkout-step" id="step5">
+          <div class="checkout-card">
+            <h4>Datos finales</h4>
 
+            <div class="form-grid">
+              <label>
+                <span class="label-row">Nombre y apellido <span class="help" title="Dato obligatorio para registrar el pedido.">i</span></span>
+                <input id="fNombre" type="text" placeholder="Ej: Juan Pérez" autocomplete="name">
+              </label>
+
+              <label>
+                <span class="label-row">Teléfono <span class="help" title="Se usa para completar el pedido y dejar el contacto registrado.">i</span></span>
+                <input id="fTelefono" type="tel" placeholder="Ej: 11 2345 6789" inputmode="tel" autocomplete="tel">
+              </label>
+
+              <label id="locationField" class="hidden">
+                <span class="label-row">Localidad seleccionada</span>
+                <input id="fLocationText" type="text" readonly>
+              </label>
+
+              <label id="streetField">
+                <span class="label-row">Dirección <span class="help" title="Dato obligatorio para entregas a domicilio.">i</span></span>
+                <input id="fCalle" type="text" placeholder="Ej: Rivadavia 1234" autocomplete="street-address">
+              </label>
+
+              <label id="floorField">
+                <span class="label-row">Piso / Depto <span class="help" title="Ejemplo: Piso 2 Depto B.">i</span></span>
+                <input id="fPisoDepto" type="text" placeholder="Ej: Piso 2 Depto B">
+              </label>
+
+              <label class="full">
+                <span class="label-row">Referencia <span class="help" title="Ejemplo: portón negro, timbre, entre calles.">i</span></span>
+                <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Entre calles">
+              </label>
+
+              <label class="full">
+                <span class="label-row">Nota (opcional) <span class="help" title="Podés dejar una aclaración extra para el pedido.">i</span></span>
+                <textarea id="fNota" placeholder="Ej: Si es posible entregar hoy, mejor."></textarea>
+              </label>
+            </div>
+
+            <div id="pickupStep5Info" class="warning-note hidden" style="margin-top:14px;">
+              Recordatorio retiro en local:<br>
+              • Emilio Castro 624, Haedo.<br>
+              • Lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.<br>
+              • Pago en local: $12.000.<br>
+              • Stock permanente.<br>
+              • La web no coordina los retiros del local, solo registra la solicitud.
+            </div>
+
+            <div id="paymentBoxWrap" class="hidden">
               <div class="payment-box">
                 <strong>Datos para transferencia</strong>
                 <div class="pay-line"><b>CBU:</b> <span id="cbuValue">0000003100037411221896</span></div>
@@ -1849,124 +2038,12 @@
                 <button class="btn copy-pay" type="button" id="copyPayBtn">Copiar CBU / Alias</button>
                 <div class="copy-feedback" id="copyFeedback"></div>
               </div>
-
-              <div style="height:14px"></div>
-
-              <div class="summary-note" id="step1Note">
-                Si elegís envío, primero tenés que seleccionar una zona. Además, solo podés continuar si tenés cilindro vacío y elegís el color correspondiente.
-              </div>
-
-              <div class="error" id="step1Error"></div>
             </div>
 
-            <aside class="checkout-card">
-              <h4>Resumen</h4>
+            <div style="height:14px"></div>
 
-              <div class="modal-summary">
-                <div class="summary-row">
-                  <span>Modalidad</span>
-                  <span id="summaryMode">Envío</span>
-                </div>
-
-                <div class="summary-row">
-                  <span>Precio por unidad</span>
-                  <span id="summaryUnit">$11.000</span>
-                </div>
-
-                <div class="summary-row">
-                  <span>Cantidad</span>
-                  <span id="summaryQty">1</span>
-                </div>
-
-                <div class="summary-row">
-                  <span>Zona / retiro</span>
-                  <span id="summaryZone">Seleccionar zona</span>
-                </div>
-
-                <div class="summary-row">
-                  <span>Cilindro</span>
-                  <span id="summaryCylinder">Sin definir</span>
-                </div>
-
-                <div class="summary-row">
-                  <span>Color</span>
-                  <span id="summaryColor">Sin definir</span>
-                </div>
-
-                <div class="summary-row total">
-                  <span>Total</span>
-                  <span id="summaryTotal">-</span>
-                </div>
-              </div>
-            </aside>
-          </div>
-
-          <div class="modal-actions">
-            <button class="btn secondary" type="button" id="btnCloseStep1">Seguir viendo la web</button>
-            <button class="btn primary" type="button" id="btnToStep2">Continuar con mis datos</button>
-          </div>
-        </section>
-
-        <section class="checkout-step" id="step2">
-          <div class="checkout-grid">
-            <div class="checkout-card">
-              <h4>Datos del pedido</h4>
-
-              <div class="form-grid">
-                <label>
-                  <span class="label-row">Nombre y apellido <span class="help" title="Dato obligatorio para registrar el pedido.">i</span></span>
-                  <input id="fNombre" type="text" placeholder="Ej: Juan Pérez" autocomplete="name">
-                </label>
-
-                <label>
-                  <span class="label-row">Teléfono <span class="help" title="Se usa para completar el pedido y dejar el contacto registrado.">i</span></span>
-                  <input id="fTelefono" type="tel" placeholder="Ej: 11 2345 6789" inputmode="tel" autocomplete="tel">
-                </label>
-
-                <label id="locationField">
-                  <span class="label-row">Localidad / Partido / Barrio <span class="help" title="La lista se filtra automáticamente según la zona elegida.">i</span></span>
-                  <select id="fLocationSelect">
-                    <option value="">Seleccioná una opción</option>
-                  </select>
-                  <div class="helper-text" id="locationHelp">Primero elegí una zona en el paso anterior.</div>
-                </label>
-
-                <label id="streetField">
-                  <span class="label-row">Dirección <span class="help" title="Dato obligatorio para entregas a domicilio.">i</span></span>
-                  <input id="fCalle" type="text" placeholder="Ej: Rivadavia 1234" autocomplete="street-address">
-                </label>
-
-                <label id="floorField">
-                  <span class="label-row">Piso / Depto <span class="help" title="Ejemplo: Piso 2 Depto B.">i</span></span>
-                  <input id="fPisoDepto" type="text" placeholder="Ej: Piso 2 Depto B">
-                </label>
-
-                <label class="full">
-                  <span class="label-row">Referencia <span class="help" title="Ejemplo: portón negro, timbre, entre calles.">i</span></span>
-                  <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Entre calles">
-                </label>
-
-                <label class="full">
-                  <span class="label-row">Nota (opcional) <span class="help" title="Podés dejar una aclaración extra para el pedido.">i</span></span>
-                  <textarea id="fNota" placeholder="Ej: Si es posible entregar hoy, mejor."></textarea>
-                </label>
-              </div>
-
-              <div id="pickupStep2Info" class="warning-note hidden" style="margin-top:14px;">
-                Recordatorio retiro en local:<br>
-                • Emilio Castro 624, Haedo.<br>
-                • Lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.<br>
-                • Pago en local: $12.000.<br>
-                • Stock permanente.<br>
-                • La web no coordina los retiros del local, solo registra la solicitud.
-              </div>
-
-              <div class="error" id="formError"></div>
-            </div>
-
-            <aside class="checkout-card">
-              <h4>Resumen final</h4>
-
+            <aside class="checkout-card" style="padding:14px;">
+              <h4 style="margin-bottom:10px;">Resumen final</h4>
               <div class="modal-summary">
                 <div class="summary-row">
                   <span>Modalidad</span>
@@ -1989,6 +2066,11 @@
                 </div>
 
                 <div class="summary-row">
+                  <span>Localidad</span>
+                  <span id="summaryLocation2">Sin definir</span>
+                </div>
+
+                <div class="summary-row">
                   <span>Cilindro</span>
                   <span id="summaryCylinder2">Sí</span>
                 </div>
@@ -2003,18 +2085,18 @@
                   <span id="summaryTotal2">$16.000</span>
                 </div>
               </div>
-
-              <div style="height:14px"></div>
-
-              <div class="summary-note">
-                Al confirmar, se abre WhatsApp con el pedido completo en el orden solicitado para agilizar la validación y la coordinación final.
-              </div>
             </aside>
-          </div>
 
-          <div class="modal-actions">
-            <button class="btn secondary" type="button" id="btnBackStep1">Volver</button>
-            <button class="btn primary" type="button" id="btnSendOrder">Confirmar pedido por WhatsApp</button>
+            <div class="summary-note" id="step5SummaryNote" style="margin-top:14px;">
+              Envia tu pedido y comprobante por WhatsApp para completar el envio gracias por elegir RECARGAS MYK.
+            </div>
+
+            <div class="error" id="formError"></div>
+
+            <div class="modal-actions">
+              <button class="btn secondary" type="button" id="btnStep5Back">Volver</button>
+              <button class="btn primary" type="button" id="btnSendOrder">Enviar por WhatsApp</button>
+            </div>
           </div>
         </section>
       </div>
@@ -2067,6 +2149,7 @@
         step: 1,
         mode: "envio",
         zone: null,
+        location: "",
         hasCylinder: null,
         color: null
       };
@@ -2142,17 +2225,31 @@
         $("cartModal").setAttribute("aria-hidden", "true");
         document.body.classList.remove("modal-open");
         $("step1Error").textContent = "";
+        $("step2Error").textContent = "";
+        $("step3Error").textContent = "";
+        $("step4Error").textContent = "";
         $("formError").textContent = "";
         $("copyFeedback").textContent = "";
       }
 
       function goStep(step){
         state.step = step;
-        $("step1").classList.toggle("active", step === 1);
-        $("step2").classList.toggle("active", step === 2);
-        $("badgeStep1").classList.toggle("active", step === 1);
-        $("badgeStep2").classList.toggle("active", step === 2);
-        if(step === 2) syncStep2ByMode();
+        [1,2,3,4,5].forEach(n => {
+          $("step" + n).classList.toggle("active", n === step);
+          $("badgeStep" + n).classList.toggle("active", n === step);
+        });
+
+        const subtitles = {
+          1: "Elegí la modalidad y avanzá paso a paso para completar el pedido sin distracciones.",
+          2: state.mode === "retiro" ? "Como elegiste retiro, este paso te guía sin mostrar información innecesaria." : "Primero elegí la zona de envío.",
+          3: state.mode === "retiro" ? "Seguimos con el flujo de retiro sin mostrar opciones de envío." : "Ahora elegí solo una localidad de la zona que seleccionaste.",
+          4: "Confirmá que tenés cilindro vacío y elegí el color.",
+          5: state.mode === "retiro" ? "Completá tus datos para registrar la solicitud de retiro." : "Completá tus datos, copiá el alias o CBU y enviá el pedido por WhatsApp."
+        };
+
+        $("cartSubtitle").textContent = subtitles[step] || "";
+        syncFlowByMode();
+        updateSummary();
       }
 
       function setQty(value){
@@ -2164,15 +2261,24 @@
         state.mode = mode === "retiro" ? "retiro" : "envio";
         if(state.mode === "retiro"){
           state.zone = null;
+          state.location = "Retiro en local - Haedo";
           document.querySelectorAll('input[name="zonaEnvio"]').forEach(i => i.checked = false);
+        }else{
+          state.location = "";
         }
-        refreshLocationOptions();
+        renderLocationOptions();
         updateSummary();
       }
 
       function setZone(zone){
         state.zone = Number(zone) || null;
-        refreshLocationOptions();
+        state.location = "";
+        renderLocationOptions();
+        updateSummary();
+      }
+
+      function setLocation(location){
+        state.location = location || "";
         updateSummary();
       }
 
@@ -2190,47 +2296,67 @@
         updateSummary();
       }
 
-      function refreshLocationOptions(){
-        const select = $("fLocationSelect");
-        const help = $("locationHelp");
-        if(!select) return;
-
-        const current = select.value;
-        select.innerHTML = '<option value="">Seleccioná una opción</option>';
+      function renderLocationOptions(){
+        const grid = $("locationStepGrid");
+        const help = $("locationStepHelp");
+        grid.innerHTML = "";
 
         if(state.mode === "retiro"){
-          const opt = document.createElement("option");
-          opt.value = "Retiro en local - Haedo";
-          opt.textContent = "Retiro en local - Haedo";
-          select.appendChild(opt);
-          help.textContent = "Para retiro en local, la opción queda fija en Haedo.";
-        }else if(state.zone && ZONES[state.zone]){
-          ZONES[state.zone].options.forEach(item => {
-            const opt = document.createElement("option");
-            opt.value = item;
-            opt.textContent = item;
-            select.appendChild(opt);
-          });
-          help.textContent = "Mostramos solo opciones filtradas según la zona elegida.";
-        }else{
-          help.textContent = "Primero elegí una zona en el paso anterior.";
+          help.textContent = "Para retiro en local no hace falta elegir localidad.";
+          return;
         }
 
-        if([...select.options].some(o => o.value === current)){
-          select.value = current;
-        }else{
-          select.value = "";
+        if(!state.zone || !ZONES[state.zone]){
+          help.textContent = "Primero elegí una zona en el paso anterior.";
+          return;
         }
+
+        help.textContent = "Mostramos solo las localidades de la zona elegida.";
+        ZONES[state.zone].options.forEach(item => {
+          const label = document.createElement("label");
+          label.className = "location-card" + (state.location === item ? " active" : "");
+          label.setAttribute("data-location-card", item);
+
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = "locationChoice";
+          input.value = item;
+          if(state.location === item) input.checked = true;
+          input.addEventListener("change", function(){ setLocation(this.value); });
+
+          const strong = document.createElement("strong");
+          strong.textContent = item;
+
+          const p = document.createElement("p");
+          p.textContent = "Seleccioná esta localidad para continuar con el envío.";
+
+          label.appendChild(input);
+          label.appendChild(strong);
+          label.appendChild(p);
+          grid.appendChild(label);
+        });
       }
 
-      function syncStep2ByMode(){
+      function syncFlowByMode(){
         const isRetiro = state.mode === "retiro";
+
+        $("pickupStep1Info").classList.toggle("hidden", !isRetiro);
+        $("zonesWrapStep2").classList.toggle("hidden", isRetiro);
+        $("pickupStep2Info").classList.toggle("hidden", !isRetiro);
+        $("locationStepWrap").classList.toggle("hidden", isRetiro);
+        $("pickupStep3Info").classList.toggle("hidden", !isRetiro);
+        $("pickupStep5Info").classList.toggle("hidden", !isRetiro);
+        $("paymentBoxWrap").classList.toggle("hidden", isRetiro);
         $("streetField").classList.toggle("hidden", isRetiro);
         $("floorField").classList.toggle("hidden", isRetiro);
-        $("pickupStep2Info").classList.toggle("hidden", !isRetiro);
-        $("locationHelp").textContent = isRetiro
-          ? "Para retiro en local, la opción queda fija en Haedo."
-          : (state.zone ? "Mostramos solo opciones filtradas según la zona elegida." : "Primero elegí una zona en el paso anterior.");
+        $("locationField").classList.toggle("hidden", false);
+
+        $("step2Title").textContent = isRetiro ? "Retiro en local" : "Elegí tu zona de envío";
+        $("step3Title").textContent = isRetiro ? "Retiro en local" : "Elegí tu localidad";
+        $("fLocationText").value = isRetiro ? "Retiro en local - Haedo" : (state.location || "");
+        $("step5SummaryNote").textContent = isRetiro
+          ? "Envia tu pedido por WhatsApp para registrar el retiro gracias por elegir RECARGAS MYK."
+          : "Envia tu pedido y comprobante por WhatsApp para completar el envio gracias por elegir RECARGAS MYK.";
       }
 
       function updateSummary(){
@@ -2238,6 +2364,9 @@
         paintActiveCards("data-zone-card", state.zone);
         paintActiveCards("data-cylinder-card", state.hasCylinder === "SI" ? "si" : state.hasCylinder === "NO" ? "no" : "");
         paintActiveCards("data-color-card", state.color || "");
+        document.querySelectorAll("[data-location-card]").forEach(card => {
+          card.classList.toggle("active", card.getAttribute("data-location-card") === state.location);
+        });
 
         const total = getTotal();
         const isRetiro = state.mode === "retiro";
@@ -2245,54 +2374,63 @@
         const colorText = state.color || "Sin definir";
 
         $("qtyValue").textContent = state.qty;
-        $("summaryMode").textContent = getModeLabel();
         $("summaryMode2").textContent = getModeLabel();
-        $("summaryUnit").textContent = getUnitLabel();
         $("summaryUnit2").textContent = getUnitLabel();
-        $("summaryQty").textContent = state.qty;
         $("summaryQty2").textContent = state.qty;
-        $("summaryZone").textContent = getZoneLabel();
         $("summaryZone2").textContent = getZoneLabel();
-        $("summaryCylinder").textContent = hasCylinderText;
+        $("summaryLocation2").textContent = isRetiro ? "Retiro en local - Haedo" : (state.location || "Sin definir");
         $("summaryCylinder2").textContent = hasCylinderText;
-        $("summaryColor").textContent = colorText;
         $("summaryColor2").textContent = colorText;
-        $("summaryTotal").textContent = total === null ? "-" : formatMoney(total);
         $("summaryTotal2").textContent = total === null ? "-" : formatMoney(total);
-
-        $("zonesWrap").classList.toggle("hidden", isRetiro);
-        $("pickupInfoWrap").classList.toggle("hidden", !isRetiro);
-        $("noCylinderNote").classList.toggle("show", state.hasCylinder === "NO");
-        $("colorWrap").classList.toggle("hidden", state.hasCylinder !== "SI");
 
         $("step1Note").textContent = isRetiro
           ? "Si elegís retiro en local, el valor es " + formatMoney(PRICE_RETIRO) + " por unidad. La web no coordina los retiros del local; solo informa y registra la solicitud."
-          : "Si elegís envío, primero tenés que seleccionar una zona. Hasta 6 cilindros se cobra un envío; si pedís más, se suma otro envío. Además, solo podés continuar si tenés cilindro vacío y elegís el color correspondiente.";
+          : "Si elegís envío, en el próximo paso vas a seleccionar la zona de entrega.";
 
-        syncStep2ByMode();
+        $("noCylinderNote").classList.toggle("show", state.hasCylinder === "NO");
+        $("colorWrap").classList.toggle("hidden", state.hasCylinder !== "SI");
+        syncFlowByMode();
       }
 
       function validateStep1(){
-        if(state.mode === "envio" && !state.zone){
-          $("step1Error").textContent = "Seleccioná una zona antes de continuar con el envío.";
-          return false;
-        }
-        if(state.hasCylinder !== "SI"){
-          $("step1Error").textContent = "Solo podés continuar si confirmás que tenés cilindro vacío.";
-          return false;
-        }
-        if(!state.color){
-          $("step1Error").textContent = "Seleccioná el color del cilindro para continuar.";
-          return false;
-        }
         $("step1Error").textContent = "";
         return true;
       }
 
       function validateStep2(){
+        if(state.mode === "envio" && !state.zone){
+          $("step2Error").textContent = "Seleccioná una zona antes de continuar.";
+          return false;
+        }
+        $("step2Error").textContent = "";
+        return true;
+      }
+
+      function validateStep3(){
+        if(state.mode === "envio" && !state.location){
+          $("step3Error").textContent = "Seleccioná una localidad para continuar.";
+          return false;
+        }
+        $("step3Error").textContent = "";
+        return true;
+      }
+
+      function validateStep4(){
+        if(state.hasCylinder !== "SI"){
+          $("step4Error").textContent = "Solo podés continuar si confirmás que tenés cilindro vacío.";
+          return false;
+        }
+        if(!state.color){
+          $("step4Error").textContent = "Seleccioná el color del cilindro para continuar.";
+          return false;
+        }
+        $("step4Error").textContent = "";
+        return true;
+      }
+
+      function validateStep5(){
         const nombre = ($("fNombre").value || "").trim();
         const telefono = ($("fTelefono").value || "").trim();
-        const location = $("fLocationSelect").value;
         const calle = ($("fCalle").value || "").trim();
         const isRetiro = state.mode === "retiro";
 
@@ -2308,9 +2446,8 @@
           return false;
         }
 
-        if(!location){
-          $("formError").textContent = "Seleccioná una localidad, barrio o la opción de retiro.";
-          $("fLocationSelect").focus();
+        if(!isRetiro && !state.location){
+          $("formError").textContent = "Primero seleccioná una localidad.";
           return false;
         }
 
@@ -2327,7 +2464,6 @@
       function buildMessage(){
         const nombre = ($("fNombre").value || "").trim();
         const telefono = ($("fTelefono").value || "").trim();
-        const location = ($("fLocationSelect").value || "").trim();
         const calle = ($("fCalle").value || "").trim();
         const pisoDepto = ($("fPisoDepto").value || "").trim();
         const ref = ($("fRef").value || "").trim();
@@ -2336,6 +2472,7 @@
 
         const direccion = isRetiro ? "Retiro en local - Emilio Castro 624, Haedo" : calle;
         const pisoDeptoText = isRetiro ? "No aplica" : (pisoDepto || "No especificado");
+        const localidad = isRetiro ? "Retiro en local - Haedo" : state.location;
 
         const lines = [];
         lines.push("Hola! Quiero realizar el siguiente pedido:");
@@ -2343,7 +2480,7 @@
         lines.push("Nombre: " + nombre);
         lines.push("Dirección: " + direccion);
         lines.push("Piso depto: " + pisoDeptoText);
-        lines.push("Localidad: " + location);
+        lines.push("Localidad: " + localidad);
         lines.push("Cantidad: " + state.qty);
         lines.push("Color cilindro: " + state.color);
         lines.push("Teléfono: " + telefono);
@@ -2369,7 +2506,9 @@
         if(nota) lines.push("Nota: " + nota);
 
         lines.push("");
-        lines.push("Quedo a la espera de confirmación. Gracias.");
+        lines.push(isRetiro
+          ? "Envia tu pedido por WhatsApp para registrar el retiro gracias por elegir RECARGAS MYK."
+          : "Envia tu pedido y comprobante por WhatsApp para completar el envio gracias por elegir RECARGAS MYK.");
 
         return lines.join("\n");
       }
@@ -2380,7 +2519,7 @@
       }
 
       function sendOrder(){
-        if(!validateStep2()) return;
+        if(!validateStep5()) return;
         openWhatsAppWithMessage(buildMessage());
       }
 
@@ -2507,6 +2646,11 @@
           });
         });
 
+        $("offerBuyBtn").addEventListener("click", function(){
+          openModal();
+          setQty(5);
+        });
+
         $("directWspBtn").addEventListener("click", function(){
           openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de recambio.");
         });
@@ -2537,12 +2681,30 @@
           input.addEventListener("change", function(){ setColor(this.value); });
         });
 
-        $("btnToStep2").addEventListener("click", function(){
+        $("btnStep1Next").addEventListener("click", function(){
           if(!validateStep1()) return;
           goStep(2);
         });
 
-        $("btnBackStep1").addEventListener("click", function(){ goStep(1); });
+        $("btnStep2Next").addEventListener("click", function(){
+          if(!validateStep2()) return;
+          goStep(3);
+        });
+
+        $("btnStep3Next").addEventListener("click", function(){
+          if(!validateStep3()) return;
+          goStep(4);
+        });
+
+        $("btnStep4Next").addEventListener("click", function(){
+          if(!validateStep4()) return;
+          goStep(5);
+        });
+
+        $("btnStep2Back").addEventListener("click", function(){ goStep(1); });
+        $("btnStep3Back").addEventListener("click", function(){ goStep(2); });
+        $("btnStep4Back").addEventListener("click", function(){ goStep(3); });
+        $("btnStep5Back").addEventListener("click", function(){ goStep(4); });
         $("btnCloseStep1").addEventListener("click", closeModal);
         $("btnSendOrder").addEventListener("click", sendOrder);
 
@@ -2567,7 +2729,7 @@
       setThemeByHour();
       setupBurger();
       setupButtons();
-      refreshLocationOptions();
+      renderLocationOptions();
       updateSummary();
       filterZones();
       adjustFloat();
