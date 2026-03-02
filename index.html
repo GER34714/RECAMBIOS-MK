@@ -1,3 +1,26 @@
+Entendido.
+
+Cambio puntual que hago ahora:
+
+* la **imagen nueva del hero** va **dentro de una card**
+* tiene que **verse completa**
+* además va **arriba** del bloque que dice:
+
+  * Local
+  * Envío
+  * Pedidos
+  * Entregas
+  * Logística
+  * Cobertura
+* o sea, queda como **banner/card visual entre el hero principal y los chips**
+* también saco:
+
+  * **“Desde $12.000”**
+  * **“según modalidad elegida”**
+
+Te dejo el **index completo** con eso corregido:
+
+```html id="95724"
 <!doctype html>
 <html lang="es" data-theme="light">
 <head>
@@ -5,11 +28,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RECAMBIOS MK | Cilindro de soda cargado</title>
 
-  <meta name="description" content="Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT. Pedido online para agilizar envíos en CABA y GBA." />
+  <meta name="description" content="Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT. Elegí envío o retiro en local y confirmá tu pedido por WhatsApp." />
   <meta property="og:title" content="RECAMBIOS MK | Cilindro de soda cargado" />
-  <meta property="og:description" content="Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT. Agilizá tu pedido online para envíos en CABA y GBA." />
+  <meta property="og:description" content="Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT. Envíos por zona o retiro en local." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://iili.io/qqRBRNR.md.jpg" />
+  <meta property="og:image" content="https://iili.io/qqjXrwg.md.jpg" />
   <meta property="og:locale" content="es_AR" />
 
   <style>
@@ -56,6 +79,7 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;
@@ -68,10 +92,7 @@
       transition:background .3s ease,color .3s ease;
     }
 
-    body.modal-open{
-      overflow:hidden;
-    }
-
+    body.modal-open{overflow:hidden}
     img{max-width:100%;display:block}
     a{color:inherit}
     button,input,select,textarea{font:inherit}
@@ -89,13 +110,8 @@
       margin:0 auto;
     }
 
-    .section{
-      padding:38px 0;
-    }
-
-    @media (max-width:720px){
-      .section{padding:28px 0}
-    }
+    .section{padding:38px 0}
+    @media (max-width:720px){.section{padding:28px 0}}
 
     .block{
       background:var(--surface);
@@ -191,7 +207,6 @@
       border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
       box-shadow:var(--shadow-soft);
     }
-    .btn.full{width:100%}
 
     .topbar{
       position:sticky;
@@ -283,8 +298,7 @@
       flex:0 0 auto;
     }
 
-    .theme-toggle,
-    .burger{
+    .theme-toggle,.burger{
       width:46px;
       height:46px;
       border-radius:14px;
@@ -299,8 +313,7 @@
       flex:0 0 auto;
     }
 
-    .theme-toggle svg,
-    .burger svg{
+    .theme-toggle svg,.burger svg{
       width:20px;
       height:20px;
     }
@@ -309,7 +322,6 @@
 
     @media (max-width:900px){
       .burger{display:inline-flex}
-
       .nav{
         position:absolute;
         left:0;
@@ -325,24 +337,16 @@
         border-radius:20px;
         box-shadow:var(--shadow);
       }
-
       .nav.open{display:flex}
       .nav a{padding:12px 14px}
     }
 
-    .hero{
-      padding-top:24px;
-    }
-
+    .hero{padding-top:24px}
     .hero-grid{
       display:grid;
-      grid-template-columns:minmax(0,1.02fr) minmax(320px,.98fr);
+      grid-template-columns:minmax(0,1fr);
       gap:22px;
-      align-items:stretch;
-    }
-
-    @media (max-width:980px){
-      .hero-grid{grid-template-columns:1fr}
+      align-items:start;
     }
 
     .hero-copy-card{
@@ -385,10 +389,7 @@
       object-fit:cover;
     }
 
-    .hero-copy{
-      min-width:0;
-    }
-
+    .hero-copy{min-width:0}
     .hero-copy h1{
       margin:0 0 12px;
       font-size:clamp(31px, 5vw, 58px);
@@ -472,50 +473,30 @@
       .hero-actions .btn{width:100%}
     }
 
+    .hero-banner-wrap{
+      margin-top:2px;
+    }
+
     .hero-banner-card{
       overflow:hidden;
       position:relative;
-      min-height:100%;
-      background:#000;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
     }
 
     .hero-banner{
       width:100%;
-      height:100%;
-      min-height:420px;
-      object-fit:cover;
+      height:auto;
+      object-fit:contain;
       object-position:center;
+      display:block;
+      background:#fff;
     }
 
-    .hero-banner-fade{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,.08), rgba(0,0,0,0) 34%);
-      pointer-events:none;
-    }
-
-    @media (max-width:980px){
-      .hero-banner{
-        min-height:300px;
-        object-fit:contain;
-        background:#fff;
-      }
-      html[data-theme="dark"] .hero-banner{
-        background:#0b1017;
-      }
-      .hero-banner-fade{display:none}
-    }
-
-    @media (max-width:560px){
-      .hero-banner-card{
-        border-radius:22px;
-        overflow:hidden;
-      }
-      .hero-banner{
-        min-height:auto;
-        height:auto;
-        object-fit:contain;
-      }
+    html[data-theme="dark"] .hero-banner{
+      background:#0b1017;
     }
 
     .highlight-row{
@@ -524,13 +505,8 @@
       gap:12px;
     }
 
-    @media (max-width:1100px){
-      .highlight-row{grid-template-columns:repeat(3,minmax(0,1fr))}
-    }
-
-    @media (max-width:620px){
-      .highlight-row{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
+    @media (max-width:1100px){.highlight-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media (max-width:620px){.highlight-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
     .chip-card{
       background:var(--surface);
@@ -558,25 +534,30 @@
       line-height:1.25;
     }
 
-    .product-grid{
-      display:grid;
-      grid-template-columns:minmax(320px,420px) minmax(0,1fr);
-      gap:22px;
-      align-items:start;
+    .promo-card{
+      margin-top:18px;
+      background:linear-gradient(135deg, color-mix(in srgb, var(--brand), transparent 88%), color-mix(in srgb, var(--accent), transparent 92%));
+      border:1px solid color-mix(in srgb, var(--brand), var(--line) 56%);
+      border-radius:24px;
+      padding:18px;
+      box-shadow:var(--shadow-soft);
     }
 
-    @media (max-width:980px){
-      .product-grid{grid-template-columns:1fr}
+    .promo-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:16px;
     }
 
-    .product-media,
-    .product-card,
-    .benefit-card,
-    .coverage-card,
-    .search-card,
-    .map-card,
-    .faq-card,
-    .review-card{
+    .promo-card p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.6;
+      font-weight:700;
+    }
+
+    .product-card,.benefit-card,.zones-panel,.coverage-card,.search-card,.faq-card,.review-card{
       background:var(--surface-soft);
       border:1px solid var(--line);
       border-radius:24px;
@@ -585,30 +566,9 @@
     }
 
     @media (max-width:720px){
-      .product-media,
-      .product-card,
-      .benefit-card,
-      .coverage-card,
-      .search-card,
-      .map-card,
-      .faq-card,
-      .review-card{
+      .product-card,.benefit-card,.zones-panel,.coverage-card,.search-card,.faq-card,.review-card{
         padding:16px;
       }
-    }
-
-    .product-media-wrap{
-      overflow:hidden;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:#fff;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .product-media-wrap img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
     }
 
     .product-card h3{
@@ -626,36 +586,9 @@
       line-height:1.68;
     }
 
-    .product-stack{
-      display:grid;
-      gap:14px;
-    }
+    .product-stack{display:grid;gap:14px}
 
-    .price-box{
-      display:flex;
-      align-items:flex-end;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:2px;
-    }
-
-    .price-box strong{
-      font-size:42px;
-      line-height:1;
-      letter-spacing:-1px;
-    }
-
-    .price-box span{
-      font-size:13px;
-      color:var(--muted);
-      font-weight:900;
-    }
-
-    .bullet-list{
-      display:grid;
-      gap:10px;
-    }
-
+    .bullet-list{display:grid;gap:10px}
     .bullet{
       display:flex;
       gap:10px;
@@ -702,19 +635,57 @@
       .product-actions .btn{width:100%}
     }
 
+    .zones-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+
+    @media (max-width:980px){.zones-grid{grid-template-columns:1fr}}
+
+    .zone-card{
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:20px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+      min-height:100%;
+    }
+
+    .zone-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:18px;
+    }
+
+    .zone-card .zone-price{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:color-mix(in srgb, var(--accent), transparent 90%);
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .zone-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+
     .benefits-grid{
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
       gap:12px;
     }
 
-    @media (max-width:980px){
-      .benefits-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
-
-    @media (max-width:560px){
-      .benefits-grid{grid-template-columns:1fr}
-    }
+    @media (max-width:980px){.benefits-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:560px){.benefits-grid{grid-template-columns:1fr}}
 
     .benefit{
       display:grid;
@@ -754,9 +725,7 @@
       align-items:start;
     }
 
-    @media (max-width:980px){
-      .coverage-layout{grid-template-columns:1fr}
-    }
+    @media (max-width:980px){.coverage-layout{grid-template-columns:1fr}}
 
     .coverage-image-wrap{
       overflow:hidden;
@@ -773,18 +742,14 @@
       object-fit:contain;
     }
 
-    .coverage-card p,
-    .search-card p,
-    .map-card p{
+    .coverage-card p,.search-card p{
       margin:0;
       color:var(--muted);
       font-size:14px;
       line-height:1.6;
     }
 
-    .search-card h3,
-    .coverage-card h3,
-    .map-card h3{
+    .search-card h3,.coverage-card h3{
       margin:0 0 10px;
       font-size:20px;
       letter-spacing:-.2px;
@@ -843,9 +808,7 @@
       padding-right:4px;
     }
 
-    @media (max-width:560px){
-      .results{grid-template-columns:1fr}
-    }
+    @media (max-width:560px){.results{grid-template-columns:1fr}}
 
     .results::-webkit-scrollbar{width:8px}
     .results::-webkit-scrollbar-thumb{
@@ -864,66 +827,7 @@
       box-shadow:var(--shadow-soft);
     }
 
-    .map-layout{
-      display:grid;
-      grid-template-columns:minmax(300px,420px) minmax(0,1fr);
-      gap:20px;
-      align-items:start;
-    }
-
-    @media (max-width:980px){
-      .map-layout{grid-template-columns:1fr}
-    }
-
-    .map-wrap{
-      width:100%;
-      aspect-ratio:1 / 1;
-      border-radius:22px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background:#fff;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .map-wrap iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-    }
-
-    .map-info{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      min-width:0;
-    }
-
-    .map-info .address{
-      padding:14px 16px;
-      border-radius:18px;
-      background:var(--surface);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow-soft);
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .map-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    @media (max-width:520px){
-      .map-actions{flex-direction:column}
-      .map-actions .btn{width:100%}
-    }
-
-    .faq-grid{
-      display:grid;
-      gap:12px;
-    }
+    .faq-grid{display:grid;gap:12px}
 
     details{
       border:1px solid var(--line);
@@ -969,13 +873,8 @@
       gap:12px;
     }
 
-    @media (max-width:1100px){
-      .reviews-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-    }
-
-    @media (max-width:640px){
-      .reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
+    @media (max-width:1100px){.reviews-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media (max-width:640px){.reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
     .review{
       border:1px solid var(--line);
@@ -1019,9 +918,7 @@
       margin-top:16px;
     }
 
-    @media (max-width:520px){
-      .reviews-actions .btn{width:100%}
-    }
+    @media (max-width:520px){.reviews-actions .btn{width:100%}}
 
     footer{
       margin-top:18px;
@@ -1110,7 +1007,7 @@
     .modal-dialog{
       position:relative;
       z-index:1;
-      width:min(760px, 100%);
+      width:min(860px, 100%);
       max-height:min(92vh, 920px);
       overflow:auto;
       background:var(--surface);
@@ -1180,25 +1077,17 @@
       gap:16px;
     }
 
-    .checkout-step{
-      display:none;
-      gap:16px;
-    }
-
-    .checkout-step.active{
-      display:grid;
-    }
+    .checkout-step{display:none;gap:16px}
+    .checkout-step.active{display:grid}
 
     .checkout-grid{
       display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(250px,290px);
+      grid-template-columns:minmax(0,1fr) minmax(260px,300px);
       gap:16px;
       align-items:start;
     }
 
-    @media (max-width:760px){
-      .checkout-grid{grid-template-columns:1fr}
-    }
+    @media (max-width:860px){.checkout-grid{grid-template-columns:1fr}}
 
     .checkout-card{
       background:var(--surface-soft);
@@ -1221,9 +1110,7 @@
       align-items:start;
     }
 
-    @media (max-width:520px){
-      .checkout-product{grid-template-columns:1fr}
-    }
+    @media (max-width:520px){.checkout-product{grid-template-columns:1fr}}
 
     .checkout-product .thumb{
       border-radius:18px;
@@ -1253,6 +1140,51 @@
       line-height:1.55;
     }
 
+    .mode-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+
+    @media (max-width:640px){.mode-grid{grid-template-columns:1fr}}
+
+    .select-card{
+      position:relative;
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:18px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
+      transition:border-color .14s ease, transform .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    .select-card:hover{transform:translateY(-1px)}
+    .select-card.active{
+      border-color:color-mix(in srgb, var(--brand), var(--line) 40%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--brand), transparent 93%), transparent 55%), var(--surface);
+      box-shadow:0 16px 34px rgba(34,197,94,.12);
+    }
+
+    .select-card input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .select-card strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:16px;
+    }
+
+    .select-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
     .qty-row{
       display:flex;
       align-items:center;
@@ -1265,9 +1197,7 @@
       box-shadow:var(--shadow-soft);
     }
 
-    .qty-row strong{
-      font-size:14px;
-    }
+    .qty-row strong{font-size:14px}
 
     .qty-controls{
       display:flex;
@@ -1296,11 +1226,103 @@
       font-weight:900;
     }
 
-    .modal-summary{
+    .zone-select-grid{
       display:grid;
-      gap:10px;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:12px;
     }
 
+    .zone-option{
+      position:relative;
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:18px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
+      transition:border-color .14s ease, transform .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    .zone-option:hover{transform:translateY(-1px)}
+    .zone-option.active{
+      border-color:color-mix(in srgb, var(--accent), var(--line) 34%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 93%), transparent 55%), var(--surface);
+    }
+
+    .zone-option input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .zone-option-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .zone-option-top strong{font-size:16px}
+    .zone-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 10px;
+      border-radius:999px;
+      background:color-mix(in srgb, var(--accent), transparent 90%);
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
+      font-size:12px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .zone-option p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    .summary-note{
+      padding:12px;
+      border-radius:16px;
+      background:color-mix(in srgb, var(--brand), transparent 92%);
+      border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
+      color:var(--text);
+      font-size:12.8px;
+      line-height:1.5;
+      font-weight:800;
+    }
+
+    .info-pop{
+      display:none;
+      margin-top:12px;
+      padding:14px;
+      border-radius:18px;
+      background:color-mix(in srgb, var(--accent), transparent 92%);
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 70%);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .info-pop.show{display:block}
+
+    .info-pop strong{
+      display:block;
+      margin-bottom:8px;
+      font-size:15px;
+    }
+
+    .info-pop p{
+      margin:0;
+      color:var(--text);
+      font-size:13px;
+      line-height:1.6;
+      font-weight:700;
+    }
+
+    .modal-summary{display:grid;gap:10px}
     .summary-row{
       display:flex;
       align-items:center;
@@ -1321,26 +1343,13 @@
       font-size:16px;
     }
 
-    .summary-note{
-      padding:12px;
-      border-radius:16px;
-      background:color-mix(in srgb, var(--brand), transparent 92%);
-      border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
-      color:var(--text);
-      font-size:12.8px;
-      line-height:1.5;
-      font-weight:800;
-    }
-
     .form-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:12px;
     }
 
-    @media (max-width:640px){
-      .form-grid{grid-template-columns:1fr}
-    }
+    @media (max-width:640px){.form-grid{grid-template-columns:1fr}}
 
     label{
       display:flex;
@@ -1351,7 +1360,7 @@
       color:color-mix(in srgb, var(--text), var(--muted) 14%);
     }
 
-    input, select, textarea{
+    input,select,textarea{
       width:100%;
       appearance:none;
       border:1px solid var(--line);
@@ -1364,13 +1373,13 @@
       transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
     }
 
-    input:focus, select:focus, textarea:focus{
+    input:focus,select:focus,textarea:focus{
       border-color:color-mix(in srgb, var(--accent), var(--line) 42%);
       box-shadow:0 0 0 4px color-mix(in srgb, var(--accent), transparent 84%);
     }
 
     textarea{
-      min-height:110px;
+      min-height:108px;
       resize:vertical;
     }
 
@@ -1456,8 +1465,8 @@
 
       <nav class="nav" id="siteNav">
         <a href="#producto">Producto</a>
-        <a href="#zonas">Cobertura</a>
-        <a href="#ubicacion">Ubicación</a>
+        <a href="#zonas">Zonas</a>
+        <a href="#cobertura">Cobertura</a>
         <a href="#faq">FAQ</a>
         <a href="#reseñas">Reseñas</a>
         <a href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Instagram</a>
@@ -1491,9 +1500,9 @@
                 </div>
 
                 <div class="hero-copy">
-                  <span class="eyebrow">Pedido rápido para agilizar envíos</span>
+                  <span class="eyebrow">Pedido rápido para envío o retiro</span>
                   <h1>Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h1>
-                  <p>Elegí la cantidad, cargá tus datos y dejá el pedido listo para acelerar la gestión del envío en CABA y GBA.</p>
+                  <p>Elegí la modalidad, completá tus datos y dejá el pedido listo para confirmar por WhatsApp de forma más rápida y ordenada.</p>
                 </div>
               </div>
 
@@ -1502,24 +1511,27 @@
               <div class="hero-price-row">
                 <div class="price-pill">
                   <strong>$12.000</strong>
-                  <span>por unidad</span>
+                  <span>retiro en local</span>
                 </div>
                 <div class="price-pill">
-                  <strong>08 a 20 hs</strong>
-                  <span>pedidos</span>
+                  <strong>$11.000</strong>
+                  <span>base para envío</span>
                 </div>
               </div>
 
               <div class="hero-actions">
                 <button class="btn primary" type="button" id="heroBuyBtn">Comprar ahora</button>
-                <a class="btn secondary" href="#producto">Ver producto</a>
+                <a class="btn secondary" href="#zonas">Ver zonas</a>
                 <a class="btn secondary" href="https://www.instagram.com/recambio.soda/" target="_blank" rel="noopener">Ver Instagram</a>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div class="block hero-banner-card">
-              <img class="hero-banner" src="https://iili.io/qqRBRNR.md.jpg" alt="Banner Recambios MK">
-              <div class="hero-banner-fade" aria-hidden="true"></div>
+        <section class="section" aria-label="Banner principal">
+          <div class="hero-banner-wrap">
+            <div class="hero-banner-card">
+              <img class="hero-banner" src="https://iili.io/qqjXrwg.md.jpg" alt="Cilindro de soda Recambios MK">
             </div>
           </div>
         </section>
@@ -1527,16 +1539,16 @@
         <section class="section" aria-label="Datos operativos destacados">
           <div class="highlight-row">
             <article class="chip-card">
-              <strong>Precio</strong>
-              <span>$12.000 por unidad</span>
+              <strong>Local</strong>
+              <span>$12.000 efectivo</span>
+            </article>
+            <article class="chip-card">
+              <strong>Envío</strong>
+              <span>$11.000 + zona</span>
             </article>
             <article class="chip-card">
               <strong>Pedidos</strong>
-              <span>08 a 20 hs</span>
-            </article>
-            <article class="chip-card">
-              <strong>Mismo día</strong>
-              <span>Hasta las 14 hs</span>
+              <span>Hasta 14 hs</span>
             </article>
             <article class="chip-card">
               <strong>Entregas</strong>
@@ -1551,63 +1563,85 @@
               <span>CABA y GBA</span>
             </article>
           </div>
+
+          <div class="promo-card">
+            <strong>Promo Zona 1</strong>
+            <p>Si sos de Zona 1, tenés el envío incluido en el precio final.</p>
+          </div>
         </section>
 
         <section class="section" id="producto">
           <div class="section-head">
             <span class="eyebrow">Producto</span>
-            <h2>Compra simple, rápida y enfocada en el envío</h2>
-            <p>Esta web está pensada para tomar el pedido más ordenado, con todos los datos necesarios para agilizar la logística y la confirmación final.</p>
+            <h2>Un solo producto, compra más clara</h2>
+            <p>La web toma el pedido con todos los datos necesarios para que la confirmación salga lista por WhatsApp, según envío o retiro en local.</p>
           </div>
 
-          <div class="product-grid">
-            <div class="product-media">
-              <div class="product-media-wrap">
-                <img src="https://iili.io/qqRBRNR.md.jpg" alt="Cilindro de soda cargado">
+          <div class="product-card">
+            <div class="product-stack">
+              <div>
+                <span class="eyebrow">Un solo producto</span>
+                <h3>Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h3>
+                <p>Podés pedir con envío por zona o elegir retiro en local. El carrito calcula el total según la modalidad que selecciones.</p>
+              </div>
+
+              <div class="bullet-list">
+                <div class="bullet">
+                  <div>
+                    <strong>Envío por zona</strong>
+                    <p>Si elegís envío, primero tenés que seleccionar la zona para calcular el valor final antes de avanzar.</p>
+                  </div>
+                </div>
+
+                <div class="bullet">
+                  <div>
+                    <strong>Retiro en local</strong>
+                    <p>Si elegís retiro, se informa el valor, los horarios y la condición de pago en efectivo.</p>
+                  </div>
+                </div>
+
+                <div class="bullet">
+                  <div>
+                    <strong>Pedido claro</strong>
+                    <p>La compra sale armada con nombre, dirección, localidad, tubos vacíos y referencia para acelerar la gestión.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn primary" type="button" id="productBuyBtn">Comprar con carrito</button>
+                <button class="btn soft" type="button" id="directWspBtn">Consultar por WhatsApp</button>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div class="product-card">
-              <div class="product-stack">
-                <div>
-                  <span class="eyebrow">Un solo producto</span>
-                  <h3>Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h3>
-                  <p>Hacé tu pedido online, indicá la cantidad y completá los datos necesarios para enviar la solicitud lista por WhatsApp.</p>
-                </div>
+        <section class="section" id="zonas">
+          <div class="section-head">
+            <span class="eyebrow">Zonas de envío</span>
+            <h2>Elegí la zona correcta para calcular el envío</h2>
+            <p>Si comprás con envío, el carrito te va a pedir seleccionar obligatoriamente una de estas zonas antes de continuar.</p>
+          </div>
 
-                <div class="price-box">
-                  <strong>$12.000</strong>
-                  <span>precio por unidad</span>
-                </div>
+          <div class="zones-panel">
+            <div class="zones-grid">
+              <article class="zone-card">
+                <strong>Zona 1</strong>
+                <span class="zone-price">Envío $5.000 • Total 1 unidad $16.000</span>
+                <p>CABA, Haedo, Ramos Mejía, Hurlingham, Caseros e Ituzaingó.</p>
+              </article>
 
-                <div class="bullet-list">
-                  <div class="bullet">
-                    <div>
-                      <strong>Pedido enfocado en envíos</strong>
-                      <p>La compra queda armada con tus datos para acelerar la gestión del reparto.</p>
-                    </div>
-                  </div>
+              <article class="zone-card">
+                <strong>Zona 2</strong>
+                <span class="zone-price">Envío $6.000 • Total 1 unidad $17.000</span>
+                <p>San Miguel, Moreno, José C. Paz, Malvinas Argentinas, San Martín, Vicente López, San Isidro y San Fernando.</p>
+              </article>
 
-                  <div class="bullet">
-                    <div>
-                      <strong>Cobertura operativa</strong>
-                      <p>Entregas coordinadas en CABA y GBA, con pedido simple y claro desde la web.</p>
-                    </div>
-                  </div>
-
-                  <div class="bullet">
-                    <div>
-                      <strong>Horarios visibles</strong>
-                      <p>Pedidos de 08 a 20 hs. Para intentar entrega en el día, hasta las 14 hs.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="product-actions">
-                  <button class="btn primary" type="button" id="productBuyBtn">Comprar con carrito</button>
-                  <button class="btn soft" type="button" id="directWspBtn">Pedir por WhatsApp</button>
-                </div>
-              </div>
+              <article class="zone-card">
+                <strong>Zona 3</strong>
+                <span class="zone-price">Envío $9.000 • Total 1 unidad $20.000</span>
+                <p>Zárate, Campana, Escobar, Nordelta, Maschwitz, Villa Rosa, Garín, Del Viso, Derqui, Pilar, Luján, General Rodríguez, Marcos Paz, Cañuelas, Guernica, San Vicente, La Plata, Berisso y Ensenada.</p>
+              </article>
             </div>
           </div>
         </section>
@@ -1615,8 +1649,8 @@
         <section class="section" id="beneficios">
           <div class="section-head">
             <span class="eyebrow">Beneficios</span>
-            <h2>Una forma más clara de resolver el pedido</h2>
-            <p>Menos vueltas, más datos útiles y un cierre más prolijo para la confirmación.</p>
+            <h2>Compra simple, rápida y clara</h2>
+            <p>Una forma más ordenada de resolver el pedido y dejarlo listo para confirmar.</p>
           </div>
 
           <div class="benefit-card">
@@ -1625,7 +1659,7 @@
                 <img src="https://iili.io/qquNgGp.png" alt="Ecológico">
                 <div>
                   <strong>Ecológico</strong>
-                  <p>Menos descartables y una opción más práctica para el consumo habitual.</p>
+                  <p>Menos descartables y una alternativa más práctica para el consumo habitual.</p>
                 </div>
               </div>
 
@@ -1633,7 +1667,7 @@
                 <img src="https://iili.io/qquNUnR.png" alt="Práctico">
                 <div>
                   <strong>Práctico</strong>
-                  <p>La web ordena el pedido para que salga más rápido y con menos idas y vueltas.</p>
+                  <p>El pedido sale más prolijo y listo para confirmar con toda la información importante.</p>
                 </div>
               </div>
 
@@ -1641,7 +1675,7 @@
                 <img src="https://iili.io/qquN8Zv.png" alt="Conveniente">
                 <div>
                   <strong>Conveniente</strong>
-                  <p>Elegís la cantidad y cargás los datos de una sola vez para agilizar el envío.</p>
+                  <p>Podés elegir envío o retiro en local y ver el valor final antes de avanzar.</p>
                 </div>
               </div>
 
@@ -1649,18 +1683,18 @@
                 <img src="https://iili.io/qquNvwJ.png" alt="Lista para usar">
                 <div>
                   <strong>Lista para usar</strong>
-                  <p>Cilindro de soda cargado, preparado para una gestión más directa por WhatsApp.</p>
+                  <p>Cilindro cargado y una gestión más directa para resolver el pedido por WhatsApp.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="section" id="zonas">
+        <section class="section" id="cobertura">
           <div class="section-head">
             <span class="eyebrow">Cobertura</span>
             <h2>Buscá tu localidad</h2>
-            <p>Escribí tu localidad, barrio o partido. El buscador muestra coincidencias reales sin listar todo de entrada.</p>
+            <p>Escribí tu localidad, barrio o partido. Si no aparece, consultanos antes de confirmar el pedido.</p>
           </div>
 
           <div class="coverage-layout">
@@ -1675,7 +1709,7 @@
 
             <div class="search-card">
               <h3>Localidades de entrega</h3>
-              <p>Si tu zona no aparece, podés consultarla igual por WhatsApp al confirmar el pedido.</p>
+              <p>Podés usar este buscador como referencia para ubicar más rápido tu localidad o partido.</p>
 
               <div class="search-input">
                 <label class="sr-only" for="zoneSearch">Buscar localidad</label>
@@ -1691,39 +1725,6 @@
           </div>
         </section>
 
-        <section class="section" id="ubicacion">
-          <div class="section-head">
-            <span class="eyebrow">Ubicación</span>
-            <h2>Punto de referencia del negocio</h2>
-            <p>Gdor. Emilio Castro 624, B1706 Haedo, Provincia de Buenos Aires.</p>
-          </div>
-
-          <div class="map-card">
-            <div class="map-layout">
-              <div class="map-wrap" aria-label="Mapa Google">
-                <iframe
-                  src="https://www.google.com/maps?q=Gdor.+Emilio+Castro+624,+Haedo,+Provincia+de+Buenos+Aires&output=embed"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  title="Mapa Recambios MK"
-                ></iframe>
-              </div>
-
-              <div class="map-info">
-                <h3>Base operativa</h3>
-                <div class="address">Gdor. Emilio Castro 624, B1706 Haedo, Provincia de Buenos Aires.</div>
-                <p>La compra desde esta web está pensada para agilizar envíos. Completás el pedido online y la confirmación sale más clara por WhatsApp.</p>
-
-                <div class="map-actions">
-                  <a class="btn soft" href="https://www.google.com/maps/place/Gdor.+Emilio+Castro+624,+B1706AJN+Haedo,+Provincia+de+Buenos+Aires/@-34.650733,-58.5964677,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcc79b78fafe8d:0x6f36aa7d1a0db610!8m2!3d-34.6507374!4d-58.5938928!16s%2Fg%2F11nfflsg62?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Cómo llegar</a>
-                  <button class="btn primary" id="btnOpenCartMap" type="button">Comprar ahora</button>
-                  <a class="btn secondary" href="#inicio">Volver arriba</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section class="section" id="faq">
           <div class="section-head">
             <span class="eyebrow">Preguntas frecuentes</span>
@@ -1734,42 +1735,101 @@
             <div class="faq-grid">
               <details>
                 <summary>
-                  <span>¿Qué tengo que completar para comprar?</span>
-                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </summary>
-                <div class="answer">Cantidad, nombre, zona o barrio, calle y altura, modelo o color del cilindro, si tenés cilindro vacío y una referencia para la entrega.</div>
-              </details>
-
-              <details>
-                <summary>
-                  <span>¿Cuál es el precio?</span>
-                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </summary>
-                <div class="answer">El cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT tiene un valor de $12.000 por unidad.</div>
-              </details>
-
-              <details>
-                <summary>
                   <span>¿Cuándo entregan?</span>
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
-                <div class="answer">Entregas estimadas de 24 a 48 hs. La logística trabaja de 17 a 22 hs. Para intentar entrega en el día, conviene pedir hasta las 14 hs.</div>
+                <div class="answer">
+                  • Envíos de lunes a viernes.<br>
+                  • Tomamos pedidos hasta las 14 hs.<br>
+                  • Las entregas se realizan dentro de 24 a 48 hs.<br>
+                  • La logística entrega de 17 a 22 hs.<br><br>
+                  La mayoría de las veces el pedido llega en el día o al siguiente. Puede haber demoras si la logística tiene algún inconveniente. Si no te encuentran, se reprograma hasta concretar la entrega.
+                </div>
               </details>
 
               <details>
                 <summary>
-                  <span>¿Cómo se confirma el pedido?</span>
+                  <span>¿Cómo se paga?</span>
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
-                <div class="answer">La web arma el pedido con todos los datos y abre WhatsApp con el mensaje listo para confirmar más rápido.</div>
+                <div class="answer">
+                  • El pago es por transferencia adelantada.<br>
+                  • Los datos (Alias/CBU) se envían por WhatsApp al confirmar el pedido.<br>
+                  • Cuando realices la transferencia, avisános para cargar el pedido al reparto.
+                </div>
               </details>
 
               <details>
                 <summary>
-                  <span>Si no tengo cilindro vacío, ¿puedo consultar igual?</span>
+                  <span>¿Qué vende Recambios MK?</span>
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
-                <div class="answer">Sí. En el carrito marcás que no tenés cilindro vacío y el dato sale aclarado en el mensaje final para coordinarlo por WhatsApp.</div>
+                <div class="answer">
+                  • Vendemos únicamente recambio.<br>
+                  • El repartidor entrega los nuevos y retira los envases vacíos.<br>
+                  • Si no tenés envase vacío, consultanos antes de hacer el pedido.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <span>¿Cuánto cuesta?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  • Los precios son los publicados en el catálogo.<br>
+                  • En el local, el recambio cuesta $12.000 (solo efectivo).
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <span>¿Se puede retirar en el local?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  Sí.<br>
+                  • Emilio Castro 624, Haedo.<br>
+                  • Lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.<br>
+                  • Pago en efectivo.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <span>¿Qué datos necesitan para tomar el pedido?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  • Nombre y apellido.<br>
+                  • Confirmación de que tenés los tubos vacíos.<br>
+                  • Modelo o color del tubo.<br>
+                  • Calle y altura.<br>
+                  • Localidad / Partido (o barrio si es CABA).
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <span>¿Cómo se calcula el envío?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  • El costo de envío depende de la zona.<br>
+                  • Antes de avanzar con el pedido, tenés que seleccionar la zona correspondiente.<br>
+                  • El valor final se actualiza automáticamente según la zona elegida.<br>
+                  • Si sos de Zona 1, tenés el envío incluido en el precio final.
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <span>¿Qué pasa si no encuentro mi zona?</span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </summary>
+                <div class="answer">
+                  Si tu localidad no aparece dentro de las zonas indicadas, escribinos por WhatsApp antes de confirmar el pedido.
+                </div>
               </details>
             </div>
           </div>
@@ -1855,7 +1915,7 @@
             <span class="step-badge" id="badgeStep2">Paso 2</span>
           </div>
           <h3 id="cartTitle">Carrito de compra</h3>
-          <p>Completá el pedido y dejalo listo para confirmar por WhatsApp.</p>
+          <p>Elegí modalidad, definí la zona si corresponde y completá el pedido para confirmarlo por WhatsApp.</p>
         </div>
 
         <button class="modal-close" id="cartClose" type="button" aria-label="Cerrar carrito">
@@ -1873,13 +1933,35 @@
 
               <div class="checkout-product">
                 <div class="thumb">
-                  <img src="https://iili.io/qqRBRNR.md.jpg" alt="Cilindro de soda cargado">
+                  <img src="https://iili.io/qqjXrwg.md.jpg" alt="Cilindro de soda cargado">
                 </div>
 
                 <div>
                   <h5>Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h5>
-                  <p>Compra de un solo producto con cantidad editable. El pedido queda listo para enviarse por WhatsApp con todos los datos cargados.</p>
+                  <p>Elegí si querés envío o retiro en local. Si seleccionás envío, primero tenés que marcar una zona obligatoriamente para continuar.</p>
                 </div>
+              </div>
+
+              <div style="height:14px"></div>
+
+              <h4 style="margin-top:0">Modalidad</h4>
+              <div class="mode-grid">
+                <label class="select-card active" data-mode-card="envio">
+                  <input type="radio" name="modo" value="envio" checked>
+                  <strong>Envío</strong>
+                  <p>Precio base $11.000 por unidad + costo de envío según zona.</p>
+                </label>
+
+                <label class="select-card" data-mode-card="retiro">
+                  <input type="radio" name="modo" value="retiro">
+                  <strong>Retiro en local</strong>
+                  <p>Valor fijo $12.000 por unidad. Pago solo en efectivo.</p>
+                </label>
+              </div>
+
+              <div class="info-pop" id="retiroInfo">
+                <strong>Retiro en local</strong>
+                <p>Total por unidad: $12.000<br>Pago: solo efectivo<br>Horarios: lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.</p>
               </div>
 
               <div style="height:14px"></div>
@@ -1896,11 +1978,47 @@
                 </div>
               </div>
 
+              <div id="zonesWrap">
+                <div style="height:14px"></div>
+                <h4 style="margin-top:0">Seleccioná tu zona de envío</h4>
+
+                <div class="zone-select-grid">
+                  <label class="zone-option" data-zone-card="1">
+                    <input type="radio" name="zonaEnvio" value="1">
+                    <div class="zone-option-top">
+                      <strong>Zona 1</strong>
+                      <span class="zone-badge">Envío $5.000</span>
+                    </div>
+                    <p>CABA, Haedo, Ramos Mejía, Hurlingham, Caseros e Ituzaingó.</p>
+                  </label>
+
+                  <label class="zone-option" data-zone-card="2">
+                    <input type="radio" name="zonaEnvio" value="2">
+                    <div class="zone-option-top">
+                      <strong>Zona 2</strong>
+                      <span class="zone-badge">Envío $6.000</span>
+                    </div>
+                    <p>San Miguel, Moreno, José C. Paz, Malvinas Argentinas, San Martín, Vicente López, San Isidro y San Fernando.</p>
+                  </label>
+
+                  <label class="zone-option" data-zone-card="3">
+                    <input type="radio" name="zonaEnvio" value="3">
+                    <div class="zone-option-top">
+                      <strong>Zona 3</strong>
+                      <span class="zone-badge">Envío $9.000</span>
+                    </div>
+                    <p>Zárate, Campana, Escobar, Nordelta, Maschwitz, Villa Rosa, Garín, Del Viso, Derqui, Pilar, Luján, General Rodríguez, Marcos Paz, Cañuelas, Guernica, San Vicente, La Plata, Berisso y Ensenada.</p>
+                  </label>
+                </div>
+              </div>
+
               <div style="height:14px"></div>
 
-              <div class="summary-note">
-                Precio por unidad: $12.000. Esta web está pensada para agilizar pedidos con envío, dejando la solicitud lista para confirmar por WhatsApp.
+              <div class="summary-note" id="step1Note">
+                Si elegís envío, primero tenés que seleccionar una zona para calcular el costo y continuar.
               </div>
+
+              <div class="error" id="step1Error"></div>
             </div>
 
             <aside class="checkout-card">
@@ -1908,13 +2026,13 @@
 
               <div class="modal-summary">
                 <div class="summary-row">
-                  <span>Producto</span>
-                  <span>Cilindro cargado</span>
+                  <span>Modalidad</span>
+                  <span id="summaryMode">Envío</span>
                 </div>
 
                 <div class="summary-row">
-                  <span>Precio unitario</span>
-                  <span id="summaryUnit">$12.000</span>
+                  <span>Precio por unidad</span>
+                  <span id="summaryUnit">$11.000</span>
                 </div>
 
                 <div class="summary-row">
@@ -1922,9 +2040,14 @@
                   <span id="summaryQty">1</span>
                 </div>
 
+                <div class="summary-row">
+                  <span>Zona / envío</span>
+                  <span id="summaryZone">Seleccionar zona</span>
+                </div>
+
                 <div class="summary-row total">
                   <span>Total</span>
-                  <span id="summaryTotal">$12.000</span>
+                  <span id="summaryTotal">-</span>
                 </div>
               </div>
             </aside>
@@ -1948,14 +2071,6 @@
                 </label>
 
                 <label>
-                  Zona
-                  <select id="fZona">
-                    <option value="CABA">CABA</option>
-                    <option value="GBA">GBA</option>
-                  </select>
-                </label>
-
-                <label>
                   Localidad / Partido / Barrio
                   <input id="fBarrio" type="text" placeholder="Ej: Caballito / Morón / San Miguel">
                 </label>
@@ -1966,12 +2081,12 @@
                 </label>
 
                 <label>
-                  Modelo del cilindro o color
+                  Modelo o color del tubo
                   <input id="fModelo" type="text" placeholder="Ej: Azul / Rojo / Modelo...">
                 </label>
 
                 <label>
-                  ¿Tenés cilindro vacío?
+                  ¿Tenés tubos vacíos?
                   <select id="fVacios">
                     <option value="SI">Sí</option>
                     <option value="NO">No</option>
@@ -1979,17 +2094,12 @@
                 </label>
 
                 <label>
-                  Horario para recibir
+                  Horario para recibir / retirar
                   <select id="fHorario">
                     <option value="17 a 22 hs">17 a 22 hs</option>
-                    <option value="Cualquier momento (17 a 22 hs)">Cualquier momento (17 a 22 hs)</option>
                     <option value="A coordinar">A coordinar</option>
+                    <option value="Lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs">Horario de retiro en local</option>
                   </select>
-                </label>
-
-                <label>
-                  Teléfono (opcional)
-                  <input id="fTel" type="tel" placeholder="Ej: 11 2345 6789" autocomplete="tel">
                 </label>
 
                 <label class="full">
@@ -2011,13 +2121,13 @@
 
               <div class="modal-summary">
                 <div class="summary-row">
-                  <span>Producto</span>
-                  <span>Cilindro cargado</span>
+                  <span>Modalidad</span>
+                  <span id="summaryMode2">Envío</span>
                 </div>
 
                 <div class="summary-row">
-                  <span>Precio unitario</span>
-                  <span id="summaryUnit2">$12.000</span>
+                  <span>Precio por unidad</span>
+                  <span id="summaryUnit2">$11.000</span>
                 </div>
 
                 <div class="summary-row">
@@ -2025,16 +2135,21 @@
                   <span id="summaryQty2">1</span>
                 </div>
 
+                <div class="summary-row">
+                  <span>Zona / envío</span>
+                  <span id="summaryZone2">Zona 1</span>
+                </div>
+
                 <div class="summary-row total">
                   <span>Total</span>
-                  <span id="summaryTotal2">$12.000</span>
+                  <span id="summaryTotal2">$16.000</span>
                 </div>
               </div>
 
               <div style="height:14px"></div>
 
               <div class="summary-note">
-                Al confirmar, se abre WhatsApp con el pedido completo para agilizar la validación y el envío.
+                Al confirmar, se abre WhatsApp con el pedido completo para agilizar la validación y la coordinación final.
               </div>
             </aside>
           </div>
@@ -2051,24 +2166,40 @@
   <script>
     (function(){
       const WA_NUMBER = "5491162843339";
-      const UNIT_PRICE = 12000;
+      const PRICE_RETIRO = 12000;
+      const PRICE_ENVIO_BASE = 11000;
+
+      const ZONES = {
+        1: {
+          name: "Zona 1",
+          shipping: 5000,
+          locations: ["CABA","Haedo","Ramos Mejía","Hurlingham","Caseros","Ituzaingó"]
+        },
+        2: {
+          name: "Zona 2",
+          shipping: 6000,
+          locations: ["San Miguel","Moreno","José C. Paz","Malvinas Argentinas","San Martín","Vicente López","San Isidro","San Fernando"]
+        },
+        3: {
+          name: "Zona 3",
+          shipping: 9000,
+          locations: ["Zárate","Campana","Escobar","Nordelta","Maschwitz","Villa Rosa","Garín","Del Viso","Derqui","Pilar","Luján","General Rodríguez","Marcos Paz","Cañuelas","Guernica","San Vicente","La Plata","Berisso","Ensenada"]
+        }
+      };
 
       const LOCATIONS = [
-        "Zárate","Campana","Escobar","Villa Rosa","Ingeniero Maschwitz","Nordelta","Tigre",
-        "San Fernando","San José","Vicente López","CABA","Avellaneda","Lanús","Quilmes",
-        "Berazategui","Florencio Varela","Almirante Brown","Lomas de Zamora","La Plata Norte",
-        "La Plata Centro","La Plata Oeste","Berisso","Ensenada","San Vicente","Ezeiza",
-        "Esteban Echeverría","La Matanza Sur","La Matanza Norte","Merlo","Marcos Paz",
-        "Cañuelas","General Rodríguez","Luján","Pilar","Del Viso","Garín","Malvinas Argentinas",
-        "José C. Paz","San Miguel","San Martín","Tres de Febrero","Morón","Hurlingham",
-        "Ituzaingó","Moreno"
+        "CABA","Haedo","Ramos Mejía","Hurlingham","Caseros","Ituzaingó",
+        "San Miguel","Moreno","José C. Paz","Malvinas Argentinas","San Martín","Vicente López","San Isidro","San Fernando",
+        "Zárate","Campana","Escobar","Nordelta","Maschwitz","Villa Rosa","Garín","Del Viso","Derqui","Pilar","Luján","General Rodríguez","Marcos Paz","Cañuelas","Guernica","San Vicente","La Plata","Berisso","Ensenada"
       ];
 
       const $ = (id) => document.getElementById(id);
 
       const state = {
         qty: 1,
-        step: 1
+        step: 1,
+        mode: "envio",
+        zone: null
       };
 
       function formatMoney(n){
@@ -2080,22 +2211,97 @@
       }
 
       function getTotal(){
-        return state.qty * UNIT_PRICE;
+        if(state.mode === "retiro"){
+          return PRICE_RETIRO * state.qty;
+        }
+        if(!state.zone) return null;
+        return (PRICE_ENVIO_BASE * state.qty) + ZONES[state.zone].shipping;
+      }
+
+      function getModeLabel(){
+        return state.mode === "retiro" ? "Retiro en local" : "Envío";
+      }
+
+      function getZoneLabel(){
+        if(state.mode === "retiro"){
+          return "Sin envío";
+        }
+        if(!state.zone){
+          return "Seleccionar zona";
+        }
+        return ZONES[state.zone].name + " • " + formatMoney(ZONES[state.zone].shipping);
+      }
+
+      function getUnitLabel(){
+        return state.mode === "retiro" ? formatMoney(PRICE_RETIRO) : formatMoney(PRICE_ENVIO_BASE);
+      }
+
+      function paintModeCards(){
+        document.querySelectorAll("[data-mode-card]").forEach(card => {
+          const value = card.getAttribute("data-mode-card");
+          card.classList.toggle("active", value === state.mode);
+        });
+      }
+
+      function paintZoneCards(){
+        document.querySelectorAll("[data-zone-card]").forEach(card => {
+          const value = Number(card.getAttribute("data-zone-card"));
+          card.classList.toggle("active", value === state.zone);
+        });
+      }
+
+      function updateStep1Note(){
+        const note = $("step1Note");
+        const retiroInfo = $("retiroInfo");
+        const zonesWrap = $("zonesWrap");
+
+        if(state.mode === "retiro"){
+          zonesWrap.style.display = "none";
+          retiroInfo.classList.add("show");
+          note.textContent = "Si elegiste retiro en local, el valor es de " + formatMoney(PRICE_RETIRO) + " por unidad y el pago es solo en efectivo.";
+        }else{
+          zonesWrap.style.display = "block";
+          retiroInfo.classList.remove("show");
+          note.textContent = state.zone
+            ? "Zona elegida: " + ZONES[state.zone].name + ". Ya podés continuar con el pedido."
+            : "Si elegís envío, primero tenés que seleccionar una zona para calcular el costo y continuar.";
+        }
       }
 
       function updateSummary(){
         const total = getTotal();
         $("qtyValue").textContent = state.qty;
+        $("summaryMode").textContent = getModeLabel();
+        $("summaryMode2").textContent = getModeLabel();
+        $("summaryUnit").textContent = getUnitLabel();
+        $("summaryUnit2").textContent = getUnitLabel();
         $("summaryQty").textContent = state.qty;
         $("summaryQty2").textContent = state.qty;
-        $("summaryUnit").textContent = formatMoney(UNIT_PRICE);
-        $("summaryUnit2").textContent = formatMoney(UNIT_PRICE);
-        $("summaryTotal").textContent = formatMoney(total);
-        $("summaryTotal2").textContent = formatMoney(total);
+        $("summaryZone").textContent = getZoneLabel();
+        $("summaryZone2").textContent = getZoneLabel();
+        $("summaryTotal").textContent = total === null ? "-" : formatMoney(total);
+        $("summaryTotal2").textContent = total === null ? "-" : formatMoney(total);
+
+        updateStep1Note();
+        paintModeCards();
+        paintZoneCards();
       }
 
       function setQty(value){
         state.qty = Math.max(1, Number(value) || 1);
+        updateSummary();
+      }
+
+      function setMode(mode){
+        state.mode = mode === "retiro" ? "retiro" : "envio";
+        if(state.mode === "retiro"){
+          state.zone = null;
+        }
+        updateSummary();
+      }
+
+      function setZone(zone){
+        state.zone = Number(zone) || null;
         updateSummary();
       }
 
@@ -2128,6 +2334,7 @@
         $("cartModal").classList.remove("open");
         $("cartModal").setAttribute("aria-hidden", "true");
         document.body.classList.remove("modal-open");
+        $("step1Error").textContent = "";
         $("formError").textContent = "";
       }
 
@@ -2243,11 +2450,19 @@
         });
       }
 
+      function validateStep1(){
+        if(state.mode === "envio" && !state.zone){
+          $("step1Error").textContent = "Seleccioná una zona antes de continuar con el envío.";
+          return false;
+        }
+        $("step1Error").textContent = "";
+        return true;
+      }
+
       function validateStep2(){
         const nombre = ($("fNombre").value || "").trim();
         const barrio = ($("fBarrio").value || "").trim();
         const calle = ($("fCalle").value || "").trim();
-        const ref = ($("fRef").value || "").trim();
 
         if(!nombre){
           $("formError").textContent = "Completá tu nombre y apellido.";
@@ -2267,25 +2482,17 @@
           return false;
         }
 
-        if(!ref){
-          $("formError").textContent = "Agregá una referencia para facilitar la entrega.";
-          $("fRef").focus();
-          return false;
-        }
-
         $("formError").textContent = "";
         return true;
       }
 
       function buildMessage(){
         const nombre = ($("fNombre").value || "").trim();
-        const zona = $("fZona").value;
         const barrio = ($("fBarrio").value || "").trim();
         const calle = ($("fCalle").value || "").trim();
         const modelo = ($("fModelo").value || "").trim();
         const vacios = $("fVacios").value;
         const horario = $("fHorario").value;
-        const tel = ($("fTel").value || "").trim();
         const ref = ($("fRef").value || "").trim();
         const nota = ($("fNota").value || "").trim();
 
@@ -2293,22 +2500,27 @@
         lines.push("Hola! Quiero realizar el siguiente pedido:");
         lines.push("");
         lines.push("Producto: Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT");
+        lines.push("Modalidad: " + getModeLabel());
         lines.push("Cantidad: " + state.qty);
-        lines.push("Precio por unidad: " + formatMoney(UNIT_PRICE));
+        lines.push("Precio por unidad: " + (state.mode === "retiro" ? formatMoney(PRICE_RETIRO) : formatMoney(PRICE_ENVIO_BASE)));
+        if(state.mode === "envio"){
+          lines.push("Zona: " + ZONES[state.zone].name);
+          lines.push("Costo de envío: " + formatMoney(ZONES[state.zone].shipping));
+        }else{
+          lines.push("Retiro en local: Emilio Castro 624, Haedo");
+          lines.push("Pago: Solo efectivo");
+          lines.push("Horarios: Lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs");
+        }
         lines.push("Total: " + formatMoney(getTotal()));
         lines.push("");
         lines.push("Nombre: " + nombre);
-        lines.push("Zona: " + zona);
         lines.push("Localidad/Partido/Barrio: " + barrio);
         lines.push("Direccion: " + calle);
-        lines.push("Modelo/Color del cilindro: " + (modelo || "-"));
-        lines.push("Tiene cilindro vacio: " + (vacios === "SI" ? "SI" : "NO"));
-        lines.push("Horario para recibir: " + horario);
-        if(tel) lines.push("Telefono: " + tel);
-        lines.push("Referencia: " + ref);
-        if(nota){
-          lines.push("Nota: " + nota);
-        }
+        lines.push("Modelo/Color del tubo: " + (modelo || "-"));
+        lines.push("Tiene tubos vacios: " + (vacios === "SI" ? "SI" : "NO"));
+        lines.push("Horario: " + horario);
+        if(ref) lines.push("Referencia: " + ref);
+        if(nota) lines.push("Nota: " + nota);
         lines.push("");
         lines.push("Quedo a la espera de confirmacion. Gracias.");
 
@@ -2328,12 +2540,9 @@
       function setupButtons(){
         [
           $("heroBuyBtn"),
-          $("productBuyBtn"),
-          $("btnOpenCartMap")
+          $("productBuyBtn")
         ].forEach(btn => {
-          if(btn){
-            btn.addEventListener("click", openModal);
-          }
+          if(btn) btn.addEventListener("click", openModal);
         });
 
         $("directWspBtn").addEventListener("click", function(){
@@ -2348,7 +2557,23 @@
         $("qtyMinus").addEventListener("click", function(){ setQty(state.qty - 1); });
         $("qtyPlus").addEventListener("click", function(){ setQty(state.qty + 1); });
 
-        $("btnToStep2").addEventListener("click", function(){ goStep(2); });
+        document.querySelectorAll('input[name="modo"]').forEach(input => {
+          input.addEventListener("change", function(){
+            setMode(this.value);
+          });
+        });
+
+        document.querySelectorAll('input[name="zonaEnvio"]').forEach(input => {
+          input.addEventListener("change", function(){
+            setZone(this.value);
+          });
+        });
+
+        $("btnToStep2").addEventListener("click", function(){
+          if(!validateStep1()) return;
+          goStep(2);
+        });
+
         $("btnBackStep1").addEventListener("click", function(){ goStep(1); });
         $("btnCloseStep1").addEventListener("click", closeModal);
         $("btnSendOrder").addEventListener("click", sendOrder);
@@ -2381,6 +2606,7 @@
       setupBurger();
       setupButtons();
       setQty(1);
+      setMode("envio");
       filterZones();
       adjustFloat();
       setYear();
@@ -2388,3 +2614,4 @@
   </script>
 </body>
 </html>
+```
