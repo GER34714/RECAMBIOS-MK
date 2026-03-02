@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RECAMBIOS MK | Cilindro de soda cargado</title>
+  <title>RECAMBIOS MK | PEDI TU CILINDRO DE RECAMBIO</title>
 
-  <meta name="description" content="Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT. Elegí envío o retiro en local y confirmá tu pedido por WhatsApp." />
-  <meta property="og:title" content="RECAMBIOS MK | Cilindro de soda cargado" />
-  <meta property="og:description" content="Pedí tu cilindro de Recambio Envíos por zona o retiro en local." />
+  <meta name="description" content="Pedí tu cilindro de recambio. Elegí envío o retiro en local y confirmá tu pedido por WhatsApp." />
+  <meta property="og:title" content="RECAMBIOS MK | PEDI TU CILINDRO DE RECAMBIO" />
+  <meta property="og:description" content="Pedí tu cilindro de recambio. Envíos por zona o retiro en local." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://iili.io/qqjXrwg.md.jpg" />
   <meta property="og:locale" content="es_AR" />
@@ -20,7 +20,7 @@
       --surface-soft:#f8fbff;
       --surface-alt:#f1f5f9;
       --text:#0f172a;
-      --muted:#5b6677;
+      --muted:#455468;
       --line:#dbe3ee;
       --brand:#22c55e;
       --brand-deep:#16a34a;
@@ -33,6 +33,8 @@
       --radius-lg:28px;
       --max:1160px;
       --header-h:74px;
+      --wa-bottom:16px;
+      --armar-bottom:90px;
     }
 
     html[data-theme="dark"]{
@@ -42,7 +44,7 @@
       --surface-soft:#121d2c;
       --surface-alt:#0f1724;
       --text:#e5edf6;
-      --muted:#9aa7bb;
+      --muted:#c1cad8;
       --line:#243245;
       --brand:#22c55e;
       --brand-deep:#16a34a;
@@ -92,12 +94,12 @@
       align-items:center;
       gap:8px;
       margin-bottom:12px;
-      padding:8px 12px;
+      padding:9px 13px;
       border-radius:999px;
       border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
       background:color-mix(in srgb, var(--brand), transparent 91%);
       color:color-mix(in srgb, var(--text), var(--brand) 20%);
-      font-size:12px;
+      font-size:13px;
       font-weight:900;
       letter-spacing:.2px;
       width:max-content;
@@ -132,9 +134,10 @@
     .section-head p{
       margin:0;
       color:var(--muted);
-      font-size:15px;
-      line-height:1.65;
+      font-size:16px;
+      line-height:1.7;
       max-width:760px;
+      font-weight:700;
     }
 
     .btn{
@@ -146,14 +149,14 @@
       user-select:none;
       border-radius:16px;
       padding:13px 16px;
-      font-size:14px;
+      font-size:15px;
       font-weight:900;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
       transition:transform .14s ease, opacity .14s ease, border-color .14s ease, background .14s ease;
-      min-height:48px;
+      min-height:50px;
     }
 
     .btn:hover{transform:translateY(-1px)}
@@ -173,6 +176,15 @@
       color:var(--text);
       border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
       box-shadow:var(--shadow-soft);
+    }
+    .btn.copy-pay{
+      background:linear-gradient(135deg, color-mix(in srgb, var(--accent), #fff 10%), var(--accent));
+      color:#fff;
+      border:1px solid color-mix(in srgb, var(--accent), #fff 30%);
+      box-shadow:0 16px 34px color-mix(in srgb, var(--accent), transparent 66%);
+      font-size:15px;
+      min-height:52px;
+      width:100%;
     }
 
     .topbar{
@@ -220,7 +232,7 @@
     .brand-logo img{width:100%;height:100%;object-fit:cover}
     .brand-text{display:flex;flex-direction:column;min-width:0}
     .brand-text strong{font-size:14px;line-height:1.1;white-space:nowrap}
-    .brand-text span{font-size:12px;color:var(--muted);white-space:nowrap}
+    .brand-text span{font-size:13px;color:var(--muted);white-space:nowrap;font-weight:800}
 
     .nav{display:flex;align-items:center;gap:6px}
     .nav a{
@@ -318,22 +330,23 @@
     .hero-copy p{
       margin:0;
       color:var(--muted);
-      font-size:16px;
-      line-height:1.72;
+      font-size:17px;
+      line-height:1.76;
       max-width:62ch;
+      font-weight:700;
     }
 
     .hero-note{
       display:flex;
       align-items:flex-start;
       gap:10px;
-      padding:14px 16px;
+      padding:15px 17px;
       border-radius:18px;
       background:color-mix(in srgb, var(--brand), transparent 91%);
       border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
-      font-size:13px;
+      font-size:14px;
       font-weight:900;
-      line-height:1.5;
+      line-height:1.55;
       text-transform:uppercase;
     }
 
@@ -359,16 +372,16 @@
       display:inline-flex;
       align-items:center;
       gap:10px;
-      min-height:52px;
-      padding:12px 16px;
+      min-height:54px;
+      padding:13px 17px;
       border-radius:18px;
       background:var(--surface-soft);
       border:1px solid var(--line);
       box-shadow:var(--shadow-soft);
     }
 
-    .price-pill strong{font-size:28px;line-height:1;letter-spacing:-.8px}
-    .price-pill span{font-size:13px;color:var(--muted);font-weight:800}
+    .price-pill strong{font-size:29px;line-height:1;letter-spacing:-.8px}
+    .price-pill span{font-size:14px;color:var(--muted);font-weight:900}
 
     .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
     @media (max-width:520px){
@@ -418,29 +431,17 @@
     }
 
     .chip-card strong{
-      font-size:12px;
+      font-size:13px;
       letter-spacing:.24px;
       color:var(--muted);
       text-transform:uppercase;
     }
 
     .chip-card span{
-      font-size:16px;
+      font-size:17px;
       font-weight:900;
-      line-height:1.25;
+      line-height:1.3;
     }
-
-    .promo-card{
-      margin-top:18px;
-      background:linear-gradient(135deg, color-mix(in srgb, var(--brand), transparent 88%), color-mix(in srgb, var(--accent), transparent 92%));
-      border:1px solid color-mix(in srgb, var(--brand), var(--line) 56%);
-      border-radius:24px;
-      padding:18px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .promo-card strong{display:block;margin-bottom:6px;font-size:16px}
-    .promo-card p{margin:0;color:var(--text);font-size:14px;line-height:1.6;font-weight:700}
 
     .product-card,.benefit-card,.zones-panel,.coverage-card,.search-card,.faq-card,.review-card{
       background:var(--surface-soft);
@@ -462,7 +463,7 @@
       text-wrap:balance;
     }
 
-    .product-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.68}
+    .product-card p{margin:0;color:var(--muted);font-size:16px;line-height:1.72;font-weight:700}
     .product-stack{display:grid;gap:14px}
 
     .bullet-list{display:grid;gap:10px}
@@ -488,8 +489,8 @@
       flex:0 0 auto;
     }
 
-    .bullet strong{display:block;margin-bottom:4px;font-size:14px}
-    .bullet p{margin:0;font-size:13px;line-height:1.5}
+    .bullet strong{display:block;margin-bottom:4px;font-size:15px}
+    .bullet p{margin:0;font-size:14px;line-height:1.56}
 
     .product-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
     @media (max-width:560px){
@@ -524,12 +525,12 @@
       border-radius:999px;
       background:color-mix(in srgb, var(--accent), transparent 90%);
       border:1px solid color-mix(in srgb, var(--accent), var(--line) 72%);
-      font-size:12px;
+      font-size:13px;
       font-weight:900;
       margin-bottom:10px;
     }
 
-    .zone-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .zone-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6;font-weight:700}
 
     .benefits-grid{
       display:grid;
@@ -553,8 +554,8 @@
     }
 
     .benefit img{width:48px;height:48px;object-fit:contain}
-    .benefit strong{display:block;margin-bottom:4px;font-size:14px}
-    .benefit p{margin:0;font-size:12.9px;line-height:1.42;color:var(--muted)}
+    .benefit strong{display:block;margin-bottom:4px;font-size:15px}
+    .benefit p{margin:0;font-size:13.8px;line-height:1.48;color:var(--muted);font-weight:700}
 
     .coverage-layout{
       display:grid;
@@ -575,8 +576,8 @@
     }
 
     .coverage-image-wrap img{width:100%;height:auto;object-fit:contain}
-    .coverage-card p,.search-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
-    .search-card h3,.coverage-card h3{margin:0 0 10px;font-size:20px;letter-spacing:-.2px}
+    .coverage-card p,.search-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.65;font-weight:700}
+    .search-card h3,.coverage-card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.2px}
 
     .search-input{position:relative;margin-top:14px;margin-bottom:12px}
     .search-input input{
@@ -586,8 +587,8 @@
       background:var(--surface);
       color:var(--text);
       border-radius:14px;
-      padding:13px 48px 13px 13px;
-      font-size:14px;
+      padding:14px 48px 14px 13px;
+      font-size:15px;
       outline:none;
       transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
     }
@@ -611,10 +612,11 @@
 
     .search-feedback{
       min-height:22px;
-      font-size:13px;
-      line-height:1.4;
+      font-size:14px;
+      line-height:1.45;
       color:var(--muted);
       margin-bottom:12px;
+      font-weight:800;
     }
 
     .results{
@@ -638,10 +640,10 @@
       border:1px solid var(--line);
       background:var(--surface);
       border-radius:14px;
-      padding:10px 12px;
-      font-size:13px;
+      padding:11px 12px;
+      font-size:14px;
       font-weight:900;
-      line-height:1.35;
+      line-height:1.4;
       box-shadow:var(--shadow-soft);
     }
 
@@ -662,7 +664,7 @@
       justify-content:space-between;
       gap:12px;
       cursor:pointer;
-      font-size:15px;
+      font-size:16px;
       font-weight:900;
     }
 
@@ -678,7 +680,7 @@
 
     details[open] .chev{transform:rotate(180deg)}
 
-    .answer{margin-top:10px;color:var(--muted);font-size:14px;line-height:1.65}
+    .answer{margin-top:10px;color:var(--muted);font-size:15px;line-height:1.72;font-weight:700}
 
     .reviews-grid{
       display:grid;
@@ -712,8 +714,8 @@
       box-shadow:0 10px 22px rgba(0,0,0,.10);
     }
 
-    .stars{font-size:14px;font-weight:900;letter-spacing:.3px}
-    .review p{margin:0;font-size:12.8px;line-height:1.45;color:var(--muted)}
+    .stars{font-size:15px;font-weight:900;letter-spacing:.3px}
+    .review p{margin:0;font-size:13.8px;line-height:1.5;color:var(--muted);font-weight:700}
     .reviews-actions{display:flex;justify-content:flex-start;margin-top:16px}
     @media (max-width:520px){.reviews-actions .btn{width:100%}}
 
@@ -739,7 +741,7 @@
     .foot-text{
       font-size:14px;
       color:var(--muted);
-      line-height:1.5;
+      line-height:1.55;
       font-weight:800;
     }
 
@@ -750,15 +752,19 @@
 
     .foot-text .name{color:var(--accent);font-weight:900}
 
-    .float-wa{
+    .float-wa,
+    .float-order{
       position:fixed;
       right:16px;
-      bottom:16px;
       z-index:60;
       display:flex;
       align-items:center;
       justify-content:center;
       transition:bottom .16s ease, transform .14s ease;
+    }
+
+    .float-wa{
+      bottom:var(--wa-bottom);
       width:58px;
       height:58px;
       border-radius:999px;
@@ -767,12 +773,60 @@
       box-shadow:0 14px 30px rgba(37,211,102,.34), 0 10px 22px rgba(0,0,0,.16);
     }
 
-    .float-wa:hover{transform:translateY(-2px)}
+    .float-wa:hover,
+    .float-order:hover{transform:translateY(-2px)}
     .float-wa svg{width:30px;height:30px;display:block;fill:currentColor}
+
+    .float-order{
+      bottom:var(--armar-bottom);
+      min-height:54px;
+      padding:0 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg, #17c964, #0ea5e9);
+      color:#fff;
+      font-size:14px;
+      font-weight:900;
+      text-decoration:none;
+      box-shadow:
+        0 0 0 0 rgba(34,197,94,.58),
+        0 14px 30px rgba(14,165,233,.28),
+        0 10px 22px rgba(0,0,0,.16);
+      animation:pulseNeon 1.9s infinite;
+      border:1px solid rgba(255,255,255,.28);
+      white-space:nowrap;
+    }
+
+    @keyframes pulseNeon{
+      0%{
+        box-shadow:
+          0 0 0 0 rgba(34,197,94,.52),
+          0 14px 30px rgba(14,165,233,.28),
+          0 10px 22px rgba(0,0,0,.16);
+      }
+      70%{
+        box-shadow:
+          0 0 0 16px rgba(34,197,94,0),
+          0 14px 30px rgba(14,165,233,.34),
+          0 10px 22px rgba(0,0,0,.16);
+      }
+      100%{
+        box-shadow:
+          0 0 0 0 rgba(34,197,94,0),
+          0 14px 30px rgba(14,165,233,.28),
+          0 10px 22px rgba(0,0,0,.16);
+      }
+    }
 
     @media (max-width:560px){
       .float-wa{right:14px;width:54px;height:54px}
       .float-wa svg{width:28px;height:28px}
+      .float-order{
+        right:14px;
+        left:14px;
+        bottom:80px;
+        width:auto;
+        padding:0 16px;
+      }
     }
 
     .modal{
@@ -830,12 +884,12 @@
 
     .modal-head h3{
       margin:0 0 6px;
-      font-size:24px;
+      font-size:25px;
       line-height:1.05;
       letter-spacing:-.5px;
     }
 
-    .modal-head p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+    .modal-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.55;font-weight:700}
 
     .modal-close{
       width:44px;
@@ -873,7 +927,7 @@
       box-shadow:var(--shadow-soft);
     }
 
-    .checkout-card h4{margin:0 0 12px;font-size:18px;letter-spacing:-.2px}
+    .checkout-card h4{margin:0 0 12px;font-size:19px;letter-spacing:-.2px}
 
     .checkout-product{
       display:grid;
@@ -894,7 +948,7 @@
 
     .checkout-product .thumb img{width:100%;height:100%;object-fit:contain}
     .checkout-product h5{margin:0 0 8px;font-size:18px;line-height:1.1;letter-spacing:-.2px}
-    .checkout-product p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .checkout-product p{margin:0;color:var(--muted);font-size:14px;line-height:1.58;font-weight:700}
 
     .mode-grid{
       display:grid;
@@ -934,7 +988,7 @@
     }
 
     .select-card strong,.choice-card strong{display:block;margin-bottom:6px;font-size:16px}
-    .select-card p,.choice-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+    .select-card p,.choice-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.54;font-weight:700}
 
     .qty-row{
       display:flex;
@@ -948,7 +1002,7 @@
       box-shadow:var(--shadow-soft);
     }
 
-    .qty-row strong{font-size:14px}
+    .qty-row strong{font-size:15px}
 
     .qty-controls{display:flex;align-items:center;gap:10px;flex:0 0 auto}
     .qty-btn{
@@ -996,38 +1050,38 @@
       white-space:nowrap;
     }
 
-    .zone-option p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .zone-option p{margin:0;color:var(--muted);font-size:14px;line-height:1.58;font-weight:700}
 
     .summary-note{
-      padding:12px;
+      padding:13px;
       border-radius:16px;
       background:color-mix(in srgb, var(--brand), transparent 92%);
       border:1px solid color-mix(in srgb, var(--brand), var(--line) 68%);
       color:var(--text);
-      font-size:12.8px;
-      line-height:1.5;
+      font-size:13.5px;
+      line-height:1.56;
       font-weight:800;
     }
 
     .warning-note{
-      padding:12px;
+      padding:13px;
       border-radius:16px;
       background:color-mix(in srgb, var(--warning), transparent 90%);
       border:1px solid color-mix(in srgb, var(--warning), var(--line) 70%);
       color:var(--text);
-      font-size:12.8px;
-      line-height:1.55;
+      font-size:13.5px;
+      line-height:1.58;
       font-weight:800;
     }
 
     .danger-note{
-      padding:12px;
+      padding:13px;
       border-radius:16px;
       background:color-mix(in srgb, var(--danger), transparent 90%);
       border:1px solid color-mix(in srgb, var(--danger), var(--line) 68%);
       color:var(--text);
-      font-size:12.8px;
-      line-height:1.55;
+      font-size:13.5px;
+      line-height:1.58;
       font-weight:800;
       display:none;
     }
@@ -1059,10 +1113,10 @@
 
     .helper-text{
       margin-top:6px;
-      font-size:12px;
-      line-height:1.45;
+      font-size:13px;
+      line-height:1.48;
       color:var(--muted);
-      font-weight:700;
+      font-weight:800;
     }
 
     .modal-summary{display:grid;gap:10px}
@@ -1072,9 +1126,10 @@
       justify-content:space-between;
       gap:14px;
       font-size:14px;
-      line-height:1.4;
+      line-height:1.45;
     }
 
+    .summary-row span:first-child{color:var(--muted);font-weight:800}
     .summary-row span:last-child{text-align:right;font-weight:900}
     .summary-row.total{
       padding-top:10px;
@@ -1094,7 +1149,7 @@
       display:flex;
       flex-direction:column;
       gap:7px;
-      font-size:12.5px;
+      font-size:13px;
       font-weight:900;
       color:color-mix(in srgb, var(--text), var(--muted) 14%);
     }
@@ -1106,8 +1161,8 @@
       background:var(--surface);
       color:var(--text);
       border-radius:14px;
-      padding:13px 13px;
-      font-size:14px;
+      padding:14px 13px;
+      font-size:15px;
       outline:none;
       transition:border-color .14s ease, box-shadow .14s ease, background .14s ease;
     }
@@ -1120,8 +1175,43 @@
     textarea{min-height:108px;resize:vertical}
     .full{grid-column:1 / -1}
 
+    .payment-box{
+      margin-top:14px;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid color-mix(in srgb, var(--accent), var(--line) 52%);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--accent), transparent 93%), transparent 60%), var(--surface);
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:10px;
+    }
+
+    .payment-box strong{
+      font-size:16px;
+      line-height:1.3;
+    }
+
+    .payment-box .pay-line{
+      font-size:14px;
+      line-height:1.55;
+      color:var(--text);
+      font-weight:800;
+      word-break:break-word;
+    }
+
+    .copy-feedback{
+      min-height:16px;
+      font-size:13px;
+      color:var(--brand-deep);
+      font-weight:900;
+    }
+
+    html[data-theme="dark"] .copy-feedback{
+      color:#6ee7b7;
+    }
+
     .error{
-      font-size:12px;
+      font-size:13px;
       font-weight:900;
       color:var(--danger);
       min-height:16px;
@@ -1191,7 +1281,7 @@
         </span>
         <span class="brand-text">
           <strong>RECAMBIOS MK</strong>
-          <span>Cilindro de soda cargado</span>
+          <span>Pedí tu cilindro de recambio</span>
         </span>
       </a>
 
@@ -1233,18 +1323,21 @@
 
                 <div class="hero-copy">
                   <span class="eyebrow">Pedido rápido para envío o retiro</span>
-                  <h1>Pedí tu cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h1>
+                  <h1>PEDI TU CILINDRO DE RECAMBIO</h1>
                   <p>Elegí la modalidad, completá tus datos y dejá el pedido listo para confirmar por WhatsApp de forma más rápida y ordenada.</p>
                 </div>
               </div>
 
-              <div class="hero-note">CILINDRO DE SODA CARGADO CON 450 GRS DE CO2 NACIONAL CERTIFICADO ANMAT</div>
+              <div class="hero-note">CILINDRO DE RECAMBIO • STOCK PERMANENTE • SI RETIRÁS EN LOCAL, LA WEB SOLO INFORMA Y NO COORDINA EL RETIRO</div>
 
               <div class="hero-price-row">
                 <div class="price-pill">
                   <strong>$12.000</strong>
-                  <span>retiro en local</span>
+                  <span>pago en local</span>
                 </div>
+                <div class="price-pill">
+                  <strong>$49.000</strong>
+                  <span>5 recambios envío incluido</span>
                 </div>
               </div>
 
@@ -1267,15 +1360,15 @@
           <div class="highlight-row">
             <article class="chip-card">
               <strong>Local</strong>
-              <span>$12.000 efectivo</span>
+              <span>$12.000 pago en local</span>
             </article>
             <article class="chip-card">
-              <strong>Envío</strong>
-              <span>$11.000 + zona</span>
+              <strong>Pack</strong>
+              <span>5 recambios $49.000</span>
             </article>
             <article class="chip-card">
               <strong>Pedidos</strong>
-              <span>Hasta 14 hs</span>
+              <span>De 8 a 20 hs</span>
             </article>
             <article class="chip-card">
               <strong>Entregas</strong>
@@ -1290,11 +1383,6 @@
               <span>CABA y GBA</span>
             </article>
           </div>
-
-          <div class="promo-card">
-            <strong>Promo Zona 1</strong>
-            <p>Si sos de Zona 1, tenés el envío incluido en el precio final.</p>
-          </div>
         </section>
 
         <section class="section" id="producto">
@@ -1308,7 +1396,7 @@
             <div class="product-stack">
               <div>
                 <span class="eyebrow">Un solo producto</span>
-                <h3>Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h3>
+                <h3>Cilindro de recambio</h3>
                 <p>Podés pedir con envío por zona o elegir retiro en local. El carrito calcula el total según la modalidad y la cantidad que selecciones.</p>
               </div>
 
@@ -1330,7 +1418,7 @@
                 <div class="bullet">
                   <div>
                     <strong>Pedido más claro</strong>
-                    <p>La compra sale armada con teléfono, dirección, color del cilindro y todos los datos necesarios.</p>
+                    <p>La compra sale armada con nombre, dirección, piso/depto, localidad, cantidad, color del cilindro y teléfono en ese orden.</p>
                   </div>
                 </div>
               </div>
@@ -1347,26 +1435,26 @@
           <div class="section-head">
             <span class="eyebrow">Zonas de envío</span>
             <h2>Elegí la zona correcta para calcular el envío</h2>
-            <p>Si comprás con envío, el carrito te va a pedir seleccionar obligatoriamente una de estas zonas antes de continuar.</p>
+            <p>Si comprás con envío, el carrito te va a pedir seleccionar obligatoriamente una de estas zonas antes de continuar. Hasta 6 cilindros se cobra un envío; si pedís más de 6, se suma otro envío.</p>
           </div>
 
           <div class="zones-panel">
             <div class="zones-grid">
               <article class="zone-card">
                 <strong>Zona 1</strong>
-                <span class="zone-price">Envío $5.000 • Total 1 unidad $16.000</span>
+                <span class="zone-price">Envío $5.000</span>
                 <p>CABA, Haedo, Ramos Mejía, Hurlingham, Caseros e Ituzaingó.</p>
               </article>
 
               <article class="zone-card">
                 <strong>Zona 2</strong>
-                <span class="zone-price">Envío $6.000 • Total 1 unidad $17.000</span>
+                <span class="zone-price">Envío $6.000</span>
                 <p>San Miguel, Moreno, José C. Paz, Malvinas Argentinas, San Martín, Vicente López, San Isidro y San Fernando.</p>
               </article>
 
               <article class="zone-card">
                 <strong>Zona 3</strong>
-                <span class="zone-price">Envío $9.000 • Total 1 unidad $20.000</span>
+                <span class="zone-price">Envío $9.000</span>
                 <p>Zárate, Campana, Escobar, Nordelta, Maschwitz, Villa Rosa, Garín, Del Viso, Derqui, Pilar, Luján, General Rodríguez, Marcos Paz, Cañuelas, Guernica, San Vicente, La Plata, Berisso y Ensenada.</p>
               </article>
             </div>
@@ -1410,7 +1498,7 @@
                 <img src="https://iili.io/qquNvwJ.png" alt="Lista para usar">
                 <div>
                   <strong>Lista para usar</strong>
-                  <p>Cilindro cargado y una gestión más directa para resolver el pedido por WhatsApp.</p>
+                  <p>Stock permanente, pack de 5 con envío incluido y una gestión más directa para resolver el pedido.</p>
                 </div>
               </div>
             </div>
@@ -1466,8 +1554,7 @@
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
                 <div class="answer">
-                  • Envíos de lunes a viernes.<br>
-                  • Tomamos pedidos hasta las 14 hs.<br>
+                  • Pedidos de 8 a 20 hs.<br>
                   • Las entregas se realizan dentro de 24 a 48 hs.<br>
                   • La logística entrega de 17 a 22 hs.<br><br>
                   La mayoría de las veces el pedido llega en el día o al siguiente. Puede haber demoras si la logística tiene algún inconveniente. Si no te encuentran, se reprograma hasta concretar la entrega.
@@ -1480,9 +1567,10 @@
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
                 <div class="answer">
-                  • El pago es por transferencia adelantada.<br>
-                  • Los datos (Alias/CBU) se envían por WhatsApp al confirmar el pedido.<br>
-                  • Cuando realices la transferencia, avisános para cargar el pedido al reparto.
+                  • El pago es por transferencia adelantada para envíos.<br>
+                  • Los datos (Alias/CBU) también figuran en el carrito para copiar fácilmente.<br>
+                  • Cuando realices la transferencia, avisános para cargar el pedido al reparto.<br>
+                  • En local, el pago es directo y vale $12.000.
                 </div>
               </details>
 
@@ -1504,8 +1592,9 @@
                   <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </summary>
                 <div class="answer">
-                  • En el local, el recambio cuesta $12.000 (solo efectivo).<br>
-                  • Con envío, el producto vale $11.000 y se suma el costo según la zona.
+                  • En el local, el recambio cuesta $12.000 y hay stock permanente.<br>
+                  • 5 recambios valen $49.000 con envío incluido.<br>
+                  • Si elegís envío, el total depende de la zona y de la cantidad.
                 </div>
               </details>
 
@@ -1518,8 +1607,9 @@
                   Sí.<br>
                   • Emilio Castro 624, Haedo.<br>
                   • Lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.<br>
-                  • Pago en efectivo.<br>
-                  • La web solo registra la solicitud y no coordina el retiro.
+                  • Pago en local: $12.000.<br>
+                  • Stock permanente.<br>
+                  • Aclaración: la web no coordina los retiros del local, solo informa.
                 </div>
               </details>
             </div>
@@ -1590,6 +1680,8 @@
       </div>
     </footer>
 
+    <a class="float-order" href="#" id="armarPedidoBtn" aria-label="Abrir carrito">ARMA TU PEDIDO</a>
+
     <a class="float-wa" href="https://wa.me/5491162843339" id="waFloat" aria-label="WhatsApp">
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path d="M19.11 17.28c-.28-.14-1.64-.81-1.9-.9-.25-.09-.43-.14-.62.14-.18.28-.71.9-.87 1.09-.16.18-.31.21-.59.07-.28-.14-1.16-.43-2.21-1.38-.82-.73-1.37-1.64-1.53-1.91-.16-.28-.02-.43.12-.57.12-.12.28-.31.41-.46.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.46.07-.71.34-.25.28-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.14.18 1.92 2.93 4.65 4.1.65.28 1.16.45 1.55.58.65.21 1.24.18 1.71.11.52-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.53-.32zM16.22 4.36C9.78 4.36 4.56 9.56 4.56 15.98c0 2.05.54 4.05 1.56 5.81L4.5 27.64l6.01-1.58a11.7 11.7 0 0 0 5.71 1.46h.01c6.43 0 11.66-5.21 11.66-11.64 0-3.12-1.22-6.05-3.43-8.25a11.57 11.57 0 0 0-8.24-3.27zm0 21.19h-.01a9.75 9.75 0 0 1-4.98-1.36l-.36-.21-3.56.93.95-3.47-.23-.36a9.66 9.66 0 0 1-1.49-5.1c0-5.35 4.35-9.69 9.7-9.69 2.59 0 5.02 1.01 6.84 2.83a9.59 9.59 0 0 1 2.84 6.84c0 5.35-4.36 9.69-9.7 9.69z"/>
@@ -1626,11 +1718,11 @@
 
               <div class="checkout-product">
                 <div class="thumb">
-                  <img src="https://iili.io/qqjXrwg.md.jpg" alt="Cilindro de soda cargado">
+                  <img src="https://iili.io/qqjXrwg.md.jpg" alt="Cilindro de recambio">
                 </div>
 
                 <div>
-                  <h5>Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT</h5>
+                  <h5>Cilindro de recambio</h5>
                   <p>Elegí envío o retiro en local. Si seleccionás envío, primero tenés que marcar una zona. Si no tenés cilindro vacío, no se puede continuar.</p>
                 </div>
               </div>
@@ -1642,13 +1734,13 @@
                 <label class="select-card active" data-mode-card="envio">
                   <input type="radio" name="modo" value="envio" checked>
                   <strong>Envío</strong>
-                  <p>Precio base $11.000 por unidad + costo de envío según zona.</p>
+                  <p>El total se calcula según cantidad y zona. Hasta 6 cilindros se cobra un envío; si pedís más, se suma otro envío.</p>
                 </label>
 
                 <label class="select-card" data-mode-card="retiro">
                   <input type="radio" name="modo" value="retiro">
                   <strong>Retiro en local</strong>
-                  <p>$12.000 por unidad. Pago solo en efectivo.</p>
+                  <p>Pago en el local $12.000. Stock permanente. La web no coordina retiros del local, solo informa.</p>
                 </label>
               </div>
 
@@ -1657,7 +1749,7 @@
               <div class="qty-row">
                 <div>
                   <strong>Cantidad</strong>
-                  <div class="helper-text">Podés sumar otra unidad y el total se recalcula solo.</div>
+                  <div class="helper-text">Podés sumar unidades y el total se recalcula solo. A partir de 7 se suma otro envío.</div>
                 </div>
 
                 <div class="qty-controls">
@@ -1705,8 +1797,9 @@
                 <div class="warning-note">
                   Retiro en local: Emilio Castro 624, Haedo.<br>
                   Horarios: lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.<br>
-                  Pago: solo efectivo.<br>
-                  Aclaración: la web solo registra la solicitud y no se encarga de coordinar el retiro del local.
+                  Pago en local: $12.000.<br>
+                  Stock permanente.<br>
+                  Aclaración: la web no coordina la entrega ni los retiros del local. El cliente puede ir directamente a comprar.
                 </div>
               </div>
 
@@ -1734,18 +1827,27 @@
               <div id="colorWrap" class="hidden" style="margin-top:14px;">
                 <h4 style="margin-top:0">Color del cilindro</h4>
                 <div class="choice-grid">
-                  <label class="choice-card" data-color-card="celeste">
+                  <label class="choice-card" data-color-card="Celeste">
                     <input type="radio" name="cylinderColor" value="Celeste">
                     <strong>Celeste</strong>
                     <p>Seleccioná esta opción si tu cilindro es celeste.</p>
                   </label>
 
-                  <label class="choice-card" data-color-card="Rosado">
-                    <input type="radio" name="cylinderColor" value="Rosado">
-                    <strong>Rosado</strong>
-                    <p>Seleccioná esta opción si tu cilindro es rosado.</p>
+                  <label class="choice-card" data-color-card="Rosa">
+                    <input type="radio" name="cylinderColor" value="Rosa">
+                    <strong>Rosa</strong>
+                    <p>Seleccioná esta opción si tu cilindro es rosa.</p>
                   </label>
                 </div>
+              </div>
+
+              <div class="payment-box">
+                <strong>Datos para transferencia</strong>
+                <div class="pay-line"><b>CBU:</b> <span id="cbuValue">0000003100037411221896</span></div>
+                <div class="pay-line"><b>Alias:</b> <span id="aliasValue">muralo3.mp</span></div>
+                <div class="pay-line"><b>Titular:</b> Mariano Quercia</div>
+                <button class="btn copy-pay" type="button" id="copyPayBtn">Copiar CBU / Alias</button>
+                <div class="copy-feedback" id="copyFeedback"></div>
               </div>
 
               <div style="height:14px"></div>
@@ -1830,13 +1932,18 @@
                 </label>
 
                 <label id="streetField">
-                  <span class="label-row">Calle y altura <span class="help" title="Dato obligatorio para entregas a domicilio.">i</span></span>
+                  <span class="label-row">Dirección <span class="help" title="Dato obligatorio para entregas a domicilio.">i</span></span>
                   <input id="fCalle" type="text" placeholder="Ej: Rivadavia 1234" autocomplete="street-address">
                 </label>
 
+                <label id="floorField">
+                  <span class="label-row">Piso / Depto <span class="help" title="Ejemplo: Piso 2 Depto B.">i</span></span>
+                  <input id="fPisoDepto" type="text" placeholder="Ej: Piso 2 Depto B">
+                </label>
+
                 <label class="full">
-                  <span class="label-row">Referencia <span class="help" title="Ejemplo: portón negro, timbre, piso y dpto.">i</span></span>
-                  <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Piso y dpto">
+                  <span class="label-row">Referencia <span class="help" title="Ejemplo: portón negro, timbre, entre calles.">i</span></span>
+                  <input id="fRef" type="text" placeholder="Ej: Portón negro / Timbre / Entre calles">
                 </label>
 
                 <label class="full">
@@ -1849,8 +1956,9 @@
                 Recordatorio retiro en local:<br>
                 • Emilio Castro 624, Haedo.<br>
                 • Lunes a sábado de 9:30 a 13 hs y de 15:30 a 19 hs.<br>
-                • Pago solo en efectivo.<br>
-                • La web no coordina el retiro, solo registra la solicitud.
+                • Pago en local: $12.000.<br>
+                • Stock permanente.<br>
+                • La web no coordina los retiros del local, solo registra la solicitud.
               </div>
 
               <div class="error" id="formError"></div>
@@ -1899,7 +2007,7 @@
               <div style="height:14px"></div>
 
               <div class="summary-note">
-                Al confirmar, se abre WhatsApp con el pedido completo para agilizar la validación y la coordinación final.
+                Al confirmar, se abre WhatsApp con el pedido completo en el orden solicitado para agilizar la validación y la coordinación final.
               </div>
             </aside>
           </div>
@@ -1918,6 +2026,8 @@
       const WA_NUMBER = "5491162843339";
       const PRICE_RETIRO = 12000;
       const PRICE_ENVIO_BASE = 11000;
+      const COPY_CBU = "0000003100037411221896";
+      const COPY_ALIAS = "muralo3.mp";
 
       const ZONES = {
         1: {
@@ -1966,10 +2076,19 @@
         catch(e){ return "$" + String(n); }
       }
 
+      function getShippingMultiplier(){
+        return Math.max(1, Math.ceil(state.qty / 6));
+      }
+
+      function getShippingCost(){
+        if(state.mode !== "envio" || !state.zone) return 0;
+        return ZONES[state.zone].shipping * getShippingMultiplier();
+      }
+
       function getTotal(){
         if(state.mode === "retiro") return PRICE_RETIRO * state.qty;
         if(!state.zone) return null;
-        return (PRICE_ENVIO_BASE * state.qty) + ZONES[state.zone].shipping;
+        return (PRICE_ENVIO_BASE * state.qty) + getShippingCost();
       }
 
       function getModeLabel(){
@@ -1979,7 +2098,9 @@
       function getZoneLabel(){
         if(state.mode === "retiro") return "Retiro en local";
         if(!state.zone) return "Seleccionar zona";
-        return ZONES[state.zone].name + " • " + formatMoney(ZONES[state.zone].shipping);
+        const multiplier = getShippingMultiplier();
+        const shippingCost = getShippingCost();
+        return ZONES[state.zone].name + " • " + formatMoney(shippingCost) + (multiplier > 1 ? " (" + multiplier + " envíos)" : "");
       }
 
       function getUnitLabel(){
@@ -2022,6 +2143,7 @@
         document.body.classList.remove("modal-open");
         $("step1Error").textContent = "";
         $("formError").textContent = "";
+        $("copyFeedback").textContent = "";
       }
 
       function goStep(step){
@@ -2064,7 +2186,7 @@
       }
 
       function setColor(value){
-        state.color = value === "Azul" || value === "Rojo" ? value : null;
+        state.color = value === "Celeste" || value === "Rosa" ? value : null;
         updateSummary();
       }
 
@@ -2104,6 +2226,7 @@
       function syncStep2ByMode(){
         const isRetiro = state.mode === "retiro";
         $("streetField").classList.toggle("hidden", isRetiro);
+        $("floorField").classList.toggle("hidden", isRetiro);
         $("pickupStep2Info").classList.toggle("hidden", !isRetiro);
         $("locationHelp").textContent = isRetiro
           ? "Para retiro en local, la opción queda fija en Haedo."
@@ -2143,8 +2266,8 @@
         $("colorWrap").classList.toggle("hidden", state.hasCylinder !== "SI");
 
         $("step1Note").textContent = isRetiro
-          ? "Si elegís retiro en local, el valor es " + formatMoney(PRICE_RETIRO) + " por unidad. Además, solo podés continuar si tenés cilindro vacío y elegís el color."
-          : "Si elegís envío, primero tenés que seleccionar una zona. Además, solo podés continuar si tenés cilindro vacío y elegís el color correspondiente.";
+          ? "Si elegís retiro en local, el valor es " + formatMoney(PRICE_RETIRO) + " por unidad. La web no coordina los retiros del local; solo informa y registra la solicitud."
+          : "Si elegís envío, primero tenés que seleccionar una zona. Hasta 6 cilindros se cobra un envío; si pedís más, se suma otro envío. Además, solo podés continuar si tenés cilindro vacío y elegís el color correspondiente.";
 
         syncStep2ByMode();
       }
@@ -2192,7 +2315,7 @@
         }
 
         if(!isRetiro && !calle){
-          $("formError").textContent = "Completá la calle y altura para el envío.";
+          $("formError").textContent = "Completá la dirección para el envío.";
           $("fCalle").focus();
           return false;
         }
@@ -2204,40 +2327,49 @@
       function buildMessage(){
         const nombre = ($("fNombre").value || "").trim();
         const telefono = ($("fTelefono").value || "").trim();
-        const location = $("fLocationSelect").value;
+        const location = ($("fLocationSelect").value || "").trim();
         const calle = ($("fCalle").value || "").trim();
+        const pisoDepto = ($("fPisoDepto").value || "").trim();
         const ref = ($("fRef").value || "").trim();
         const nota = ($("fNota").value || "").trim();
         const isRetiro = state.mode === "retiro";
 
+        const direccion = isRetiro ? "Retiro en local - Emilio Castro 624, Haedo" : calle;
+        const pisoDeptoText = isRetiro ? "No aplica" : (pisoDepto || "No especificado");
+
         const lines = [];
         lines.push("Hola! Quiero realizar el siguiente pedido:");
         lines.push("");
-        lines.push("Producto: Cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT");
-        lines.push("Modalidad: " + getModeLabel());
+        lines.push("Nombre: " + nombre);
+        lines.push("Dirección: " + direccion);
+        lines.push("Piso depto: " + pisoDeptoText);
+        lines.push("Localidad: " + location);
         lines.push("Cantidad: " + state.qty);
-        lines.push("Precio por unidad: " + getUnitLabel());
+        lines.push("Color cilindro: " + state.color);
+        lines.push("Teléfono: " + telefono);
+        lines.push("");
+        lines.push("Modalidad: " + getModeLabel());
+
         if(isRetiro){
-          lines.push("Retiro en local: Emilio Castro 624, Haedo");
-          lines.push("Pago: Solo efectivo");
-          lines.push("Horarios: Lunes a sabado de 9:30 a 13 hs y de 15:30 a 19 hs");
-          lines.push("Aclaracion: La web solo registro la solicitud. El retiro se coordina por fuera de la web.");
+          lines.push("Pago en local: " + formatMoney(PRICE_RETIRO));
+          lines.push("Stock permanente: Sí");
+          lines.push("Aclaración: La web no coordina los retiros del local. El cliente puede ir directamente a comprar.");
         }else{
           lines.push("Zona: " + ZONES[state.zone].name);
-          lines.push("Costo de envio: " + formatMoney(ZONES[state.zone].shipping));
-          lines.push("Localidad/Barrio/Partido: " + location);
-          lines.push("Direccion: " + calle);
+          lines.push("Costo de envío: " + formatMoney(getShippingCost()));
+          if(getShippingMultiplier() > 1){
+            lines.push("Cantidad de envíos cobrados: " + getShippingMultiplier());
+          }
         }
-        lines.push("Tiene cilindro vacio: SI");
-        lines.push("Color del cilindro: " + state.color);
+
+        lines.push("Tiene cilindro vacío: SI");
         lines.push("Total: " + formatMoney(getTotal()));
-        lines.push("");
-        lines.push("Nombre: " + nombre);
-        lines.push("Telefono: " + telefono);
+
         if(ref) lines.push("Referencia: " + ref);
         if(nota) lines.push("Nota: " + nota);
+
         lines.push("");
-        lines.push("Quedo a la espera de confirmacion. Gracias.");
+        lines.push("Quedo a la espera de confirmación. Gracias.");
 
         return lines.join("\n");
       }
@@ -2310,14 +2442,19 @@
 
       function adjustFloat(){
         const float = $("waFloat");
+        const order = $("armarPedidoBtn");
         const footer = $("footer");
-        if(!float || !footer) return;
+        if(!float || !footer || !order) return;
 
         const footerRect = footer.getBoundingClientRect();
         const overlap = window.innerHeight - footerRect.top;
-        const base = 16;
-        const extra = overlap > 0 ? Math.min(overlap + 14, 220) : 0;
-        float.style.bottom = (base + extra) + "px";
+        const extra = overlap > 0 ? Math.min(overlap + 14, 240) : 0;
+
+        const waBase = window.innerWidth <= 560 ? 14 : 16;
+        const orderBase = window.innerWidth <= 560 ? 80 : 90;
+
+        float.style.bottom = (waBase + extra) + "px";
+        order.style.bottom = (orderBase + extra) + "px";
       }
 
       function setupBurger(){
@@ -2346,19 +2483,40 @@
         });
       }
 
+      async function copyPaymentData(){
+        const text = "CBU: " + COPY_CBU + " | Alias: " + COPY_ALIAS;
+        try{
+          await navigator.clipboard.writeText(text);
+          $("copyFeedback").textContent = "Copiado: CBU y alias listos para pegar.";
+        }catch(e){
+          const temp = document.createElement("textarea");
+          temp.value = text;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand("copy");
+          document.body.removeChild(temp);
+          $("copyFeedback").textContent = "Copiado: CBU y alias listos para pegar.";
+        }
+      }
+
       function setupButtons(){
-        [$("heroBuyBtn"), $("productBuyBtn")].forEach(btn => {
-          if(btn) btn.addEventListener("click", openModal);
+        [$("heroBuyBtn"), $("productBuyBtn"), $("armarPedidoBtn")].forEach(btn => {
+          if(btn) btn.addEventListener("click", function(e){
+            if(btn.tagName.toLowerCase() === "a") e.preventDefault();
+            openModal();
+          });
         });
 
         $("directWspBtn").addEventListener("click", function(){
-          openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT.");
+          openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de recambio.");
         });
 
         $("waFloat").addEventListener("click", function(e){
           e.preventDefault();
-          openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de soda cargado con 450 grs de CO2 nacional certificado ANMAT.");
+          openWhatsAppWithMessage("Hola! Quiero consultar por el cilindro de recambio.");
         });
+
+        $("copyPayBtn").addEventListener("click", copyPaymentData);
 
         $("qtyMinus").addEventListener("click", function(){ setQty(state.qty - 1); });
         $("qtyPlus").addEventListener("click", function(){ setQty(state.qty + 1); });
